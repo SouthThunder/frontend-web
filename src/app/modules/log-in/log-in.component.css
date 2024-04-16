@@ -1,12 +1,19 @@
 /* registro.component.css */
 
 form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
   max-width: 400px;
   margin: 5rem auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: var(--md-border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form > h1 {
+  text-align: center;
 }
 
 div {
@@ -28,23 +35,22 @@ input[type="password"] {
   box-sizing: border-box; /* Para incluir el padding en el ancho total */
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+form > button {
+  padding: 1rem 2rem;
+  background-color: #c8bdab;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--xs-border);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-button:hover {
-  background-color: #0056b3;
+form > button:hover {
+  transform: scale(1.03);
 }
 
 /* Estilo para deshabilitar el botón cuando el formulario no es válido */
-button:disabled {
+form > button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
