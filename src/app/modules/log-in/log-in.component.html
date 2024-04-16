@@ -7,11 +7,25 @@
     <label for="email">Correo electrónico:</label>
     <input
       type="email"
-      id="Correo"
+      id="correo"
       name="correo"
       [(ngModel)]="usuario"
+      #usuarioField="ngModel"
       required
+      email
     />
+    <div
+      *ngIf="usuarioField.errors?.['required'] && usuarioField.touched"
+      class="error"
+    >
+      El correo electrónico es obligatorio.
+    </div>
+    <div
+      *ngIf="usuarioField.errors?.['email'] && usuarioField.touched"
+      class="error"
+    >
+      El formato del correo electrónico no es válido.
+    </div>
   </div>
 
   <div>
@@ -19,10 +33,17 @@
     <input
       type="password"
       id="contrasena"
-      name="passworena"
+      name="contrasena"
       [(ngModel)]="contrasena"
+      #contrasenaField="ngModel"
       required
     />
+    <div
+      *ngIf="contrasenaField.errors?.['required'] && contrasenaField.touched"
+      class="error"
+    >
+      La contraseña es obligatoria.
+    </div>
   </div>
 
   <div>
@@ -30,13 +51,21 @@
     <select
       class="selecttipo"
       id="tipo"
-      name="tipequired"
+      name="tipo"
       [(ngModel)]="verificar"
+      #verificarField="ngModel"
+      required
     >
       <option value="">Seleccione un rol</option>
       <option value="arrendador">Arrendador</option>
       <option value="arrendatario">Arrendatario</option>
     </select>
+    <div
+      *ngIf="verificarField.errors?.['required'] && verificarField.touched"
+      class="error"
+    >
+      Seleccionar un rol es obligatorio.
+    </div>
   </div>
 
   <button type="submit">Iniciar Sesión</button>

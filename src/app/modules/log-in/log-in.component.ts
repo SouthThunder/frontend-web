@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, NgModel } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { CommonModule } from '@angular/common';
@@ -31,6 +31,10 @@ export class LogInComponent {
       else if(this.verificar == "arrendador"){
         this.getArrendador();
       }
+  }
+
+  hasError(field: NgModel, errorCode: string): boolean {
+    return field.errors?.[errorCode] && field.touched;
   }
 
 

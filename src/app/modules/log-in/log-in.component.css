@@ -60,12 +60,10 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-/* Estilos para las alertas */
-.alerta {
+.error {
+  color: red;
+  font-size: 0.8rem;
   margin-top: 5px;
-  font-size: 12px;
-  color: #ff0000; /* Color rojo para indicar error */
-  display: none; /* Inicialmente oculto */
 }
 
 /* Estilos para mostrar las alertas cuando no se ha seleccionado ningún rol */

@@ -140,9 +140,10 @@ section {
 
 .article-section > .image-content picture img {
   border-radius: var(--lg-border);
+  height: 650px;
   object-fit: cover;
   min-width: 350px;
-  max-width: 450px;
+  max-width: 550px;
   width: 100%;
 }
 
@@ -181,8 +182,10 @@ section {
 
 .article-reverse-section > .image-content picture img {
   border-radius: var(--lg-border);
+  height: 650px;
+  object-fit: cover;
   min-width: 250px;
-  max-width: 350px;
+  max-width: 450px;
   width: 100%;
 }
 
