@@ -100,6 +100,14 @@ section {
   margin-top: 2rem;
 }
 
+/* Article Section */
+
+.article-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btn {
   padding: 1rem 2rem;
   border: none;
