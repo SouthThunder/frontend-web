@@ -33,8 +33,10 @@ section {
 
 .hero-section > .text-block > .text-image > picture .img {
   border-radius: var(--lg-border);
-  height: 450px;
   object-fit: cover;
+  min-width: 250px;
+  max-width: 450px;
+  width: 100%;
 }
 
 .hero-section > .text-block > .main-title {
@@ -80,8 +82,10 @@ section {
 
 .hero-section > .image-block > picture .img {
   border-radius: var(--lg-border);
-  height: 450px;
   object-fit: cover;
+  min-width: 250px;
+  max-width: 450px;
+  width: 100%;
 }
 
 /* Product Section */
@@ -94,8 +98,10 @@ section {
 
 .product-section > .product-image > picture img {
   border-radius: var(--lg-border);
-  height: 650px;
   object-fit: cover;
+  min-width: 300px;
+  max-width: 490px;
+  width: 100%;
 }
 
 .product-section > .product-text > .main-title > h1 {
@@ -110,6 +116,7 @@ section {
 
 .article-section {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -133,6 +140,10 @@ section {
 
 .article-section > .image-content picture img {
   border-radius: var(--lg-border);
+  object-fit: cover;
+  min-width: 350px;
+  max-width: 450px;
+  width: 100%;
 }
 
 /* Article reverse section */
@@ -170,6 +181,9 @@ section {
 
 .article-reverse-section > .image-content picture img {
   border-radius: var(--lg-border);
+  min-width: 250px;
+  max-width: 350px;
+  width: 100%;
 }
 
 /* Services Section */
@@ -230,10 +244,45 @@ section {
   transition: all 0.3s ease;
 }
 
-/* Add media queries for responsiveness */
 @media (max-width: 1024px) {
+  .product-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product-section > .product-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 720px) {
   .hero-section {
     flex-direction: column;
+  }
+
+  .article-section,
+  .article-reverse-section,
+  .services-section {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .services-section .container {
+    flex-direction: column;
+  }
+
+  .article-section > .text-content {
+    width: 100%;
+  }
+
+  .article-section > .text-content > .catalog-title,
+  .article-section > .text-content > .text-block {
+    max-width: 100%;
   }
 
   .text-block,
