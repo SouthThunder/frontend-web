@@ -4,14 +4,14 @@
     <div>
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre"   formControlName="nombre" required>
-      <div class="alerta" [hidden]="nombre.valid || nombre.pristine">
+      <div class="alerta" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
         El nombre es requerido
       </div>
     </div>
     <div>
         <label for="nombre">Apellido:</label>
         <input type="text" id="apellido" name="apellido"   formControlName="apellido" required>
-        <div class="alerta" [hidden]="apellido.valid || apellido.pristine">
+        <div class="alerta" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
           El apellido es requerido
         </div>
       </div>
@@ -19,14 +19,14 @@
     <div>
       <label for="email">Correo electrónico:</label>
       <input type="email" id="Correo" name="correo" formControlName="correo"  required>
-      <div class="alerta" [hidden]="correo.valid || correo.pristine">
+      <div class="alerta" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
         El email es requerido
       </div>
     </div>
     <div>
         <label for="telefono">Telefono:</label>
         <input type="number" id="telefono" name="telefono"   formControlName="telefono" required>
-        <div class="alerta" [hidden]="telefono.valid || telefono.pristine">
+            <div class="alerta" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
           El telefono es requerido
         </div>
       </div>
@@ -34,7 +34,7 @@
     <div>
       <label for="password">Contraseña:</label>
       <input type="password" id="contrasena" name="password" formControlName="contrasena" required>
-      <div class="alerta" [hidden]="contrasena.valid || contrasena.pristine">
+      <div class="alerta" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
             La Contraseña es requerida
       </div>
     </div>
@@ -45,11 +45,11 @@
           <option value="arrendador">Arrendador</option>
           <option value="arrendatario">Arrendatario</option>
         </select>
-        <div class="alerta" [hidden]="tipo.valid || tipo.pristine">
+        <div class="alerta" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
           El rol es requerido
         </div>
       </div>
       
-    <button type="submit" [disabled]="formUser.invalid">Registrarse</button>
+    <button type="submit" [disabled]="formUser.invalid" onclick="create()">Registrarse</button>
   </form>
   

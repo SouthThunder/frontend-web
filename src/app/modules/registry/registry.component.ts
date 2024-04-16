@@ -5,11 +5,11 @@ import { ArrendatarioService } from '../../services/arrendatarioService/arrendat
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Arrendatario } from '../../models/arrendatariomodel';
 import { Arrendador } from '../../models/arrendadormodel';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-registry',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './registry.component.html',
   styleUrl: './registry.component.css'
 })
@@ -47,11 +47,12 @@ export class RegistryComponent {
   create(){
     let dataToSend: any;
     if(this.tipo.value == 'Arrendatario'){
-
+      console.log("LLEGUE ARRENDATARIO")
        dataToSend = this.createArrendatarioData(this.formUser);
       this.createArrendatario(dataToSend);
   }
   if(this.tipo.value == 'Arrendador'){
+    console.log("LLEGUE ARRENDADOR")
       dataToSend = this.createArrendadorData(this.formUser);
       this.createArrendador(dataToSend);
   }
