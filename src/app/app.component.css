@@ -166,6 +166,47 @@ section {
   border-radius: var(--lg-border);
 }
 
+/* Services Section */
+
+.services-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-section > .main-title {
+  font-size: 4rem;
+}
+
+.services-section .container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.services-section .column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.services-section .column-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.services-section .service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.services-section .service-item .service-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .btn {
   padding: 1rem 2rem;
   border: none;
