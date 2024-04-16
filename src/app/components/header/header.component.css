@@ -1,63 +1,64 @@
 header {
-    width: 100%;
-    position: sticky;
-    height: 4rem;
+  width: 100%;
+  position: sticky;
+  height: 4rem;
 }
 
-header>.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 2rem;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    height: 100%;
-    padding: 0 1rem;
-    border-radius: var(--sm-border);
+header > .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  padding: 0 1rem;
+  border-radius: var(--sm-border);
+  backdrop-filter: blur(10px);
 }
 
-header>.container>.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+header > .container > .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-header>.container>nav {
-    display: flex;
-    gap: 2rem;
+header > .container > nav {
+  display: flex;
+  gap: 2rem;
 }
 
-header>.container>nav>a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
+header > .container > nav > a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
 }
 
-header>.container>.options {
-    display: flex;
-    gap: 2rem;
+header > .container > .options {
+  display: flex;
+  gap: 2rem;
 }
 
-header>.container>.options>button {
-    border: none;
-    background-color: #C8BDAB;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0.5rem 2rem;
-    color: white;
-    border-radius: var(--sm-border);
-    transition: all 0.4s ease-in-out;
+header > .container > .options > button {
+  border: none;
+  background-color: #c8bdab;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  color: white;
+  border-radius: var(--sm-border);
+  transition: all 0.4s ease-in-out;
 }
 
-header>.container>.options>button:nth-child(even) {
-    background-color: #A09B9A;
+header > .container > .options > button:nth-child(even) {
+  background-color: #a09b9a;
 }
 
-header>.container>.options>button:hover {
-    background-color: #A09B9A;
-    color: white;
+header > .container > .options > button:hover {
+  background-color: #a09b9a;
+  color: white;
 }
 
-header>.container>.options>button:nth-child(even):hover {
-    background-color: #C8BDAB;
+header > .container > .options > button:nth-child(even):hover {
+  background-color: #c8bdab;
 }
