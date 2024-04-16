@@ -7,7 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 export const routes: Routes = [
     {
         path: '',
-        component: FooterComponent,
+        component: HomeComponent,
         title: 'Test'
     }, {
         path: 'home',
