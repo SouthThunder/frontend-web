@@ -5,5 +5,4 @@ export interface Arrendador {
     correo: string;
     telefono: string;
     contrasena: string;
-   
   }

@@ -1,55 +1,37 @@
 
-<form [formGroup]="formUser" (ngSubmit)="create()" >
+<form #registerform="ngForm" (ngSubmit)="create(registerform)">
     <h1>Registro</h1>
     <div>
       <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre"   formControlName="nombre" required>
-      <div class="alerta" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
-        El nombre es requerido
-      </div>
+      <input type="text" id="nombre" name="nombre" [(ngModel)] = "arrendatario.nombre" required>
     </div>
     <div>
         <label for="nombre">Apellido:</label>
-        <input type="text" id="apellido" name="apellido"   formControlName="apellido" required>
-        <div class="alerta" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-          El apellido es requerido
-        </div>
+        <input type="text" id="apellido" name="apellido" [(ngModel)] = "arrendatario.apellido"  required>
       </div>
   
     <div>
       <label for="email">Correo electrónico:</label>
-      <input type="email" id="Correo" name="correo" formControlName="correo"  required>
-      <div class="alerta" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
-        El email es requerido
-      </div>
+      <input type="email" id="Correo" name="correo" [(ngModel)] = "arrendatario.correo"   required>
     </div>
     <div>
         <label for="telefono">Telefono:</label>
-        <input type="number" id="telefono" name="telefono"   formControlName="telefono" required>
-            <div class="alerta" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
-          El telefono es requerido
-        </div>
+        <input type="number" id="telefono" name="telefono" [(ngModel)] = "arrendatario.telefono"  required>
       </div>
   
     <div>
       <label for="password">Contraseña:</label>
-      <input type="password" id="contrasena" name="password" formControlName="contrasena" required>
-      <div class="alerta" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
-            La Contraseña es requerida
-      </div>
+      <input type="password" id="contrasena" name="passworena" [(ngModel)] = "arrendatario.contrasena"  required>
     </div>
     <div>
         <label class="roltittle" for="tipo">Rol:</label>
-        <select class="selecttipo" id="tipo" name="tipo" formControlName="tipo" required>
+        <select class="selecttipo" id="tipo" name="tipequired" [(ngModel)]="verificar">
           <option value="">Seleccione un rol</option>
           <option value="arrendador">Arrendador</option>
           <option value="arrendatario">Arrendatario</option>
         </select>
-        <div class="alerta" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
-          El rol es requerido
-        </div>
       </div>
       
-    <button type="submit" [disabled]="formUser.invalid" onclick="create()">Registrarse</button>
+    <button type="submit">Registrarse</button>
   </form>
   

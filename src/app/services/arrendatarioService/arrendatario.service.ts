@@ -7,13 +7,27 @@ import axios, { AxiosResponse } from 'axios';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ArrendatarioService {
   private urlApi= 'http://localhost:8080/arrendatario';
   
-  getArrendatarios():Promise<Arrendatario[]>{ 
-    return axios.get<Arrendatario[]>(this.urlApi).then(response=>response.data);
+  async getArrendatarios():Promise<Arrendatario[]>{ 
+    try {
+      const response = await axios.get<Arrendatario[]>(this.urlApi);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return []
+    }
   }
-  postArrendatario(arrendatario: Arrendatario){
-    return axios.post<Arrendatario>(this.urlApi, arrendatario).then(response=>response.data);
+
+  async postArrendatario(arrendatario: Arrendatario){
+    try {
+      const response = await axios.post<Arrendatario>(this.urlApi, arrendatario);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   }
 }

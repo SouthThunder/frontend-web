@@ -19,7 +19,7 @@ export const routes: Routes = [
         title: 'Home'
     },
     {
-        path: 'registro',
+        path: 'register',
         component: RegistryComponent,
         title: 'Registro'
     }
