@@ -1,1 +1,38 @@
-<p>test works!</p>
+<body>
+    <div class="buttons">
+        <button>Eliminar Cuenta</button>
+        <button (click)="toggleFormulario()">Editar Cuenta</button>
+    </div>
+
+    <div class="form" [class.mostrar]="mostrarFormulario">
+        <form>
+            <div class="campo">
+                <label for="txtNombre">Nombre</label>
+                <input type="text" name="nombre" id="txtNombre">
+            </div>
+
+            <div class="campo">
+                <label for="txtApellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="txtApellidos">
+            </div>
+
+            <div class="campo">
+                <label for="txtCorreo">Correo</label>
+                <input type="text" name="correo" id="txtCorreo">
+            </div>
+
+            <div class="campo"><label for="txtTelefono">Teléfono</label>
+                <input type="text" name="telefono" id="txtTelefono">
+            </div>
+
+            <div class="campo">
+                <label for="txtContrasena">Contraseña</label>
+                <input type="password" name="contrasena" id="txtContrasena">
+            </div>
+
+            <div class="campo">
+                <input type="submit" name="Aceptar" value="Enviar">
+            </div>
+        </form>
+    </div>
+</body>

@@ -6,7 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 export const routes: Routes = [
     {
         path: '',
-        component: HeaderComponent,
+        component: TestComponent,
         title: 'Test'
     }, {
         path: 'home',
