@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<form (ngSubmit)="read()">
+<form #loginForm="ngForm" (ngSubmit)="read(loginForm)">
   <h1>Login</h1>
 
   <div>

@@ -20,9 +20,12 @@ export class ArrendatarioService {
     }
   }
 
-  async getArrendatario(id: string): Promise<Arrendatario | null>{
+  async getArrendatario(correo: string, contrasena: string): Promise<Arrendatario | null>{
     try {
-      const response = await axios.get<Arrendatario>(`${this.urlApi}/${id}`);
+      const response = await axios.post<Arrendatario>(`${this.urlApi}}`, {
+        correo: correo,
+        contrasena: contrasena
+      });
       return response.data;
     } catch (error) {
       console.error(error);

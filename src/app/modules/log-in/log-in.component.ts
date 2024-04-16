@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormsModule, NgModel } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, NgModel, NgForm } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { CommonModule } from '@angular/common';
@@ -24,13 +24,16 @@ export class LogInComponent {
   constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService) { }
 
 
-  read(){
-      if(this.verificar == "arrendatario"){
-        this.getArrendatario();
-      }
-      else if(this.verificar == "arrendador"){
-        this.getArrendador();
-      }
+  read(form: NgForm) {
+    if (!form.valid) {
+      return;  // Double-checking form validity (optional)
+    }
+    
+    if (this.verificar === "arrendatario") {
+      this.getArrendatario();
+    } else if (this.verificar === "arrendador") {
+      this.getArrendador();
+    }
   }
 
   hasError(field: NgModel, errorCode: string): boolean {
@@ -40,7 +43,7 @@ export class LogInComponent {
 
   getArrendatario(){
     // Cast Usuario to String
-    this.arrendatarioService.getArrendatario(String(this.usuario)).then(response => {
+    this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena)).then(response => {
       console.log(response);
     },error=>{
       console.log(error);
@@ -49,7 +52,7 @@ export class LogInComponent {
 
   getArrendador(){
     // Cast Usuario to String
-    this.arrendadorService.getArrendador(String(this.usuario)).then(response => {
+    this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)).then(response => {
       console.log(response);
     },error=>{
       console.log(error);
