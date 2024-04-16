@@ -1,88 +1,88 @@
 /* registro.component.css */
 
 form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Para incluir el padding en el ancho total */
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilo para deshabilitar el botón cuando el formulario no es válido */
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  /* Estilos para las alertas */
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para deshabilitar el botón cuando el formulario no es válido */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Estilos para las alertas */
 /* Estilos para los checkboxes */
 input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  
-  /* Estilos para las alertas */
-  .alerta {
-    margin-top: 5px;
-    font-size: 12px;
-    color: #ff0000; /* Color rojo para indicar error */
-    display: none; /* Inicialmente oculto */
-  }
-  
-  /* Estilos para mostrar las alertas cuando no se ha seleccionado ningún rol */
-  .alerta {
-    display: block; /* Mostrar la alerta cuando no se ha seleccionado ningún rol */
-  }
-  
-  /* Estilos para mostrar las alertas cuando el campo no es válido */
-  input.ng-invalid.ng-touched + .alerta {
-    display: block; /* Mostrar la alerta cuando el campo es inválido y ha sido tocado */
-  }
-  /* Estilos para el título del rol */
+  margin-right: 5px;
+}
+
+/* Estilos para las alertas */
+.alerta {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ff0000; /* Color rojo para indicar error */
+  display: none; /* Inicialmente oculto */
+}
+
+/* Estilos para mostrar las alertas cuando no se ha seleccionado ningún rol */
+.alerta {
+  display: block; /* Mostrar la alerta cuando no se ha seleccionado ningún rol */
+}
+
+/* Estilos para mostrar las alertas cuando el campo no es válido */
+input.ng-invalid.ng-touched + .alerta {
+  display: block; /* Mostrar la alerta cuando el campo es inválido y ha sido tocado */
+}
+/* Estilos para el título del rol */
 .roltittle {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Estilos para el select del rol */
-  .selecttipo {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Para incluir el padding en el ancho total */
-  }
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el select del rol */
+.selecttipo {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}

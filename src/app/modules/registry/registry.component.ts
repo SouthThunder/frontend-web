@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl,Validator, Validators, FormsModule } from '@angular/forms';
-import { ReactiveFormsModule, NgForm } from '@angular/forms';
+import { ReactiveFormsModule, NgForm, FormsModule } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Arrendatario } from '../../models/arrendatariomodel';
 import { Arrendador } from '../../models/arrendadormodel';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+
 @Component({
   selector: 'app-registry',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule, FormsModule],
+  imports: [ReactiveFormsModule,CommonModule, FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './registry.component.html',
   styleUrl: './registry.component.css'
 })
 export class RegistryComponent {
 
-  verificar : String | undefined;
+  verificar : string | undefined;
   
   arrendador : Arrendador = {
     nombre: '',
