@@ -33,6 +33,8 @@ section {
 
 .hero-section > .text-block > .text-image > picture .img {
   border-radius: var(--lg-border);
+  height: 450px;
+  object-fit: cover;
 }
 
 .hero-section > .text-block > .main-title {
@@ -78,6 +80,8 @@ section {
 
 .hero-section > .image-block > picture .img {
   border-radius: var(--lg-border);
+  height: 450px;
+  object-fit: cover;
 }
 
 /* Product Section */
@@ -90,6 +94,8 @@ section {
 
 .product-section > .product-image > picture img {
   border-radius: var(--lg-border);
+  height: 650px;
+  object-fit: cover;
 }
 
 .product-section > .product-text > .main-title > h1 {
