@@ -1,0 +1,247 @@
+/* General Styles */
+section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-family: "Your font", sans-serif;
+  width: 100%;
+  padding: 3rem;
+  gap: 2rem;
+  border-bottom: 1px solid black;
+}
+
+/* Hero Section */
+
+.hero-section > .text-block {
+  flex: 2;
+  text-align: left;
+  position: relative;
+}
+
+.hero-section > .text-block > .text-image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-section > .text-block > .text-image > .small-text {
+  margin-top: 3rem;
+}
+
+.hero-section > .text-block > .text-image > picture {
+  width: 100%;
+}
+
+.hero-section > .text-block > .text-image > picture .img {
+  border-radius: var(--lg-border);
+}
+
+.hero-section > .text-block > .main-title {
+  position: absolute;
+  bottom: -5rem;
+  margin-left: 18%;
+}
+
+.hero-section > .text-block > .main-title > .large-text {
+  font-size: 7rem;
+  line-height: 1;
+}
+
+.hero-section > .text-block > .main-title > .large-text .highlight {
+  color: white;
+}
+
+.hero-section > .image-block {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-section > .image-block > .text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.hero-section > .image-block > .text > h2 {
+  word-break: break-word;
+  max-width: 70%;
+}
+
+.hero-section > .image-block > picture {
+  padding: 1rem;
+  width: 100%;
+}
+
+.hero-section > .image-block > picture .img {
+  border-radius: var(--lg-border);
+}
+
+/* Product Section */
+
+.product-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.product-section > .product-image > picture img {
+  border-radius: var(--lg-border);
+}
+
+.product-section > .product-text > .main-title > h1 {
+  font-size: 5rem;
+}
+
+.product-section > .product-text > button {
+  margin-top: 2rem;
+}
+
+/* Article Section */
+
+.article-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-section > .text-content > .catalog-title {
+  font-size: 4rem;
+  max-width: 50%;
+}
+
+.article-section > .text-content > .text-block {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  max-width: 70%;
+}
+
+.article-section > .text-content > .text-block > .catalog-step {
+  font-size: 4rem;
+}
+
+.article-section > .image-content picture img {
+  border-radius: var(--lg-border);
+}
+
+/* Article reverse section */
+
+.article-reverse-section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-reverse-section > .text-content {
+  flex: 2;
+}
+
+.article-reverse-section > .text-content > .catalog-title {
+  font-size: 4rem;
+}
+
+.article-reverse-section > .text-content > .text-block {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  max-width: 90%;
+}
+
+.article-reverse-section > .text-content > .text-block > .catalog-step {
+  font-size: 4rem;
+}
+
+.article-reverse-section > .image-content {
+  flex: 3;
+}
+
+.article-reverse-section > .image-content picture img {
+  border-radius: var(--lg-border);
+}
+
+/* Services Section */
+
+.services-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-section > .main-title {
+  font-size: 4rem;
+}
+
+.services-section .container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.services-section .column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.services-section .column-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.services-section .service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.services-section .service-item .service-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--lg-border);
+  background-color: #d0bcac;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  /* Generate a box Shadow */
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .text-block,
+  .image-block {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .rounded-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .left-overlay {
+    width: calc(100% - 60px); /* Full width minus padding on mobile */
+  }
+}
