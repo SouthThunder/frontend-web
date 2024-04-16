@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+:root {
+  --primary-color: #006e25;
+  --secondary-color: #ffffff;
+  --tertiary-color: #100f15;
+  --complementary-color: #00b23e;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --font-size: 16px;
+  --xs-border: 5px;
+  --sm-border: 10px;
+  --md-border: 15px;
+  --lg-border: 20px;
+  --sm-margin: 2rem;
+  --md-margin: 4rem;
+  --lg-margin: 6rem;
+  --xl-margin: 8rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --font-size: 12px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  font-family: Poppins;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: Poppins;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table td input {
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
