@@ -53,7 +53,7 @@ create(form: any){
 
   createArrendatario(data: Arrendatario){
   this.arrendatarioService.postArrendatario(data).then(response => {
-    this.router.navigate(['/test:', response?.id])
+    this.router.navigate(['/test/', response?.id])
   },error=>{
     console.log(error);
   })
@@ -61,7 +61,7 @@ create(form: any){
 
   createArrendador(data: Arrendador){
     this.arrendadorService.postArrendador(data).then(response => {
-      this.router.navigate(['/test:', response?.id])
+      this.router.navigate(['/test/', response?.id])
     },error=>{
       console.log(error);
     })
