@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 10px;
+    background-color: lightgray;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    /* Agrega una transición suave */
+}
+
+.form.mostrar {
+    opacity: 1 !important;
+    /* La clase .mostrar sobrescribe la opacidad cuando se aplica */
+}
+
+.campo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: start;
+
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+.campo input {
+    flex: 1;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 3px;
+    border: transparent;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.campo input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button {
+    border-radius: 10px;
+    width: 100%;
+    border: transparent;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
