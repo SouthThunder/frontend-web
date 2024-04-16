@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, NgForm, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Arrendatario } from '../../models/arrendatariomodel';

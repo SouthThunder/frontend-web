@@ -18,6 +18,10 @@ export class HeaderComponent {
     this.router.navigate(['/register'])
   }
 
+  login() {
+    this.router.navigate(['/login'])
+  }
+
   home() {
     this.router.navigate(['/'])
   }

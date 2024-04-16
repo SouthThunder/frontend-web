@@ -1,41 +1,55 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl,Validator, Validators, FormsModule } from '@angular/forms';
-import { ReactiveFormsModule, NgForm } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
-import { Arrendatario } from '../../models/arrendatariomodel';
-import { Arrendador } from '../../models/arrendadormodel';
 import { CommonModule } from '@angular/common';
+
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
+  imports: [ReactiveFormsModule,CommonModule,FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
 
-  verificar : String | undefined;
+  verificar : string | undefined;
   
-  usuario: String | undefined;
-  contrasena: String | undefined;
+  usuario: string | undefined;
+  contrasena: string | undefined;
 
   constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService) { }
 
 
   read(){
-
-    console.log(this.verificar);
-    console.log(this.usuario);
-    console.log(this.contrasena);
-
       if(this.verificar == "arrendatario"){
-      
+        this.getArrendatario();
       }
       else if(this.verificar == "arrendador"){
-        
+        this.getArrendador();
       }
+  }
+
+
+  getArrendatario(){
+    // Cast Usuario to String
+    this.arrendatarioService.getArrendatario(String(this.usuario)).then(response => {
+      console.log(response);
+    },error=>{
+      console.log(error);
+    })
+  }
+
+  getArrendador(){
+    // Cast Usuario to String
+    this.arrendadorService.getArrendador(String(this.usuario)).then(response => {
+      console.log(response);
+    },error=>{
+      console.log(error);
+    })
   }
 
   

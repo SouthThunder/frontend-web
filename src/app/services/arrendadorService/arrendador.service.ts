@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arrendador } from '../../models/arrendadormodel';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 
 @Injectable({
@@ -9,6 +8,8 @@ import axios, { AxiosResponse } from 'axios';
 })
 export class ArrendadorService {
   private urlApi= 'http://localhost:8080/arrendador';
+
+
   async getArrendadores(): Promise<Arrendador[]>{ 
     try {
       const response = await axios.get<Arrendador[]>(this.urlApi)
@@ -16,6 +17,16 @@ export class ArrendadorService {
     } catch (error) {
       console.log(error);
       return [];
+    }
+  }
+
+  async getArrendador(id: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.get<Arrendador>(`${this.urlApi}/${id}`)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
     }
   }
   

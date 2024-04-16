@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arrendatario } from '../../models/arrendatariomodel';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 
 @Injectable({
@@ -18,6 +17,16 @@ export class ArrendatarioService {
     } catch (error) {
       console.error(error);
       return []
+    }
+  }
+
+  async getArrendatario(id: string): Promise<Arrendatario | null>{
+    try {
+      const response = await axios.get<Arrendatario>(`${this.urlApi}/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return null;
     }
   }
 
