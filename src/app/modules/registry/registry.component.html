@@ -1,0 +1,55 @@
+
+<form [formGroup]="formUser" (ngSubmit)="create()" >
+    <h1>Registro</h1>
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre"   formControlName="nombre" required>
+      <div class="alerta" [hidden]="nombre.valid || nombre.pristine">
+        El nombre es requerido
+      </div>
+    </div>
+    <div>
+        <label for="nombre">Apellido:</label>
+        <input type="text" id="apellido" name="apellido"   formControlName="apellido" required>
+        <div class="alerta" [hidden]="apellido.valid || apellido.pristine">
+          El apellido es requerido
+        </div>
+      </div>
+  
+    <div>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="Correo" name="correo" formControlName="correo"  required>
+      <div class="alerta" [hidden]="correo.valid || correo.pristine">
+        El email es requerido
+      </div>
+    </div>
+    <div>
+        <label for="telefono">Telefono:</label>
+        <input type="number" id="telefono" name="telefono"   formControlName="telefono" required>
+        <div class="alerta" [hidden]="telefono.valid || telefono.pristine">
+          El telefono es requerido
+        </div>
+      </div>
+  
+    <div>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="contrasena" name="password" formControlName="contrasena" required>
+      <div class="alerta" [hidden]="contrasena.valid || contrasena.pristine">
+            La Contraseña es requerida
+      </div>
+    </div>
+    <div>
+        <label class="roltittle" for="tipo">Rol:</label>
+        <select class="selecttipo" id="tipo" name="tipo" formControlName="tipo" required>
+          <option value="">Seleccione un rol</option>
+          <option value="arrendador">Arrendador</option>
+          <option value="arrendatario">Arrendatario</option>
+        </select>
+        <div class="alerta" [hidden]="tipo.valid || tipo.pristine">
+          El rol es requerido
+        </div>
+      </div>
+      
+    <button type="submit" [disabled]="formUser.invalid">Registrarse</button>
+  </form>
+  
