@@ -125,6 +125,47 @@ section {
   font-size: 4rem;
 }
 
+.article-section > .image-content picture img {
+  border-radius: var(--lg-border);
+}
+
+/* Article reverse section */
+
+.article-reverse-section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article-reverse-section > .text-content {
+  flex: 2;
+}
+
+.article-reverse-section > .text-content > .catalog-title {
+  font-size: 4rem;
+}
+
+.article-reverse-section > .text-content > .text-block {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  max-width: 90%;
+}
+
+.article-reverse-section > .text-content > .text-block > .catalog-step {
+  font-size: 4rem;
+}
+
+.article-reverse-section > .image-content {
+  flex: 3;
+}
+
+.article-reverse-section > .image-content picture img {
+  border-radius: var(--lg-border);
+}
+
 .btn {
   padding: 1rem 2rem;
   border: none;
