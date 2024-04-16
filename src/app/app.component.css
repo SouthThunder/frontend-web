@@ -108,6 +108,23 @@ section {
   align-items: center;
 }
 
+.article-section > .text-content > .catalog-title {
+  font-size: 4rem;
+  max-width: 50%;
+}
+
+.article-section > .text-content > .text-block {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  max-width: 70%;
+}
+
+.article-section > .text-content > .text-block > .catalog-step {
+  font-size: 4rem;
+}
+
 .btn {
   padding: 1rem 2rem;
   border: none;
