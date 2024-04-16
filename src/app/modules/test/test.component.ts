@@ -50,6 +50,10 @@ export class TestComponent {
     this.updateArrendador(form.value);
 }
 
+eliminar(){
+  this.deleteArrendador();
+}
+
 
   updateArrendador(data: Arrendador){
     this.arrendadorService.updateArrendador(data, String(this.userId)).then(response => {

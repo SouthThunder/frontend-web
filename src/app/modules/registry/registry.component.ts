@@ -50,7 +50,6 @@ create(form: any){
     }
 }
 
-
   createArrendatario(data: Arrendatario){
   this.arrendatarioService.postArrendatario(data).then(response => {
     this.router.navigate(['/test/', response?.id])
