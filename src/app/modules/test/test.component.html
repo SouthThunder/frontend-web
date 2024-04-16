@@ -1,38 +1,66 @@
 <body>
-    <div class="buttons">
-        <button>Eliminar Cuenta</button>
-        <button (click)="toggleFormulario()">Editar Cuenta</button>
-    </div>
+  <div class="buttons">
+    <button>Eliminar Cuenta</button>
+    <button (click)="toggleFormulario()">Editar Cuenta</button>
+  </div>
 
-    <div class="form" [class.mostrar]="mostrarFormulario">
-        <form>
-            <div class="campo">
-                <label for="txtNombre">Nombre</label>
-                <input type="text" name="nombre" id="txtNombre">
-            </div>
+  <div class="form" [class.mostrar]="mostrarFormulario">
+    <form #registerform="ngForm" (ngSubmit)="create(registerform)">
+      <h1>Registro</h1>
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="arrendador.nombre"
+          required
+        />
+      </div>
+      <div>
+        <label for="nombre">Apellido:</label>
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+          [(ngModel)]="arrendador.apellido"
+          required
+        />
+      </div>
 
-            <div class="campo">
-                <label for="txtApellidos">Apellidos</label>
-                <input type="text" name="apellidos" id="txtApellidos">
-            </div>
+      <div>
+        <label for="email">Correo electrónico:</label>
+        <input
+          type="email"
+          id="Correo"
+          name="correo"
+          [(ngModel)]="arrendador.correo"
+          required
+        />
+      </div>
+      <div>
+        <label for="telefono">Telefono:</label>
+        <input
+          type="number"
+          id="telefono"
+          name="telefono"
+          [(ngModel)]="arrendador.telefono"
+          required
+        />
+      </div>
 
-            <div class="campo">
-                <label for="txtCorreo">Correo</label>
-                <input type="text" name="correo" id="txtCorreo">
-            </div>
+      <div>
+        <label for="password">Contraseña:</label>
+        <input
+          type="password"
+          id="contrasena"
+          name="passworena"
+          [(ngModel)]="arrendador.contrasena"
+          required
+        />
+      </div>
 
-            <div class="campo"><label for="txtTelefono">Teléfono</label>
-                <input type="text" name="telefono" id="txtTelefono">
-            </div>
-
-            <div class="campo">
-                <label for="txtContrasena">Contraseña</label>
-                <input type="password" name="contrasena" id="txtContrasena">
-            </div>
-
-            <div class="campo">
-                <input type="submit" name="Aceptar" value="Enviar">
-            </div>
-        </form>
-    </div>
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
 </body>

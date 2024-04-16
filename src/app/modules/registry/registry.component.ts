@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registry',
   standalone: true,
@@ -35,7 +37,7 @@ export class RegistryComponent {
     contrasena: ''
   }
  
-  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService) { }
+  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
 
 
 create(form: any){
@@ -46,20 +48,20 @@ create(form: any){
     else if(this.verificar == "arrendador"){
       this.createArrendador(form.value);
     }
-
 }
 
 
   createArrendatario(data: Arrendatario){
   this.arrendatarioService.postArrendatario(data).then(response => {
-    console.log(response);
+    this.router.navigate(['/test:', response?.id])
   },error=>{
     console.log(error);
   })
 }
+
   createArrendador(data: Arrendador){
     this.arrendadorService.postArrendador(data).then(response => {
-      console.log(response);
+      this.router.navigate(['/test:', response?.id])
     },error=>{
       console.log(error);
     })

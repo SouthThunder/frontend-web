@@ -32,10 +32,30 @@ export class ArrendadorService {
       return null;
     }
   }
+
+  async updateArrendador(arrendador: Arrendador, id: string){
+    try {
+      const response = await axios.put<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
   
   async postArrendador(arrendador: Arrendador){
     try {
       const response = await axios.post<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async deleteArrendador(id: string){
+    try {
+      const response = await axios.delete<Arrendador>(`${this.urlApi}/${id}`)
       return response.data;
     } catch (error) {
       console.log(error);
