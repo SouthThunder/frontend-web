@@ -9,10 +9,23 @@ import axios, { AxiosResponse } from 'axios';
 })
 export class ArrendadorService {
   private urlApi= 'http://localhost:8080/arrendador';
-  getArrendadores(): Promise<Arrendador[]>{ 
-    return axios.get<Arrendador[]>(this.urlApi).then(response=>response.data);
+  async getArrendadores(): Promise<Arrendador[]>{ 
+    try {
+      const response = await axios.get<Arrendador[]>(this.urlApi)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   }
-  postArrendador(arrendador: Arrendador){
-    return axios.post<Arrendador>(this.urlApi, arrendador).then(response=>response.data);
+  
+  async postArrendador(arrendador: Arrendador){
+    try {
+      const response = await axios.post<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   }
 }

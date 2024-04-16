@@ -4,6 +4,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistryComponent } from './modules/registry/registry.component';
+import { LogInComponent } from './modules/log-in/log-in.component';
 export const routes: Routes = [
     {
         path: '',
@@ -22,5 +23,10 @@ export const routes: Routes = [
         path: 'register',
         component: RegistryComponent,
         title: 'Registro'
+    },
+    {
+        path: 'login',
+        component: LogInComponent,
+        title: 'Login'
     }
 ];
