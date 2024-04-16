@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arrendador } from '../../models/arrendadormodel';
+import axios, { AxiosResponse } from 'axios';
 
 
 @Injectable({
@@ -8,11 +9,10 @@ import { Arrendador } from '../../models/arrendadormodel';
 })
 export class ArrendadorService {
   private urlApi= 'http://localhost:8080/arrendador';
-  constructor(private http: HttpClient) { }
-  getArrendadores(){ 
-    return this.http.get<Arrendador>(this.urlApi);
+  getArrendadores(): Promise<Arrendador[]>{ 
+    return axios.get<Arrendador[]>(this.urlApi).then(response=>response.data);
   }
   postArrendador(arrendador: Arrendador){
-    return this.http.post<Arrendador>(this.urlApi, arrendador);
+    return axios.post<Arrendador>(this.urlApi, arrendador).then(response=>response.data);
   }
 }

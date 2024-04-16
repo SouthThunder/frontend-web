@@ -14,6 +14,7 @@ import { Arrendador } from '../../models/arrendadormodel';
   styleUrl: './registry.component.css'
 })
 export class RegistryComponent {
+  
  
   constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService) { }
   get nombre(){
@@ -56,22 +57,26 @@ export class RegistryComponent {
   }
 }
 createArrendatarioData(formData: any): Arrendatario {
-  const { nombre, apellido, correo, telefono, contrasena } = formData;
+  const { nombre, apellido, correo, telefono, contrasena } = formData.value;
   return { nombre, apellido, correo, telefono, contrasena };
 }
 
 createArrendadorData(formData: any): Arrendador {
-  const { nombre, apellido, correo, telefono, contrasena } = formData;
+  const { nombre, apellido, correo, telefono, contrasena } = formData.value;
   return { nombre, apellido, correo, telefono, contrasena };
 }
   createArrendatario(data: Arrendatario){
-  this.arrendatarioService.postArrendatario(data).subscribe(response => {
+  this.arrendatarioService.postArrendatario(data).then(response => {
     console.log(response);
+  },error=>{
+    console.log(error);
   })
 }
   createArrendador(data: Arrendador){
-    this.arrendadorService.postArrendador(data).subscribe(response => {
+    this.arrendadorService.postArrendador(data).then(response => {
       console.log(response);
+    },error=>{
+      console.log(error);
     })
   }
 
