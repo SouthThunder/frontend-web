@@ -1,0 +1,74 @@
+/* Profile Info */
+
+main>.profile-info {
+    width: 25%;
+    background-color: #C8BDAB;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem 2rem;
+    padding: 4% 2%;
+    min-height: 700px;
+    max-height: 80vh;
+}
+
+main>.profile-info>.profile-photo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+main>.profile-info>.profile-photo>.edit-button>button {
+    background-color: white;
+    border: none;
+    border-radius: 100%;
+    position: relative;
+    bottom: 45px;
+    left: 50px;
+}
+
+main>.profile-info>.profile-photo>.edit-button>button>.edit-img {
+    width: 50px;
+    display: flex;
+    justify-items: center;
+    padding: 2px;
+}
+
+main>.profile-info>.info {
+    width: 70%;
+    padding: 10% 0;
+    background-color: #ffffffbc;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+main>.profile-info>.info>p {
+    font-weight: bold;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main>.profile-info {
+        width: 90%;
+        /* Ajusta el ancho para pantallas más pequeñas */
+        padding: 5% 2%;
+    }
+
+    main>.profile-info>.info {
+        padding: 20% 0;
+        /* Más padding para mantener el contenido distribuido verticalmente */
+    }
+}
+
+@media (min-width: 769px) {
+    main>.profile-info {
+        height: 50vh;
+        /* Ajusta la altura para pantallas más grandes */
+    }
+}
