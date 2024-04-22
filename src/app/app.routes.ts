@@ -3,6 +3,7 @@ import { TestComponent } from './modules/test/test.component';
 import { HomeComponent } from './modules/home/home.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
+import {RentalapplicationComponent} from './modules/rentalapplication/rentalapplication.component';
 
 
 export const routes: Routes = [
@@ -28,5 +29,10 @@ export const routes: Routes = [
         path: 'login',
         component: LogInComponent,
         title: 'Login'
+    },
+    {
+        path: 'rentalapplication',
+        component: RentalapplicationComponent,
+        title: 'Rental Application'
     }
 ];
