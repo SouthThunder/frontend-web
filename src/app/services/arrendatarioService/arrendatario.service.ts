@@ -8,7 +8,8 @@ import axios from 'axios';
 })
 
 export class ArrendatarioService {
-  private urlApi= 'http://localhost:8080/arrendatario';
+  // private urlApi= 'http://localhost:8080/arrendador';
+  private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
   
   async getArrendatarios():Promise<Arrendatario[]>{ 
     try {
