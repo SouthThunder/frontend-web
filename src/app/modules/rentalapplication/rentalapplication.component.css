@@ -146,20 +146,45 @@
     border-color: gray;
     border-bottom: red;
     gap: 1px;
+    margin: 2rem 0 2rem 0;
 }
 .rentalapplication > .details > .summary > .itemsdetails > .eachitem {
     padding: 1rem;
     background: white; /* Fondo blanco para cada celda */
     text-align: center; /* Centrar el texto */
   }
+  .rentalapplication > .details > .summary > .itemsdetails > .eachitem > h5{
+    color: gray;
+  }
   
   .rentalapplication > .details > .summary > .itemsdetails > .eachitem:nth-child(3) {
     grid-column: 1 / -1; /* Ocupar ambas columnas */
     border-top: 1px solid gray; /* Borde superior para separar de las fechas */
   }
-  
+  .rentalapplication > .details > .summary > .itemsdetails > .eachitem:nth-child(2) {
+    
+    border-left: 1px solid gray; 
+    border-top-right-radius: var(--sm-border);/* Borde superior para separar de las fechas */
+  }
+  .rentalapplication > .details > .summary > .itemsdetails > .eachitem:nth-child(1) {
+    
+   
+    border-top-left-radius: var(--sm-border);/* Borde superior para separar de las fechas */
+  }
   /* Agregar un estilo más específico para el borde inferior del último elemento de la cuadrícula */
   .rentalapplication > .details > .summary > .itemsdetails > .eachitem:last-child {
     border-bottom-left-radius: var(--sm-border);
     border-bottom-right-radius: var(--sm-border);
+    border-bottom: 1px solid gray;
+  }
+  .rentalapplication > .details > .summary > .reserve{
+    width: 100%;
+    background-color: #c8bdab;
+    font-size: 1.2rem;
+    height: auto;
+    padding: 1rem 2rem;
+    color: white;
+    border: none;
+    border-radius: var(--sm-border);
+    
   }
