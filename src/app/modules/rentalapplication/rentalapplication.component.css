@@ -93,7 +93,7 @@
     flex: 2.5;
 }
 .details > .placedetails > .state{
-     border-bottom: 1px solid black;
+     border-bottom: 1px solid gray;
      padding-bottom:1rem ;
 }
 .details > .placedetails > .state > .actual{
@@ -186,5 +186,11 @@
     color: white;
     border: none;
     border-radius: var(--sm-border);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
     
+  }
+  .rentalapplication > .details > .summary > .reserve:hover{
+  background-color: #a09b9a;
+  color: white;
   }
