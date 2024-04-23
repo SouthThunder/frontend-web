@@ -1,6 +1,14 @@
+.rentalapplication{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem;
+    width: 100%;
+    
+}
 .topcontainer{
     display: flex;
-    padding: 3rem;
+    
 }
 .topcontainer > .tittle{
     flex: 1;
@@ -14,7 +22,7 @@
     height: 80%;
     display: flex;
     gap: 1rem;
-    margin: 3rem;
+    
 }
 .imagescontainer .leftimage > img{
     flex: 1;
@@ -77,3 +85,81 @@
     color: black;
     position: absolute;
 }
+.details{
+    display: flex;
+    gap: 15rem;
+}
+.details > .placedetails{
+    flex: 2.5;
+}
+.details > .placedetails > .state{
+     border-bottom: 1px solid black;
+     padding-bottom:1rem ;
+}
+.details > .placedetails > .state > .actual{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.details > .placedetails > .state > .actual > div {
+    display: flex;
+    
+}
+.details > .placedetails > .state > .actual > div >.available{
+    color: green;
+    
+}
+.details > .placedetails > .state > .reviews{
+    display: flex;
+}
+
+.details > .placedetails > .ownerinfo{
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid gray;
+}
+.details > .placedetails > .ownerinfo > .material-symbols-outlined{
+    font-size: 65px
+}
+.details > .placedetails > .descriptioninfo > .moreinfodescription{
+    display: flex;
+    align-items: center;
+}
+.details > .placedetails > .descriptioninfo {
+    padding: 2rem 0rem 2rem 0rem;
+    border-bottom: 1px solid gray;
+}
+.details > .placedetails > .descriptioninfo > .moreinfodescription > h4{
+    text-decoration: underline;
+}
+.rentalapplication > .details > .summary{
+    flex: 1;
+    padding: 2rem 2rem 2rem 2rem;
+    border: 1px solid gray;
+    border-radius: var(--sm-border);
+}
+.rentalapplication > .details > .summary > .itemsdetails{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    border:1px solid gray;
+    border-radius: var(--sm-border);
+    border-color: gray;
+    border-bottom: red;
+    gap: 1px;
+}
+.rentalapplication > .details > .summary > .itemsdetails > .eachitem {
+    padding: 1rem;
+    background: white; /* Fondo blanco para cada celda */
+    text-align: center; /* Centrar el texto */
+  }
+  
+  .rentalapplication > .details > .summary > .itemsdetails > .eachitem:nth-child(3) {
+    grid-column: 1 / -1; /* Ocupar ambas columnas */
+    border-top: 1px solid gray; /* Borde superior para separar de las fechas */
+  }
+  
+  /* Agregar un estilo más específico para el borde inferior del último elemento de la cuadrícula */
+  .rentalapplication > .details > .summary > .itemsdetails > .eachitem:last-child {
+    border-bottom-left-radius: var(--sm-border);
+    border-bottom-right-radius: var(--sm-border);
+  }
