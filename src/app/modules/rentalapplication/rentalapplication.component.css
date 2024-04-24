@@ -88,6 +88,8 @@
 .details{
     display: flex;
     gap: 15rem;
+    border-bottom: 1px solid gray;
+    padding: 2.5rem 0rem 2.5rem 0rem;
 }
 .details > .placedetails{
     flex: 2.5;
@@ -134,6 +136,7 @@
 }
 .rentalapplication > .details > .summary{
     flex: 1;
+    height: 100%;
     padding: 2rem 2rem 2rem 2rem;
     border: 1px solid gray;
     border-radius: var(--sm-border);
