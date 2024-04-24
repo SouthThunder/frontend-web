@@ -4,6 +4,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
 import {RentalapplicationComponent} from './modules/rentalapplication/rentalapplication.component';
+import { PagoComponent } from './pago/pago.component';
 
 
 export const routes: Routes = [
@@ -15,10 +16,6 @@ export const routes: Routes = [
         path: 'test/:id',
         component: TestComponent,
         title: 'Test'
-    }, {
-        path: 'home',
-        component: HomeComponent,
-        title: 'Home'
     },
     {
         path: 'register',
@@ -34,5 +31,14 @@ export const routes: Routes = [
         path: 'rentalapplication',
         component: RentalapplicationComponent,
         title: 'Rental Application'
+    },
+    {
+        path: 'pago',
+        component: PagoComponent,
+        title: 'Rental Application'
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
