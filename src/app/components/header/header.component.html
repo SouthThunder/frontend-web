@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="logo">
-      <p>InHome</p>
+      <p (click)="home()">InHome</p>
     </div>
     <nav>
       <a href="">Inicio</a>
@@ -11,8 +11,8 @@
       <a href="/test">Servicios</a>
     </nav>
     <div class="options">
-      <button>Iniciar sesión</button>
-      <button>Registrarse</button>
+      <button (click)="login()">Iniciar sesión</button>
+      <button (click)="register()">Registrarse</button>
     </div>
   </div>
 </header>

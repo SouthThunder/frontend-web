@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arrendatario } from '../../models/arrendatariomodel';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 
 @Injectable({
@@ -9,7 +8,8 @@ import axios, { AxiosResponse } from 'axios';
 })
 
 export class ArrendatarioService {
-  private urlApi= 'http://localhost:8080/arrendatario';
+  // private urlApi= 'http://localhost:8080/arrendador';
+  private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
   
   async getArrendatarios():Promise<Arrendatario[]>{ 
     try {
@@ -18,6 +18,19 @@ export class ArrendatarioService {
     } catch (error) {
       console.error(error);
       return []
+    }
+  }
+
+  async getArrendatario(correo: string, contrasena: string): Promise<Arrendatario | null>{
+    try {
+      const response = await axios.post<Arrendatario>(`${this.urlApi}}`, {
+        correo: correo,
+        contrasena: contrasena
+      });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return null;
     }
   }
 

@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { TestComponent } from './modules/test/test.component';
 import { HomeComponent } from './modules/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
+import {RentalapplicationComponent} from './modules/rentalapplication/rentalapplication.component';
+
+
 import { PropertiesCatalogComponent } from './modules/properties-catalog/properties-catalog.component';
 export const routes: Routes = [
     {
@@ -12,7 +13,7 @@ export const routes: Routes = [
         component: HomeComponent,
         title: 'Home'
     }, {
-        path: 'test',
+        path: 'test/:id',
         component: TestComponent,
         title: 'Test'
     }, {
@@ -29,10 +30,5 @@ export const routes: Routes = [
         path: 'login',
         component: LogInComponent,
         title: 'Login'
-    },
-    {
-        path: 'properties-catalog',
-        component: PropertiesCatalogComponent,
-        title: 'Properties-catalog'
     }
 ];

@@ -1,14 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Arrendador } from '../../models/arrendadormodel';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArrendadorService {
-  private urlApi= 'http://localhost:8080/arrendador';
+  // private urlApi= 'http://localhost:8080/arrendador';
+ private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
+
+
   async getArrendadores(): Promise<Arrendador[]>{ 
     try {
       const response = await axios.get<Arrendador[]>(this.urlApi)
@@ -18,10 +20,43 @@ export class ArrendadorService {
       return [];
     }
   }
+
+  async getArrendador(correo: string, contrasena: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.post<Arrendador>(`${this.urlApi}`, {
+        correo: correo,
+        contrasena: contrasena
+      })
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async updateArrendador(arrendador: Arrendador, id: string){
+    try {
+      const response = await axios.put<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
   
   async postArrendador(arrendador: Arrendador){
     try {
       const response = await axios.post<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async deleteArrendador(id: string){
+    try {
+      const response = await axios.delete<Arrendador>(`${this.urlApi}/${id}`)
       return response.data;
     } catch (error) {
       console.log(error);
