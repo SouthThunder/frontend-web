@@ -1,66 +1,67 @@
 <app-header></app-header>
 <div class="card-container">
-  <div class="credit-card">
-    <img class="card-logo-image" [src]="cardImageUrl" alt="{{ cardType }}" />
-    <div class="card-logo">{{ cardType }}</div>
-    <div class="card-number">
-      {{ formattedCardNumber ? formattedCardNumber : "#### #### #### ####" }}
-    </div>
-    <div class="card-bottom">
-      <div class="card-holder-name">
-        <p>Card Holder Name</p>
-        {{ cardName ? cardName : "Full Name" }}
+  <div class="credit-card-holder">
+    <div class="credit-card">
+      <img class="card-logo-image" [src]="cardImageUrl" alt="{{ cardType }}" />
+      <div class="card-logo">{{ cardType }}</div>
+      <div class="card-number">
+        {{ formattedCardNumber ? formattedCardNumber : "#### #### #### ####" }}
       </div>
-      <div class="card-expiry">
-        <p>Expiry Date</p>
-        {{ cardMonth && cardYear ? cardMonth + "/" + cardYear : "MM/YY" }}
+      <div class="card-bottom">
+        <div class="card-holder-name">
+          <p>Card Holder Name</p>
+          {{ cardName ? cardName : "Full Name" }}
+        </div>
+        <div class="card-expiry">
+          <p>Expiry Date</p>
+          {{ cardMonth && cardYear ? cardMonth + "/" + cardYear : "MM/YY" }}
+        </div>
       </div>
     </div>
+    <form class="input-fields" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label>Card Number</label>
+        <input
+          type="text"
+          placeholder="1234 1234 1234 1234"
+          name="cardNumber"
+          [(ngModel)]="cardNumber"
+          (ngModelChange)="onCardNumberChange($event)"
+          maxlength="16"
+        />
+      </div>
+      <div class="form-field">
+        <label>Card Holder</label>
+        <input
+          type="text"
+          placeholder="Name Surname"
+          name="cardName"
+          [(ngModel)]="cardName"
+        />
+      </div>
+      <div class="form-field">
+        <label>Expiration Month</label>
+        <input
+          type="text"
+          placeholder="MM"
+          name="cardMonth"
+          [(ngModel)]="cardMonth"
+          maxlength="2"
+        />
+      </div>
+      <div class="form-field">
+        <label>Expiration Year</label>
+        <input
+          type="text"
+          placeholder="YY"
+          name="cardYear"
+          [(ngModel)]="cardYear"
+          maxlength="2"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   </div>
-
-  <form class="input-fields" (ngSubmit)="onSubmit()">
-    <div class="form-field">
-      <label>Card Number</label>
-      <input
-        type="text"
-        placeholder="1234 1234 1234 1234"
-        name="cardNumber"
-        [(ngModel)]="cardNumber"
-        (ngModelChange)="onCardNumberChange($event)"
-        maxlength="16"
-      />
-    </div>
-    <div class="form-field">
-      <label>Card Holder</label>
-      <input
-        type="text"
-        placeholder="Name Surname"
-        name="cardName"
-        [(ngModel)]="cardName"
-      />
-    </div>
-    <div class="form-field">
-      <label>Expiration Month</label>
-      <input
-        type="text"
-        placeholder="MM"
-        name="cardMonth"
-        [(ngModel)]="cardMonth"
-        maxlength="2"
-      />
-    </div>
-    <div class="form-field">
-      <label>Expiration Year</label>
-      <input
-        type="text"
-        placeholder="YY"
-        name="cardYear"
-        [(ngModel)]="cardYear"
-        maxlength="2"
-      />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
 </div>
 
 <app-footer></app-footer>
