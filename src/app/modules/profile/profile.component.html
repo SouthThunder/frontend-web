@@ -19,6 +19,15 @@
         </div>
     </div>
     <div class="properties-info">
-        <app-properties-arrendador></app-properties-arrendador>
+        <div class="contenedor-opciones">
+            <button class="barra-principal">Mensajes</button>
+            <button class="barra-principal" (click)="goToPropiedades()">Propiedades</button>
+            <button class="barra-principal" (click)="goToSolicitudes()">Solicitudes</button>
+        </div>
+        <!-- Se muestra solo si mostrarPropertiesArrendador es true -->
+        <app-properties-arrendador *ngIf="mostrarPropertiesArrendador"></app-properties-arrendador>
+
+        <!-- Se muestra solo si mostrarPropertiesArrendador es false -->
+        <app-requests-arrendador *ngIf="!mostrarPropertiesArrendador"></app-requests-arrendador>
     </div>
 </div>

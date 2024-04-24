@@ -4,6 +4,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { RequestsArrendadorComponent } from './components/requests-arrendador/requests-arrendador.component';
 
 
 export const routes: Routes = [
@@ -34,5 +35,10 @@ export const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         title: 'Profile'
+    },
+    {
+        path: 'profile/solicitudes',
+        component: RequestsArrendadorComponent,
+        title: 'Solicitudes'
     }
 ];

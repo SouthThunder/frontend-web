@@ -58,34 +58,7 @@ i {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.contenedor-opciones {
-    width: 98%;
-    height: 80px;
-    margin-bottom: 50px;
-    margin-top: 30px;
-    margin-right: 20px;
-    border-top: solid 1px #A09B9A;
-    border-bottom: solid 1px #A09B9A;
-    display: flex;
-    justify-content: center;
-    /* Centra los botones horizontalmente */
-    align-items: center;
-    /* Centra los botones verticalmente */
-    gap: 400px;
-    /* Añade espacio entre los botones */
-}
 
-.barra-principal {
-    background-color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: poppins;
-}
-
-.barra-principal:hover {
-    color: #C8BDAB;
-    /* Color cuando se pasa el ratón por encima */
-}
 
 .anadir-propiedad {
     margin-top: 50px;

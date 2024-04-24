@@ -56,4 +56,5 @@ export class PropertiesArrendadorComponent implements OnInit {
         return 'nada';
     }
   }
+
 }
