@@ -1,3 +1,54 @@
 <app-header></app-header>
+<div class="card-container">
+  <div class="credit-card">
+    <div class="card-number">{{ formattedCardNumber }}</div>
+    <div class="card-holder-name">{{ cardName }}</div>
+    <div class="card-expiry">{{ cardMonth }}/{{ cardYear }}</div>
+  </div>
+
+  <form class="input-fields" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label>Card Number</label>
+      <input
+        type="text"
+        placeholder="1234 1234 1234 1234"
+        name="cardNumber"
+        [(ngModel)]="cardNumber"
+        (ngModelChange)="onCardNumberChange($event.toString())"
+        maxlength="19"
+      />
+    </div>
+    <div class="form-field">
+      <label>Card Holder</label>
+      <input
+        type="text"
+        placeholder="Name Surname"
+        name="cardName"
+        [(ngModel)]="cardName"
+      />
+    </div>
+    <div class="form-field">
+      <label>Expiration Month</label>
+      <input
+        type="text"
+        placeholder="MM"
+        name="cardMonth"
+        [(ngModel)]="cardMonth"
+        maxlength="2"
+      />
+    </div>
+    <div class="form-field">
+      <label>Expiration Year</label>
+      <input
+        type="text"
+        placeholder="YY"
+        name="cardYear"
+        [(ngModel)]="cardYear"
+        maxlength="2"
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 <app-footer></app-footer>
