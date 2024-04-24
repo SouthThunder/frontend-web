@@ -1,56 +1,59 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Properties } from '../../models/properties';
+import { PropertiesService } from '../../services/propertiesService/properties.service';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-properties-arrendador',
-  standalone: true,
-  imports: [],
   templateUrl: './properties-arrendador.component.html',
-  styleUrl: './properties-arrendador.component.css',
+  styleUrls: ['./properties-arrendador.component.css'],
+  providers: [PropertiesService],
+  imports: [CarouselModule, ButtonModule, TagModule],
+  standalone: true
 })
-export class PropertiesArrendadorComponent {
-  // La propiedad "indiceActual" para llevar un seguimiento del ítem actual visible
-  indiceActual: number = 0;
 
-  // La propiedad "anchoItem" debe corresponder al ancho de tus ítems en el carrusel
-  anchoItem: number = 330; // Ajustar según el ancho real de tus ítems
+export class PropertiesArrendadorComponent implements OnInit {
+  properties: Properties[] = [];
 
-  numeroTotalItems(): number {
-    // Devuelve el número total de ítems, en este caso, el número de elementos dentro de ".slider-main"
-    const sliderMain = document.querySelector('.slider-main');
-    if (sliderMain) {
-      return sliderMain.children.length;
-    }
-    return 0;
+  responsiveOptions: any[] | undefined;
+
+  constructor(private propertiesservice: PropertiesService) { }
+
+  ngOnInit() {
+    this.properties = this.propertiesservice.getPropertiesSmall()
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '1199px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '991px',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
-  // Método para avanzar al siguiente ítem
-  next(): void {
-    // Incrementa el índice actual
-    this.indiceActual++;
-    // Verifica si el índice actual es igual al número total de ítems
-    if (this.indiceActual === this.numeroTotalItems()) {
-      // Reinicia el índice a cero para volver al primer ítem
-      this.indiceActual = 0;
-    }
-    // Actualiza la posición del carrusel
-    this.actualizarPosicion();
-  }
+  getSeverity(status: string) {
+    switch (status) {
+      case 'INSTOCK':
+        return 'success';
+      case 'LOWSTOCK':
+        return 'warning';
+      case 'OUTOFSTOCK':
+        return 'danger';
 
-  // Método para retroceder al ítem anterior
-  prev(): void {
-    // Decrementa el índice actual y actualiza la posición del carrusel
-    this.indiceActual--;
-    this.actualizarPosicion();
-  }
-
-  // Método para actualizar la posición del carrusel en la vista
-  actualizarPosicion(): void {
-    // Calcula la nueva posición
-    const nuevaPosicion = this.indiceActual * this.anchoItem;
-    // Utiliza una referencia al elemento del carrusel para actualizar su transformación
-    const sliderMain = document.querySelector('.slider-main');
-    if (sliderMain) {
-      sliderMain.setAttribute('style', `transform: translateX(-${nuevaPosicion}px)`);
+      default:
+        return 'nada';
     }
   }
-} 
+}

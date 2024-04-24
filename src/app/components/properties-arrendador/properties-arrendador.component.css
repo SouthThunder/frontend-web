@@ -1,57 +1,129 @@
-.product {
-    padding: 20px 0;
-    margin-top: 200px;
+.border-1 {
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.slider-wrap {
-    position: relative;
-    overflow: hidden;
-    height: 350px;
+.custom-carousel {
+    margin: 0 auto;
 }
 
-.slider-main {
-    position: absolute;
-    width: 200%;
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.mt-5 {
+    text-align: center;
+}
+
+.delete {
+    background-color: #905A5A;
+}
+
+.delete i {
+    color: white;
+}
+
+button {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: none;
+}
+
+
+i {
+    font-size: 25px;
+    color: rgb(105, 105, 105);
+}
+
+:host ::ng-deep .p-carousel .p-carousel-indicators {
+    display: none !important;
+}
+
+
+:host .product-item .product-item-content {
+    border: 1px solid var(--surface-d);
+    border-radius: 3px;
+    margin: 0.3rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+:host .product-item .product-image {
+    width: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.contenedor-opciones {
+    width: 98%;
+    height: 80px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
+    border-top: solid 1px #A09B9A;
+    border-bottom: solid 1px #A09B9A;
     display: flex;
+    justify-content: center;
+    /* Centra los botones horizontalmente */
+    align-items: center;
+    /* Centra los botones verticalmente */
+    gap: 400px;
+    /* Añade espacio entre los botones */
 }
 
-.item {
-    display: inline-block;
-    width: 290px;
-    height: 300px;
-    background: white;
-    border-radius: 10px;
-    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    margin: 0 12px
-}
-
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 24px;
+.barra-principal {
+    background-color: white;
+    font-size: 20px;
     font-weight: bold;
+    font-family: poppins;
 }
 
-.prev {
-    position: absolute;
-    margin-left: 28px;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.barra-principal:hover {
+    color: #C8BDAB;
+    /* Color cuando se pasa el ratón por encima */
 }
 
-.next {
-    position: absolute;
-    right: -4px;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.anadir-propiedad {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    display: inline-flex;
+    /* Contenedor del botón */
+    align-items: center;
+    /* Centra los elementos verticalmente */
 }
 
-.shadow {
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(190, 190, 190),
-        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+
+.anadir-button {
+    background-color: #C8BDAB;
+    width: 242px;
+    height: 50px;
+    border-radius: 50px 20px 20px 50px;
+    color: white;
+    background-color: #A09B9A;
+    font-family: poppins;
+    font-size: 18px;
+    display: flex;
+    /* Usa flexbox dentro del botón */
+    align-items: center;
+    /* Alineación vertical de los elementos dentro del botón */
+    justify-content: left;
+    /* Alineación horizontal de los elementos */
+    gap: 10px;
+    /* Espacio entre los elementos */
+    cursor: pointer;
+    outline: none;
+}
+
+#icono-anadir {
+    background: white;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 30px;
+    box-shadow: #A09B9A 0 4px 6px;
 }

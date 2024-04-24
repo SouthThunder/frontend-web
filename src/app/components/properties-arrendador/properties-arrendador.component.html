@@ -1,28 +1,102 @@
-<section class="product">
-    <div class="container-fluid">
-        <div class="slider-wrap">
-            <div class="slider-main">
-                <div class="item shadow">
-                    <div class="text">1</div>
-                </div>
-                <div class="item shadow">
-                    <div class="text">2</div>
-                </div>
-                <div class="item shadow">
-                    <div class="text">3</div>
-                </div>
-                <div class="item shadow">
-                    <div class="text">4</div>
-                </div>
-                <div class="item shadow">
-                    <div class="text">5</div>
+<!-- <section>
+    <div class="swiper-container container">
+        <div class="swiper-wrapper content">
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="assets/foto3.png" alt="">
+                    </div>
+                    <div class="media-icos">
+
+                    </div>
+                    <div class="information">
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+
+                    </div>
                 </div>
             </div>
-            <div class="button-area">
-                <button type="button" class="prev" (click)="prev()">Prev</button>
-                <button type="button" class="next" (click)="next()">Next</button>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="assets/foto3.png" alt="">
+                    </div>
+                    <div class="media-icos">
+
+                    </div>
+                    <div class="information">
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="assets/foto3.png" alt="">
+                    </div>
+                    <div class="media-icos">
+
+                    </div>
+                    <div class="information">
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+                        <p>hello</p>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</section> -->
 
-</section>
+<div class="contenedor-opciones">
+    <button class="barra-principal">Mensajes</button>
+    <button class="barra-principal">Propiedades</button>
+    <button class="barra-principal">Solicitudes</button>
+</div>
+
+
+<p-carousel [value]="properties" [numVisible]="3" [numScroll]="3" [circular]="false"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template let-properties pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+            <div class="mb-3">
+                <img src="{{properties.image }}" [alt]="properties.name" class="w-6 shadow-2" />
+            </div>
+            <div class="contenedor">
+                <div>
+                    <h4 class="mb-1">{{ properties.name }}</h4>
+                    <h6 class="mt-0 mb-3">{{ '$' + properties.price }}</h6>
+                    <p-tag [value]="properties.inventoryStatus"
+                        [severity]="getSeverity(properties.inventoryStatus)"></p-tag>
+                </div>
+
+                <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                    <button class="delete">
+                        <i class="pi pi-times-circle"></i>
+                    </button>
+                    <button>
+                        <i class="pi pi-search-plus"></i>
+                    </button>
+                    <button>
+                        <i class="pi pi-pen-to-square"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
+
+<div class="anadir-propiedad">
+    <button class="anadir-button">
+        <i class="pi pi-plus-circle" id="icono-anadir"></i>
+        Añadir Propiedad
+    </button>
+</div>

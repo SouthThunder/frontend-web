@@ -6,7 +6,6 @@
     padding: 2rem;
     margin: 0;
     width: 100%;
-
 }
 
 
@@ -66,8 +65,16 @@
     text-align: center;
 }
 
+.profile-info>.info>.email,
+.profile-info>.info>.phone {
+    color: #767169;
+    font-weight: bold;
+    margin: 1rem 0;
+    text-align: center;
+}
+
 .properties-info {
-    flex: 3;
+    width: 75%;
     /* Toma más espacio que el perfil */
 }
 
