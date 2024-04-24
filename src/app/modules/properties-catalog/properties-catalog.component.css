@@ -1,0 +1,141 @@
+/* search-bar.component.css */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 10px;
+    border-color: #e4e4e4;
+    border-style: solid;
+    border-width: 1px;
+    justify-content: space-between; 
+    margin: 10rem auto 2rem auto; 
+    width: 100%; 
+    max-width: 800px; 
+}
+
+
+@media (max-width: 768px) { 
+  .search-bar {
+    flex-direction: column;
+    padding: 20px;
+    margin: 1rem auto;
+    width: 90%; 
+    border-radius: 30px; 
+  }
+}
+  
+  .search-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+  
+  .search-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    color: #858585;
+    cursor: pointer;
+  }
+  
+  .divider {
+    height: 35px;
+    width: 1px;
+    background-color: #ddd;
+    margin: 0 8px;
+  }
+  
+.search-icon {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%; 
+    width: 5vh; 
+    height: 5vh; 
+    background-color: #c8bdab; 
+    cursor: pointer;
+  }
+  
+  .search-icon .material-symbols-outlined {
+    font-size: 24px; 
+    color: #333; 
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e4e4e4;
+    margin-bottom: 10vh;
+  }
+
+  /* En tu archivo de estilos, por ejemplo, carousel-icons.component.css */
+.icon-container {
+    text-align: center;
+  }
+  
+  .icon {
+    /* Aquí aplicarías los estilos para tus íconos, 
+    por ejemplo, si usas una fuente de íconos o imágenes */
+  }
+  
+  .filter-button {
+    /* Estilos para tu botón de filtros */
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  
+  

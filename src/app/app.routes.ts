@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
+import { PropertiesCatalogComponent } from './modules/properties-catalog/properties-catalog.component';
 export const routes: Routes = [
     {
         path: '',
@@ -28,5 +29,10 @@ export const routes: Routes = [
         path: 'login',
         component: LogInComponent,
         title: 'Login'
+    },
+    {
+        path: 'properties-catalog',
+        component: PropertiesCatalogComponent,
+        title: 'Properties-catalog'
     }
 ];
