@@ -75,15 +75,19 @@
       </div>
       <div class="dates">
         <div class="wrapper-calendar">
-          <h1>Fecha Entrada</h1>
+          <h2>Fecha Entrada</h2>
           <div class="header-calendar">
             <div>
-              <button (click)="changeMonth(-1)" class="btn-prev">Antes</button>
+              <button (click)="changeMonth(-1)" class="btn-prev">
+                <span class="material-symbols-outlined"> arrow_back_ios </span>
+              </button>
             </div>
             <h1>{{ dateSelect | date : "MMMM, yyyy" }}</h1>
             <div>
               <button (click)="changeMonth(1)" class="btn-next">
-                Siguiente
+                <span class="material-symbols-outlined">
+                  arrow_forward_ios
+                </span>
               </button>
             </div>
           </div>
@@ -106,13 +110,15 @@
           <div class="header-calendar">
             <div>
               <button (click)="changeMonthExit(-1)" class="btn-prev">
-                Antes
+                <span class="material-symbols-outlined"> arrow_back_ios </span>
               </button>
             </div>
             <h1>{{ dateSelectExit | date : "MMMM, yyyy" }}</h1>
             <div>
               <button (click)="changeMonthExit(1)" class="btn-next">
-                Siguiente
+                <span class="material-symbols-outlined">
+                  arrow_forward_ios
+                </span>
               </button>
             </div>
           </div>
