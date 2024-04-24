@@ -1,9 +1,21 @@
 <app-header></app-header>
 <div class="card-container">
   <div class="credit-card">
-    <div class="card-number">{{ formattedCardNumber }}</div>
-    <div class="card-holder-name">{{ cardName }}</div>
-    <div class="card-expiry">{{ cardMonth }}/{{ cardYear }}</div>
+    <img class="card-logo-image" [src]="cardImageUrl" alt="{{ cardType }}" />
+    <div class="card-logo">{{ cardType }}</div>
+    <div class="card-number">
+      {{ formattedCardNumber ? formattedCardNumber : "#### #### #### ####" }}
+    </div>
+    <div class="card-bottom">
+      <div class="card-holder-name">
+        <p>Card Holder Name</p>
+        {{ cardName ? cardName : "Full Name" }}
+      </div>
+      <div class="card-expiry">
+        <p>Expiry Date</p>
+        {{ cardMonth && cardYear ? cardMonth + "/" + cardYear : "MM/YY" }}
+      </div>
+    </div>
   </div>
 
   <form class="input-fields" (ngSubmit)="onSubmit()">
@@ -14,8 +26,8 @@
         placeholder="1234 1234 1234 1234"
         name="cardNumber"
         [(ngModel)]="cardNumber"
-        (ngModelChange)="onCardNumberChange($event.toString())"
-        maxlength="19"
+        (ngModelChange)="onCardNumberChange($event)"
+        maxlength="16"
       />
     </div>
     <div class="form-field">
