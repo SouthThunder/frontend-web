@@ -1,0 +1,119 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 3rem auto;
+}
+
+.credit-card-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  padding: 5rem;
+  border-radius: var(--lg-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.credit-card {
+  background: linear-gradient(
+    135deg,
+    #1e5799 0%,
+    #2989d8 50%,
+    #207cca 51%,
+    #7db9e8 100%
+  );
+  color: white;
+  padding: 20px;
+  border-radius: var(--lg-border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  font-size: 18px;
+}
+
+.card-logo-image {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 40px;
+}
+
+.card-logo-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+p {
+  font-size: 0.7rem;
+}
+
+.card-logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+}
+
+.card-number {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.card-holder-name,
+.card-expiry {
+  font-size: 16px;
+  margin: 0 20px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-fields {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
