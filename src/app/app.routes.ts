@@ -30,5 +30,10 @@ export const routes: Routes = [
         path: 'login',
         component: LogInComponent,
         title: 'Login'
+    },
+    {
+        path: 'properties-catalog',
+        component: PropertiesCatalogComponent,
+        title: 'properties-catalog'
     }
 ];

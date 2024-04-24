@@ -52,90 +52,198 @@
     margin: 0 8px;
   }
   
-.search-icon {
+#lupa {
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 50%; 
-    width: 5vh; 
-    height: 5vh; 
+    width: 6vh; 
+    height: 6vh; 
     background-color: #c8bdab; 
     cursor: pointer;
   }
   
-  .search-icon .material-symbols-outlined {
+  #lupa .material-symbols-outlined {
     font-size: 24px; 
-    color: #333; 
+    color: #fff; 
   }
 
   hr {
     border: 0;
     height: 1px;
     background: #e4e4e4;
-    margin-bottom: 10vh;
+    margin-bottom: 3vh;
   }
 
-  /* En tu archivo de estilos, por ejemplo, carousel-icons.component.css */
+  .features-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    gap: 20px; /* Espaciado entre elementos */
+    align-items: center;
+    justify-content: center;
+  }
+
+ 
 .icon-container {
     text-align: center;
   }
   
-  .icon {
-    /* Aquí aplicarías los estilos para tus íconos, 
-    por ejemplo, si usas una fuente de íconos o imágenes */
+.switch-container
+{
+  border-color: #e4e4e4;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 2vh;
+  
+
+}
+  
+#mascotas
+{
+  margin-right: 1rem;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 23px;
+  width: 23px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+.filter-button
+{
+  cursor: pointer;
+}
+
+input:checked + .slider {
+  background-color: #c8bdab;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #c8bdab;
+}
+
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+  
+  /* Estilos para el contenedor de las características */
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.material-symbols-outlined
+{
+  font-size: 2.5rem;
+  color: #313131;
+}
+
+.filter-button
+{
+  border-color: #e4e4e4;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 1.5vh 3vh;
+  margin-left: 1rem;
+}
+#filtro
+{
+  border-color: none;
+  border-width: 0px;
+  background-color: #fff;
+  font-size: medium;
+  margin-right: 1rem;
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  padding: 20px; 
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 1024px) { 
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); 
   }
-  
-  .filter-button {
-    /* Estilos para tu botón de filtros */
-  }
-  
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  
-  
+}
+
+#load-more-btn
+{
+  border-color: #c8bdab;
+  border-radius: 2vh;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #c8bdab;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 3vh 5vh;
+  margin: 2vh auto;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-bottom: 8rem;
+  margin-top: 5rem;
+}
+
+#load-more-btn:hover {
+  background-color: #b0a091;
+  border-color: #b0a091;
+}
