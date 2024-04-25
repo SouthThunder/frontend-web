@@ -10,9 +10,15 @@
       <a href="">Precios</a>
       <a href="/test">Servicios</a>
     </nav>
-    <div class="options">
-      <button (click)="login()">Iniciar sesión</button>
-      <button (click)="register()">Registrarse</button>
+
+    <div *ngIf="loggedIn; else notLoggedIn">
+      <p>Welcome, User!</p>
     </div>
+    <ng-template #notLoggedIn>
+      <div class="options">
+        <button (click)="login()">Iniciar sesión</button>
+        <button (click)="register()">Registrarse</button>
+      </div>
+    </ng-template>
   </div>
 </header>
