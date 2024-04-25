@@ -1,0 +1,103 @@
+<div class="contenedor-pricipal">
+    <div class="contenedor-formulario">
+        <div class="titulo">
+            <p>Información de la propiedad</p>
+        </div>
+        <div class="cargar-imagen">
+            <img src="assets/foto3.png" alt="propiedades">
+            <button class="pi pi-image"></button>
+        </div>
+        <div class="formulario">
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="departamento">Departamento</label>
+                    <select id="departamento" name="departamento">
+                        <!-- Opciones del departamento -->
+                        <option value="">Bogotá</option>
+                        <option value="">Bogotá</option>
+                        <option value="">Bogotá</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="municipio">Municipio</label>
+                    <select id="municipio" name="municipio">
+                        <option value="">Selecciona un municipio</option>
+                        <option value="">Bogotá</option>
+                        <option value="">Bogotá</option>
+                        <option value="">Bogotá</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-ingreso">Tipo de Ingreso</label>
+                    <select id="tipo-ingreso" name="tipo_ingreso">
+                        <option value="">Selecciona un tipo de ingreso</option>
+                        <!-- Opciones del tipo de ingreso -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="habitaciones">Habitaciones</label>
+                    <input type="number" id="habitaciones" name="habitaciones">
+                </div>
+
+                <div class="form-group">
+                    <label for="banos">Baños</label>
+                    <input type="number" id="banos" name="banos">
+                </div>
+
+                <div class="form-group">
+                    <label for="mascotas">Mascotas</label>
+                    <select id="mascotas" name="mascotas">
+                        <option value="">Si</option>
+                        <option value="">No</option>
+                        ¿
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="piscina">Piscina</label>
+                    <select id="piscina" name="piscina">
+                        <option value="">Si</option>
+                        <option value="">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="asador">Asador</label>
+                    <select id="asador" name="asador">
+                        <option value="">Si</option>
+                        <option value="">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor-noche">Valor noche</label>
+                    <input type="number" id="valor-noche" name="valor_noche">
+                </div>
+
+                <div class="form-group">
+                    <label for="metros-cuadrados">Metros cuadrados</label>
+                    <input type="number" id="metros-cuadrados" name="metros_cuadrados">
+                </div>
+
+                <!-- Botón de enviar -->
+                <div id="enviar" class="form-group">
+                    <button class="enviar" type="submit" (click)="onSubmit()">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

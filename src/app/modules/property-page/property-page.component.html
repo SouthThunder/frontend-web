@@ -1,0 +1,107 @@
+<div class="contenedor-principal">
+    <div class="propiedad">
+        <div class="info-1">
+            <h1>FINCA DEL OSO EN LAS MONTAÑAS</h1>
+            <P>400 metros cuadrados</P>
+        </div>
+        <div class="imagen">
+            <img src="assets/foto3.png" alt="propiedades">
+        </div>
+        <div class="info-2">
+            <h3>Madrid, Cundinamarca</h3>
+            <p>80.000 pesos por noche</p>
+        </div>
+        <div class="info-3">
+            <div class="info-3-izquierda">
+                <div class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Tipo de ingreso</h6>
+                        <p>Carretera principal</p>
+                    </div>
+                </div>
+                <div class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Habitaciones</h6>
+                        <p>2</p>
+                    </div>
+                </div>
+                <div class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Baños</h6>
+                        <p>2</p>
+                    </div>
+                </div>
+                <div class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Mascotas</h6>
+                        <p>Si</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-3-derecha">
+                <div id="piscina" class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Piscina</h6>
+                        <p>Si</p>
+                    </div>
+                </div>
+                <div id="asador" class="info-3-1">
+                    <div class="icono-info">
+                        <i class="pi pi-check"></i>
+                    </div>
+                    <div class="info-propiedad">
+                        <h6>Asador</h6>
+                        <p>Si</p>
+                    </div>
+                </div>
+                <div class="info-3-1">
+                    <div id="descripcion" class="info-propiedad">
+                        <h6>Descripción</h6>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa dolore labore quas velit
+                            quibusdam,
+                            fugit tenetur quo? Quaerat consequuntur corporis distinctio eligendi corrupti quis enim,
+                            blanditiis
+                            repudiandae sit in eveniet!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btns">
+            <button class="ver-solicitudes" (click)="goToSolicitudes()">
+                <i id="icono-anadir" class="pi pi-eye"></i>
+                <p>Ver solicitudes</p>
+            </button>
+            <button class="editar-propiedad" (click)="popFormulario()">
+                <i id="icono-anadir" class="pi pi-pencil"></i>
+                <p>Editar Propiedad</p>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="contenedor-principal2" [style.display]="mostrarSolicitudes ? 'block' : 'none'">
+    <button id="boton-cerrar" class="pi pi-times-circle" (click)="volverdeSolicitudes()"></button>
+    <app-requests-arrendador></app-requests-arrendador>
+</div>
+
+
+<div class="contenedor-principal2" [style.display]="mostrarForm ? 'block' : 'none'">
+    <button id="boton-cerrar" class="pi pi-times-circle" (click)="ocultarFormulario()"></button>
+    <app-form-property></app-form-property>
+</div>

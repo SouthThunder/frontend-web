@@ -4,16 +4,18 @@ import { PropertiesArrendadorComponent } from '../../components/properties-arren
 import { Router } from '@angular/router';
 import { RequestsArrendadorComponent } from '../../components/requests-arrendador/requests-arrendador.component';
 import { CommonModule } from '@angular/common';
+import { FormPropertyComponent } from '../../components/form-property/form-property.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [Header2Component, PropertiesArrendadorComponent, RequestsArrendadorComponent, CommonModule],
+  imports: [Header2Component, PropertiesArrendadorComponent, RequestsArrendadorComponent, CommonModule, FormPropertyComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   mostrarPropertiesArrendador = true;
 
@@ -25,4 +27,15 @@ export class ProfileComponent {
     this.mostrarPropertiesArrendador = true;
   }
 
+
+  mostrarFormulario = false;
+
+  popFormulario() {
+    this.mostrarFormulario = true;
+  }
+
+  ocultarFormulario() {
+    console.log('ocultarFormulario');
+    this.mostrarFormulario = false;
+  }
 }

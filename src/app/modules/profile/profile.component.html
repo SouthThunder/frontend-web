@@ -29,5 +29,17 @@
 
         <!-- Se muestra solo si mostrarPropertiesArrendador es false -->
         <app-requests-arrendador *ngIf="!mostrarPropertiesArrendador"></app-requests-arrendador>
+        <div class="anadir-propiedad" (click)="popFormulario()">
+            <button class=" anadir-button">
+                <i class="pi pi-plus-circle" id="icono-anadir"></i>
+                Añadir Propiedad
+            </button>
+        </div>
     </div>
+</div>
+
+
+<div class="contenedor-principal" [style.display]="mostrarFormulario ? 'block' : 'none'">
+    <app-form-property *ngIf="mostrarFormulario"></app-form-property>
+    <button id="boton-cerrar" class="pi pi-times-circle" (click)="ocultarFormulario()"></button>
 </div>

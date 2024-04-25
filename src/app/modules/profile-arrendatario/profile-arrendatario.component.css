@@ -151,6 +151,7 @@
 }
 
 .barra-principal:hover {
+    transition: 0.4s;
     color: #C8BDAB;
     /* Color cuando se pasa el ratón por encima */
 }

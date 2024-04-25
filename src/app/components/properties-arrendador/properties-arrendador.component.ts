@@ -4,13 +4,15 @@ import { PropertiesService } from '../../services/propertiesService/properties.s
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { CommonModule } from '@angular/common';
+import { FormPropertyComponent } from '../form-property/form-property.component';
 
 @Component({
   selector: 'app-properties-arrendador',
   templateUrl: './properties-arrendador.component.html',
   styleUrls: ['./properties-arrendador.component.css'],
   providers: [PropertiesService],
-  imports: [CarouselModule, ButtonModule, TagModule],
+  imports: [CarouselModule, ButtonModule, TagModule, CommonModule, FormPropertyComponent],
   standalone: true
 })
 
@@ -56,5 +58,6 @@ export class PropertiesArrendadorComponent implements OnInit {
         return 'nada';
     }
   }
+
 
 }

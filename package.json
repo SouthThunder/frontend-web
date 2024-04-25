@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@flaticon/flaticon-uicons": "^3.2.1",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "ngx-swiper-wrapper": "^10.0.0",
