@@ -18,4 +18,14 @@ export class PropertiesService {
       return [];
     }
   }
+  async getPropertiesbyId(id: string): Promise<Propiedad[]>{
+    try {
+      const response = await axios.get<Propiedad[]>(`${this.urlApi}/${id}`); 
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  }
+  
 }

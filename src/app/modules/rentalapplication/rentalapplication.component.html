@@ -2,7 +2,7 @@
 
 <div class="rentalapplication">
   <div class="topcontainer">
-    <h2 class="tittle">FINCA DEL OSO EN LAS MONTAÑAS</h2>
+    <h2 class="tittle">{{ propiedad.nombre }}</h2>
     <div class="optioncontainer">
       <span class="material-symbols-outlined"> share </span>
       <h3>Compartir</h3>
@@ -42,7 +42,7 @@
           <h2>Departamento, Municipio</h2>
           <div>
             <h2>Estado:</h2>
-            <h2 class="available">Disponible</h2>
+            <h2 class="available">{{ propiedad.estado }}</h2>
           </div>
         </div>
 
@@ -63,10 +63,7 @@
       <div class="descriptioninfo">
         <h3>Descripción</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolores
-          velit modi mollitia explicabo, similique saepe dolorem, facilis
-          eligendi asperiores adipisci. Repellendus rerum asperiores fugit
-          impedit ullam vitae quasi explicabo!
+          {{ propiedad.descripcion }}
         </p>
         <div class="moreinfodescription">
           <h4>Mostrar más</h4>

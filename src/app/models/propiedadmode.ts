@@ -6,7 +6,10 @@ export interface Propiedad{
     nombre: string;
     descripcion: string;
     valor: number;
-    estado: boolean;
-    arrendador:Arrendador;
-    solicitudes: number[]
+    estado: string;
+    piscina: boolean;
+    banos:number;
+    habitaciones:number;
+    asador:boolean;
+    mascotas:boolean;
 }

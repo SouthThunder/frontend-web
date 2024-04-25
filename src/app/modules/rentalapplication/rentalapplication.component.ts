@@ -5,6 +5,9 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ReviewsComponent } from '../../components/reviews/reviews.component';
 import moment  from 'moment';
 import { NgModule } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PropertiesService } from '../../services/propiedad.service/properties.service';
+import { Propiedad } from '../../models/propiedadmode';
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
@@ -35,14 +38,35 @@ export class RentalapplicationComponent {
 
   reviewsCountReceived: number = 0;
   averageRatingReceived: number = 0; 
-  constructor() {
-
-  }
-
+  constructor(private route: ActivatedRoute,private propiedadService: PropertiesService) { }
+  propiedad: Propiedad= {
+    nombre: '',
+    descripcion: '',
+    valor: 0,
+    estado: '',
+    piscina: false,
+    banos: 0,
+    habitaciones: 0,
+    asador: false,
+    mascotas: false,
+  } ; 
+  id:string | null = '';
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id') ?? '';
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
+    this.getPropiedad(this.id);
   }
+  async getPropiedad(id: string): Promise<void> {
+    console.log(id, "aca el id");
+    this.propiedadService.getPropertiesbyId(id).then( (response: any) => {
+      console.log(response);
+      this.propiedad=response;
+    },(error: any)=>{
+      console.log(error);
+    })
+  }
+
   onAverageRatingChange(newAverage: number) {
     this.averageRatingReceived = newAverage;
   }
