@@ -29,7 +29,7 @@ export class RentalapplicationComponent {
     "Sabado",
     "Domingo"
   ];
-
+  totalCost: number = 0;
   selectedDay: any = null;
   selectedDayExit: any = null; 
   monthSelect: any[] | undefined;
@@ -80,6 +80,14 @@ export class RentalapplicationComponent {
     },(error: any)=>{
       console.log(error);
     })
+  }
+  calculateTotalCost(): void {
+    if (this.dateValue && this.dateValueExit) {
+      const start = moment(this.dateValue);
+      const end = moment(this.dateValueExit);
+      const nights = end.diff(start, 'days');
+      this.totalCost = nights * this.propiedad.valor;
+    }
   }
   async createSolicitud(): Promise<void> {
     this.solicitud.arrendatario = this.idNumber;
@@ -158,6 +166,7 @@ export class RentalapplicationComponent {
     const parse = `${monthYear}-${day.value}`
     const objectDate = moment(parse)
     this.dateValue = objectDate;
+    this.calculateTotalCost();
   }
   changeMonthExit(flag: number) {
     if (flag < 0) {
@@ -175,6 +184,6 @@ export class RentalapplicationComponent {
     const parse = `${monthYear}-${day.value}`
     const objectDate = moment(parse)
     this.dateValueExit = objectDate;
-
+    this.calculateTotalCost();
   }
 }
