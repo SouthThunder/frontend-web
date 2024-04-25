@@ -33,7 +33,8 @@ export class RentalapplicationComponent {
   dateSelectExit: any;
   dateValueExit: any;
 
-
+  reviewsCountReceived: number = 0;
+  averageRatingReceived: number = 0; 
   constructor() {
 
   }
@@ -42,7 +43,12 @@ export class RentalapplicationComponent {
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
   }
-
+  onAverageRatingChange(newAverage: number) {
+    this.averageRatingReceived = newAverage;
+  }
+  onReviewsCountChange(newCount: number) {
+    this.reviewsCountReceived = newCount;
+  }
   getDaysFromDate(month: number, year: number) {
 
     const startDate = moment.utc(`${year}/${month}/01`)

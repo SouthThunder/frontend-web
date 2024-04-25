@@ -22,9 +22,9 @@ export class ReviewsService {
         });
     });
   }
-  async getSolicitudReviews(id: number): Promise<Observable<Reviews[] | null>> {
+  async getPropiedadReviews(id: number): Promise<Observable<Reviews[] | null>> {
     return new Observable((observer) => {
-      axios.get<Reviews[]>(`${this.urlApi}/solicitud/${id}`)
+      axios.get<Reviews[]>(`${this.urlApi}/propiedad/${id}`)
         .then((response) => {
           observer.next(response.data);
           observer.complete();
