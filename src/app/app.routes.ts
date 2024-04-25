@@ -35,7 +35,7 @@ export const routes: Routes = [
         title: 'properties-catalog'
     },
     {
-        path: 'rentalapplication',
+        path: 'rentalapplication/:id',
         component: RentalapplicationComponent,
         title: 'Rental Application'
     },
