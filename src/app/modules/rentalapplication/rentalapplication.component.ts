@@ -11,6 +11,7 @@ import { Propiedad } from '../../models/propiedadmode';
 import { SolicitudService } from '../../services/solicitudService/solicitud.service';
 import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { FormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
@@ -41,7 +42,7 @@ export class RentalapplicationComponent {
 
   reviewsCountReceived: number = 0;
   averageRatingReceived: number = 0; 
-  constructor(private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService) { }
+  constructor(private router: Router,private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService) { }
   solicitud: SolicitudArriendo= {
     fechainicio: '',
     fechafin: '',
@@ -96,6 +97,7 @@ export class RentalapplicationComponent {
     this.solicitud.cantidadPersonas = this.guestCount;
     this.solicitudService.createSolicitud(this.solicitud).then( (response: any) => {
       console.log(response);
+      this.router.navigate(['/pago',this.totalCost]);
     },(error: any)=>{
       console.log(error);
     })

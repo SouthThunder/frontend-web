@@ -40,7 +40,7 @@ export const routes: Routes = [
         title: 'Rental Application'
     },
     {
-        path: 'pago',
+        path: 'pago/:valor',
         component: PagoComponent,
         title: 'Rental Application'
     },
