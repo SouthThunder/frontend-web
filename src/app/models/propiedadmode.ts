@@ -8,5 +8,5 @@ export interface Propiedad{
     valor: number;
     estado: boolean;
     arrendador:Arrendador;
-    solicitudes: SolicitudArriendo[]
+    solicitudes: number[]
 }

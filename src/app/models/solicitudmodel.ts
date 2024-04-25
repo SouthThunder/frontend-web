@@ -5,7 +5,7 @@ export interface SolicitudArriendo{
     fechainicio: string;
     fechafin: string;
     cantidadPersonas: number;
-    arrendatario: Arrendatario;
+    arrendatario: number;
     estado: boolean;
 
 }

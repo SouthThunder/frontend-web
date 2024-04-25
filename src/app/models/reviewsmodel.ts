@@ -5,7 +5,7 @@ export interface Reviews{
     id?: number;
     comentario: string;
     puntuacion: number;
-    solicitud_arriendo: SolicitudArriendo;
-    arrendatario: Arrendatario;
+    solicitud_arriendo: number;
+    arrendatario: number;
     
 }
