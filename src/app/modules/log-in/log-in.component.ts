@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-log-in',
   standalone: true,
@@ -21,12 +23,12 @@ export class LogInComponent {
   usuario: string | undefined;
   contrasena: string | undefined;
 
-  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService) { }
+  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
 
 
   read(form: NgForm) {
     if (!form.valid) {
-      return;  // Double-checking form validity (optional)
+      return; 
     }
     
     if (this.verificar === "arrendatario") {
@@ -44,7 +46,8 @@ export class LogInComponent {
   getArrendatario(){
     // Cast Usuario to String
     this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena)).then(response => {
-      console.log(response);
+      localStorage.setItem('id', String(response?.id));
+      this.router.navigate(['/properties-catalog']);
     },error=>{
       console.log(error);
     })
@@ -53,7 +56,8 @@ export class LogInComponent {
   getArrendador(){
     // Cast Usuario to String
     this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)).then(response => {
-      console.log(response);
+      localStorage.setItem('id', String(response?.id));
+      this.router.navigate(['/properties-catalog']);
     },error=>{
       console.log(error);
     })
