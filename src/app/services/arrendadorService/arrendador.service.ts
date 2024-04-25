@@ -23,7 +23,7 @@ export class ArrendadorService {
 
   async getArrendador(correo: string, contrasena: string): Promise<Arrendador | null>{
     try {
-      const response = await axios.post<Arrendador>(`${this.urlApi}`, {
+      const response = await axios.post<Arrendador>(`${this.urlApi}/login`, {
         correo: correo,
         contrasena: contrasena
       })

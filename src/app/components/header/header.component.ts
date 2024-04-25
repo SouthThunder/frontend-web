@@ -15,7 +15,7 @@ export class HeaderComponent {
 
   // Create navigator 
   constructor(private router: Router) { 
-    if (localStorage.getItem('uid') != null) {
+    if (localStorage.getItem('id') != null) {
       this.loggedIn = true;
     }
   }

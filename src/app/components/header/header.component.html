@@ -12,7 +12,7 @@
     </nav>
 
     <div *ngIf="loggedIn; else notLoggedIn">
-      <p>Welcome, User!</p>
+      <span class="material-symbols-outlined"> person </span>
     </div>
     <ng-template #notLoggedIn>
       <div class="options">
