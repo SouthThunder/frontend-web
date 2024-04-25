@@ -1,0 +1,38 @@
+<div class="property-card" (click)="onClick()">
+  <div class="image-holder">
+    <img src="../../assets/foto3.png" alt="" class="imagen" />
+    <span class="material-symbols-outlined corazon"> favorite </span>
+  </div>
+  <div class="image-description">
+    <span> Anolaima,</span>
+    <span>Cundinamarca</span>
+
+    <span class="material-symbols-outlined estrella"> star </span>
+    <span>5</span>
+  </div>
+
+  <div class="features-container">
+    <div class="feature-item">
+      <span class="material-symbols-outlined"> bed </span>
+      <span> {{ propertie.habitaciones }} </span>
+    </div>
+
+    <div class="feature-item">
+      <span class="material-symbols-outlined"> bathtub </span>
+      <span>{{ propertie.banos }}</span>
+    </div>
+
+    <div class="feature-item">
+      <span class="material-symbols-outlined"> pool </span>
+      <span> {{ propertie.piscina }} </span>
+    </div>
+
+    <div class="feature-item">
+      <span class="material-symbols-outlined"> outdoor_grill </span>
+      <span> {{ propertie.asador }} </span>
+    </div>
+  </div>
+  <div class="image-description">
+    <span> {{ propertie.valor }} Pesos Noche</span>
+  </div>
+</div>

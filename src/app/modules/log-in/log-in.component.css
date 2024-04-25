@@ -1,0 +1,92 @@
+/* registro.component.css */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: var(--md-border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form > h1 {
+  text-align: center;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}
+
+form > button {
+  padding: 1rem 2rem;
+  background-color: #c8bdab;
+  color: #fff;
+  border: none;
+  border-radius: var(--xs-border);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+form > button:hover {
+  transform: scale(1.03);
+}
+
+/* Estilo para deshabilitar el botón cuando el formulario no es válido */
+form > button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Estilos para las alertas */
+/* Estilos para los checkboxes */
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Estilos para mostrar las alertas cuando no se ha seleccionado ningún rol */
+.alerta {
+  display: block; /* Mostrar la alerta cuando no se ha seleccionado ningún rol */
+}
+
+/* Estilos para mostrar las alertas cuando el campo no es válido */
+input.ng-invalid.ng-touched + .alerta {
+  display: block; /* Mostrar la alerta cuando el campo es inválido y ha sido tocado */
+}
+/* Estilos para el título del rol */
+.roltittle {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el select del rol */
+.selecttipo {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el padding en el ancho total */
+}

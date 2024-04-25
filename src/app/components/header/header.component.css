@@ -20,6 +20,10 @@ header > .container {
   backdrop-filter: blur(10px);
 }
 
+.material-symbols-outlined {
+  font-size: 3rem;
+}
+
 header > .container > .logo {
   font-size: 1.5rem;
   font-weight: bold;
