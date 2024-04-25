@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReviewsService {
-   private urlApi= 'http://localhost:8080/grupo26/api/calificacion';
-  //  private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/calificacion';
+  //  private urlApi= 'http://localhost:8080/grupo26/api/calificacion';
+   private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/calificacion';
    async getReviews(): Promise<Observable<Reviews[]>> {
     return new Observable((observer) => {
       axios.get<Reviews[]>(this.urlApi)
