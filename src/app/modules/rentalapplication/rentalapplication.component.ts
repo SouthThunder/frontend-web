@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { ReviewsComponent } from '../../components/reviews/reviews.component';
 import moment  from 'moment';
 import { NgModule } from '@angular/core';
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent, CommonModule],
+  imports: [HeaderComponent,FooterComponent, CommonModule,ReviewsComponent],
   templateUrl: './rentalapplication.component.html',
   styleUrl: './rentalapplication.component.css',
   providers: [DatePipe]
