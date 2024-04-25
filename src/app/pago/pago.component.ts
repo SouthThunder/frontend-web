@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PagoServiceService } from '../services/pago/pago.service.service';
 
@@ -29,7 +29,7 @@ export class PagoComponent {
 
   valor: number = 0;
 
-  constructor(private pagoService: PagoServiceService, private route: ActivatedRoute) {
+  constructor(private pagoService: PagoServiceService, private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe(params => {
       this.valor = Number(params.get('valor'));
     });
@@ -73,7 +73,7 @@ export class PagoComponent {
     };
 
     this.pagoService.createPago(pago).then((response) => {
-      console.log('Pago created:', response);
+      this.router.navigate(['/']);
     });
   }
 }
