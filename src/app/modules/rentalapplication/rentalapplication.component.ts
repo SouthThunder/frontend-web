@@ -7,10 +7,14 @@ import moment from 'moment';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
 import { Propiedad } from '../../models/propiedadmode';
+import { SolicitudService } from '../../services/solicitudService/solicitud.service';
+import { SolicitudArriendo } from '../../models/solicitudmodel';
+import { FormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent, CommonModule,ReviewsComponent],
+  imports: [HeaderComponent,FooterComponent, CommonModule,ReviewsComponent,FormsModule],
   templateUrl: './rentalapplication.component.html',
   styleUrl: './rentalapplication.component.css',
   providers: [DatePipe]
@@ -25,7 +29,7 @@ export class RentalapplicationComponent {
     "Sabado",
     "Domingo"
   ];
-
+  totalCost: number = 0;
   selectedDay: any = null;
   selectedDayExit: any = null; 
   monthSelect: any[] | undefined;
@@ -37,7 +41,14 @@ export class RentalapplicationComponent {
 
   reviewsCountReceived: number = 0;
   averageRatingReceived: number = 0; 
-  constructor(private route: ActivatedRoute,private propiedadService: PropertiesService) { }
+  constructor(private router: Router,private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService) { }
+  solicitud: SolicitudArriendo= {
+    fechainicio: '',
+    fechafin: '',
+    cantidadPersonas: 0,
+    arrendatario: 0,
+    estado:false
+  }
   propiedad: Propiedad= {
     nombre: '',
     descripcion: '',
@@ -53,6 +64,7 @@ export class RentalapplicationComponent {
   } ; 
   id:string | null = '';
   idNumber: number=0;
+  guestCount: number = 1;
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
     this.idNumber = parseInt(this.id, 10);
@@ -65,6 +77,26 @@ export class RentalapplicationComponent {
     this.propiedadService.getPropertiesbyId(id).then( (response: any) => {
       console.log(response);
       this.propiedad=response;
+    },(error: any)=>{
+      console.log(error);
+    })
+  }
+  calculateTotalCost(): void {
+    if (this.dateValue && this.dateValueExit) {
+      const start = moment(this.dateValue);
+      const end = moment(this.dateValueExit);
+      const nights = end.diff(start, 'days');
+      this.totalCost = nights * this.propiedad.valor;
+    }
+  }
+  async createSolicitud(): Promise<void> {
+    this.solicitud.arrendatario = this.idNumber;
+    this.solicitud.fechainicio = this.dateValue.format('YYYY-MM-DD');
+    this.solicitud.fechafin = this.dateValueExit.format('YYYY-MM-DD');
+    this.solicitud.cantidadPersonas = this.guestCount;
+    this.solicitudService.createSolicitud(this.solicitud).then( (response: any) => {
+      console.log(response);
+      this.router.navigate(['/pago',this.totalCost]);
     },(error: any)=>{
       console.log(error);
     })
@@ -135,6 +167,7 @@ export class RentalapplicationComponent {
     const parse = `${monthYear}-${day.value}`
     const objectDate = moment(parse)
     this.dateValue = objectDate;
+    this.calculateTotalCost();
   }
   changeMonthExit(flag: number) {
     if (flag < 0) {
@@ -152,6 +185,6 @@ export class RentalapplicationComponent {
     const parse = `${monthYear}-${day.value}`
     const objectDate = moment(parse)
     this.dateValueExit = objectDate;
-
+    this.calculateTotalCost();
   }
 }

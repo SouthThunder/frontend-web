@@ -137,23 +137,29 @@
     </div>
     <div class="summary">
       <h2>Precio noche</h2>
-      <h4>$ 700.000 pesos</h4>
+      <h4>$ {{ propiedad.valor }}</h4>
       <div class="itemsdetails">
         <div class="eachitem">
           <h4>Llegada</h4>
 
-          <input type="date" class="input-fecha" />
+          <h5>{{ dateValue }}</h5>
         </div>
         <div class="eachitem">
           <h4>Salida</h4>
-          <input type="date" class="input-fecha" />
+          <h5>{{ dateValueExit }}</h5>
         </div>
         <div class="eachitem">
           <h4>Huéspedes</h4>
-          <input type="number" class="input-huespedes" min="1" />
+          <input
+            type="number"
+            class="input-huespedes"
+            min="1"
+            [(ngModel)]="guestCount"
+          />
         </div>
       </div>
-      <button class="reserve">Reservar</button>
+      <h2>Total: ${{ totalCost }}</h2>
+      <button class="reserve" (click)="createSolicitud()">Reservar</button>
     </div>
   </div>
   <div class="reviewssection">
