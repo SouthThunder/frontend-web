@@ -5,6 +5,7 @@ import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
 import {RentalapplicationComponent} from './modules/rentalapplication/rentalapplication.component';
 import { PagoComponent } from './pago/pago.component';
+import { PayrentalapplicationComponent } from './modules/payrentalapplication/payrentalapplication/payrentalapplication.component';
 
 
 import { PropertiesCatalogComponent } from './modules/properties-catalog/properties-catalog.component';
@@ -44,7 +45,13 @@ export const routes: Routes = [
         title: 'Rental Application'
     },
     {
+        path: 'payrentalapplication',
+        component: PayrentalapplicationComponent,
+        title: 'Pay Rental Application'
+    },
+    {
         path: '**',
         redirectTo: ''
-    }
+    },
+    
 ];
