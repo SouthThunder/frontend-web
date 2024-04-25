@@ -142,18 +142,23 @@
         <div class="eachitem">
           <h4>Llegada</h4>
 
-          <input type="date" class="input-fecha" />
+          <h5>{{ dateValue }}</h5>
         </div>
         <div class="eachitem">
           <h4>Salida</h4>
-          <input type="date" class="input-fecha" />
+          <h5>{{ dateValueExit }}</h5>
         </div>
         <div class="eachitem">
           <h4>Huéspedes</h4>
-          <input type="number" class="input-huespedes" min="1" />
+          <input
+            type="number"
+            class="input-huespedes"
+            min="1"
+            [(ngModel)]="guestCount"
+          />
         </div>
       </div>
-      <button class="reserve">Reservar</button>
+      <button class="reserve" (click)="createSolicitud()">Reservar</button>
     </div>
   </div>
   <div class="reviewssection">
