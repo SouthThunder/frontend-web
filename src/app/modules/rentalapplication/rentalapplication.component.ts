@@ -3,7 +3,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ReviewsComponent } from '../../components/reviews/reviews.component';
-import moment  from 'moment';
+import moment from 'moment';
 import { NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
@@ -43,12 +43,14 @@ export class RentalapplicationComponent {
     nombre: '',
     descripcion: '',
     valor: 0,
-    estado: '',
+    estado: false,
     piscina: false,
     banos: 0,
     habitaciones: 0,
     asador: false,
     mascotas: false,
+    arrendador: 0, 
+    solicitudes: []
   } ; 
   id:string | null = '';
   idNumber: number=0;
