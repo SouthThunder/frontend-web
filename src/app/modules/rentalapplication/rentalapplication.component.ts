@@ -51,8 +51,10 @@ export class RentalapplicationComponent {
     mascotas: false,
   } ; 
   id:string | null = '';
+  idNumber: number=0;
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
+    this.idNumber = parseInt(this.id, 10);
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
     this.getPropiedad(this.id);
