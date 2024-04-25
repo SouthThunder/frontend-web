@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ReviewsComponent } from '../../components/reviews/reviews.component';
 import moment from 'moment';
-import { NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
 import { Propiedad } from '../../models/propiedadmode';

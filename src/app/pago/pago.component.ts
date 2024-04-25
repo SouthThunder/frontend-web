@@ -7,7 +7,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 
+import { ActivatedRoute } from '@angular/router';
 
+import { PagoServiceService } from '../services/pago/pago.service.service';
 
 @Component({
   selector: 'app-pago',
@@ -24,6 +26,14 @@ export class PagoComponent {
   formattedCardNumber: string = '';
   cardType: string = 'Unknown';
   cardImageUrl: string = './assets/default.png';
+
+  valor: number = 0;
+
+  constructor(private pagoService: PagoServiceService, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.valor = Number(params.get('valor'));
+    });
+  }
 
   onSubmit() {
     console.log('Card Data:', this.cardNumber, this.cardName, this.cardMonth, this.cardYear, this.cardType);
@@ -53,5 +63,17 @@ export class PagoComponent {
       this.cardType = 'Unknown';
       this.cardImageUrl = './assets/default.png';
     }
+  }
+
+  createPago() {
+    const pago = {
+      numCuenta: this.cardNumber,
+      valor: this.valor,
+      banco: this.cardType
+    };
+
+    this.pagoService.createPago(pago).then((response) => {
+      console.log('Pago created:', response);
+    });
   }
 }
