@@ -20,7 +20,6 @@
     "@angular/router": "^17.3.0",
     "@flaticon/flaticon-uicons": "^3.2.1",
     "axios": "^1.6.8",
-    "bootstrap": "^5.3.3",
     "ngx-swiper-wrapper": "^10.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^17.14.1",
@@ -40,7 +39,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "tailwind": "^4.0.0",
     "typescript": "~5.4.2"
   }
 }
