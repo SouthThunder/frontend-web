@@ -6,13 +6,19 @@
     <nav>
       <a href="">Inicio</a>
       <a href="">Nosotros</a>
-      <a href="">Galería</a>
+      <a href="/properties-catalog">Galería</a>
       <a href="">Precios</a>
       <a href="/test">Servicios</a>
     </nav>
-    <div class="options">
-      <button (click)="login()">Iniciar sesión</button>
-      <button (click)="register()">Registrarse</button>
+
+    <div *ngIf="loggedIn; else notLoggedIn">
+      <span class="material-symbols-outlined"> person </span>
     </div>
+    <ng-template #notLoggedIn>
+      <div class="options">
+        <button (click)="login()">Iniciar sesión</button>
+        <button (click)="register()">Registrarse</button>
+      </div>
+    </ng-template>
   </div>
 </header>

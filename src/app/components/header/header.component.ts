@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  loggedIn: boolean = false;
 
   // Create navigator 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    if (localStorage.getItem('id') != null) {
+      this.loggedIn = true;
+    }
+  }
 
   // Function to navigate to the home page
   register() {

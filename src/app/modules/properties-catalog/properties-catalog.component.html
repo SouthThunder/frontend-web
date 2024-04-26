@@ -1,0 +1,86 @@
+<div class="search-bar">
+  <div class="search-section">
+    <label class="search-label">DÓNDE</label>
+    <input class="search-input" placeholder="Explora Destinos" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">LLEGADA</label>
+    <input type="date" class="search-input" placeholder="Agrega Fecha" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">SALIDA</label>
+    <input type="date" class="search-input" placeholder="Agrega Fecha" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">QUIÉN</label>
+    <input class="search-input" placeholder="¿Cuántos?" />
+  </div>
+
+  <div class="search-icon" id="lupa">
+    <span class="material-symbols-outlined">search</span>
+  </div>
+</div>
+<hr />
+
+<div class="features-container">
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> arrow_back_ios </span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> bed </span>
+    <span>Cuartos</span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> bathtub </span>
+    <span>Baños</span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> outdoor_grill </span>
+    <span>Asador</span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> pool </span>
+    <span>Piscina</span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> local_fire_department </span>
+    <span>Populares</span>
+  </div>
+
+  <div class="feature-item">
+    <span class="material-symbols-outlined"> arrow_forward_ios </span>
+  </div>
+
+  <div class="filter-button">
+    <button id="filtro">Filtros</button>
+    <span class="material-symbols-outlined"> tune </span>
+  </div>
+  <div class="switch-container">
+    <span id="mascotas">Mascotas</span>
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+
+<div class="grid-container-center">
+  <div class="grid-container">
+    <app-propertie
+      *ngFor="let test of propiedades"
+      [propertie]="test"
+      class="grid-item"
+    ></app-propertie>
+  </div>
+</div>
+<button id="load-more-btn">Mostrar más</button>
+
+<app-footer></app-footer>
