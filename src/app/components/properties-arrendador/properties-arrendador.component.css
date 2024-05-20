@@ -1,59 +1,64 @@
 .border-1 {
-    margin: 5px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .custom-carousel {
-    margin: 0 auto;
+  margin: 0 auto;
+}
+
+.contenedor > .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 1rem;
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
 .mt-5 {
-    text-align: center;
+  text-align: center;
 }
 
 .delete {
-    background-color: #905A5A;
+  background-color: #905a5a;
 }
 
 .delete i {
-    color: white;
+  color: white;
 }
 
 button {
-    border-radius: 100%;
-    height: 50px;
-    width: 50px;
-    margin: 10px;
-    border: none;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  border: none;
 }
 
-
 i {
-    font-size: 25px;
-    color: rgb(105, 105, 105);
+  font-size: 25px;
+  color: rgb(105, 105, 105);
 }
 
 :host ::ng-deep .p-carousel .p-carousel-indicators {
-    display: none !important;
+  display: none !important;
 }
 
-
 :host .product-item .product-item-content {
-    border: 1px solid var(--surface-d);
-    border-radius: 3px;
-    margin: 0.3rem;
-    text-align: center;
-    padding: 2rem 0;
+  border: 1px solid var(--surface-d);
+  border-radius: 3px;
+  margin: 0.3rem;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 :host .product-item .product-image {
-    width: 50%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
