@@ -1,0 +1,63 @@
+<app-header2></app-header2>
+
+<div class="container">
+  <div class="profile-info">
+    <div class="profile-photo">
+      <div class="photo">
+        <img
+          class="profile-img"
+          src="assets/profile1.png"
+          alt="Foto de perfil"
+        />
+      </div>
+      <div class="edit-button">
+        <button>
+          <img class="edit-img" src="assets/editar.png" alt="Boton editar" />
+        </button>
+      </div>
+    </div>
+    <div class="info">
+      <p>Juan Luis Peralta</p>
+      <p class="email">juanPeralta&#64;gmail.com</p>
+      <p class="phone">+57 320 6493263</p>
+    </div>
+  </div>
+  <div class="properties-info">
+    <div class="contenedor-opciones">
+      <button class="barra-principal">Mensajes</button>
+      <button class="barra-principal" (click)="goToPropiedades()">
+        Propiedades
+      </button>
+      <button class="barra-principal" (click)="goToSolicitudes()">
+        Solicitudes
+      </button>
+    </div>
+    <!-- Se muestra solo si mostrarPropertiesArrendador es true -->
+    <app-properties-arrendador
+      *ngIf="mostrarPropertiesArrendador"
+    ></app-properties-arrendador>
+
+    <!-- Se muestra solo si mostrarPropertiesArrendador es false -->
+    <app-requests-arrendador
+      *ngIf="!mostrarPropertiesArrendador"
+    ></app-requests-arrendador>
+    <div class="anadir-propiedad" (click)="popFormulario()" onKeyPress="">
+      <button class="anadir-button">
+        <i class="material-symbols-outlined" id="icono-anadir">add_circle</i>
+        Añadir Propiedad
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="contenedor-principal"
+  [style.display]="mostrarFormulario ? 'block' : 'none'"
+>
+  <app-form-property *ngIf="mostrarFormulario"></app-form-property>
+  <button
+    id="boton-cerrar"
+    class="pi pi-times-circle"
+    (click)="ocultarFormulario()"
+  ></button>
+</div>
