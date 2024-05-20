@@ -17,6 +17,9 @@ import { FormPropertyComponent } from '../form-property/form-property.component'
 })
 
 export class PropertiesArrendadorComponent implements OnInit {
+
+  API_URL = 'http://localhost:8080/api/';
+
   properties: Properties[] = [];
 
   responsiveOptions: any[] | undefined;
