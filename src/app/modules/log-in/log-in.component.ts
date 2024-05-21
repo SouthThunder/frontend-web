@@ -10,6 +10,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import Cookies from 'js-cookie';
 
 import { Router } from '@angular/router';
+import { AuthResponse } from '../../models/auth.model';
 
 @Component({
   selector: 'app-log-in',
@@ -49,9 +50,8 @@ export class LogInComponent {
     // Cast Usuario to String
 
     try {
-      const response = await this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena));
-      console.log(response);
-      Cookies.set('token', response ?? '');
+      const response = await this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
+      Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
       console.log(error);
@@ -60,9 +60,9 @@ export class LogInComponent {
 
   async getArrendador(){
     try {
-      const response = await this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena));
+      const response = await this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
       console.log(response);
-      Cookies.set('token', response ?? '');
+      Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
       console.log(error);
