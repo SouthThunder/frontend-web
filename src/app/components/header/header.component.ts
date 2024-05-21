@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 
+import Cookies from "js-cookie";
+
 
 @Component({
   selector: 'app-header',
@@ -15,7 +17,7 @@ export class HeaderComponent {
 
   // Create navigator 
   constructor(private router: Router) { 
-    if (localStorage.getItem('id') != null) {
+    if (Cookies.get('token')) {
       this.loggedIn = true;
     }
   }
