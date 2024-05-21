@@ -62,9 +62,13 @@ export class RentalapplicationComponent {
     arrendador: 0, 
     solicitudes: []
   } ; 
+
   id:string | null = '';
   idNumber: number=0;
   guestCount: number = 1;
+
+
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
     this.idNumber = parseInt(this.id, 10);
@@ -72,6 +76,9 @@ export class RentalapplicationComponent {
     this.getDaysFromDateExit(4, 2024)
     this.getPropiedad(this.id);
   }
+
+
+
   async getPropiedad(id: string): Promise<void> {
     console.log(id, "aca el id");
     this.propiedadService.getPropertiesbyId(id).then( (response: any) => {
@@ -81,6 +88,9 @@ export class RentalapplicationComponent {
       console.log(error);
     })
   }
+
+
+
   calculateTotalCost(): void {
     if (this.dateValue && this.dateValueExit) {
       const start = moment(this.dateValue);
@@ -89,6 +99,9 @@ export class RentalapplicationComponent {
       this.totalCost = nights * this.propiedad.valor;
     }
   }
+
+
+
   async createSolicitud(): Promise<void> {
     this.solicitud.arrendatario = this.idNumber;
     this.solicitud.fechainicio = this.dateValue.format('YYYY-MM-DD');
@@ -105,9 +118,13 @@ export class RentalapplicationComponent {
   onAverageRatingChange(newAverage: number) {
     this.averageRatingReceived = newAverage;
   }
+
+
   onReviewsCountChange(newCount: number) {
     this.reviewsCountReceived = newCount;
   }
+
+  
   getDaysFromDate(month: number, year: number) {
 
     const startDate = moment.utc(`${year}/${month}/01`)
@@ -129,6 +146,9 @@ export class RentalapplicationComponent {
 
     this.monthSelect = arrayDays;
   }
+
+
+
   getDaysFromDateExit(month: number, year: number) {
 
     const startDate = moment.utc(`${year}/${month}/01`)
@@ -160,6 +180,7 @@ export class RentalapplicationComponent {
       this.getDaysFromDate(nextDate.format("MM"), nextDate.format("YYYY"));
     }
   }
+  
 
   clickDay(day: any) {
     this.selectedDay = day;
@@ -169,6 +190,8 @@ export class RentalapplicationComponent {
     this.dateValue = objectDate;
     this.calculateTotalCost();
   }
+
+
   changeMonthExit(flag: number) {
     if (flag < 0) {
       const prevDate = this.dateSelectExit.clone().subtract(1, "month");
