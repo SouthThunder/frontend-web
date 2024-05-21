@@ -5,27 +5,62 @@
     <span class="material-symbols-outlined"> arrow_back_ios </span>
   </div>
 
-  <div class="feature-item">
+  <div
+    class="feature-item"
+    [class.active]="filters.beds"
+    (click)="sortPropertiesByBeds()"
+    onKeyPress=""
+    onKeyDown=""
+    onKeyUp=""
+  >
     <span class="material-symbols-outlined"> bed </span>
     <span>Cuartos</span>
   </div>
 
-  <div class="feature-item">
+  <div
+    class="feature-item"
+    [class.active]="filters.baths"
+    (click)="sortPropertiesByBaths()"
+    onKeyPress=""
+    onKeyDown=""
+    onKeyUp=""
+  >
     <span class="material-symbols-outlined"> bathtub </span>
     <span>Baños</span>
   </div>
 
-  <div class="feature-item">
+  <div
+    class="feature-item"
+    [class.active]="filters.grill"
+    (click)="sortPropertiesByGrill()"
+    onKeyPress=""
+    onKeyDown=""
+    onKeyUp=""
+  >
     <span class="material-symbols-outlined"> outdoor_grill </span>
     <span>Asador</span>
   </div>
 
-  <div class="feature-item">
+  <div
+    class="feature-item"
+    [class.active]="filters.pool"
+    (click)="sortPropertiesByPool()"
+    onKeyPress=""
+    onKeyDown=""
+    onKeyUp=""
+  >
     <span class="material-symbols-outlined"> pool </span>
     <span>Piscina</span>
   </div>
 
-  <div class="feature-item">
+  <div
+    class="feature-item"
+    [class.active]="filters.popularity"
+    (click)="sortPropertiesByPopularity()"
+    onKeyPress=""
+    onKeyDown=""
+    onKeyUp=""
+  >
     <span class="material-symbols-outlined"> local_fire_department </span>
     <span>Populares</span>
   </div>

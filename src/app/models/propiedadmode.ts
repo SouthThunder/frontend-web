@@ -1,5 +1,3 @@
-import { Arrendador } from "./arrendadormodel";
-import { SolicitudArriendo } from "./solicitudmodel";
 
 export interface Propiedad{
     id?: number;

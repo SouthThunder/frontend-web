@@ -73,6 +73,21 @@ hr {
   margin-bottom: 3vh;
 }
 
+.feature-item {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feature-item:hover {
+  background-color: #f0f0f0; /* Hover effect */
+}
+
+.feature-item.active {
+  background-color: #c8bdab; /* Active state */
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+
 .features-container {
   margin-top: 2rem;
   display: flex;
