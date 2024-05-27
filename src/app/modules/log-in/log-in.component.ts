@@ -7,7 +7,10 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
+import Cookies from 'js-cookie';
+
 import { Router } from '@angular/router';
+import { AuthResponse } from '../../models/auth.model';
 
 @Component({
   selector: 'app-log-in',
@@ -43,24 +46,27 @@ export class LogInComponent {
   }
 
 
-  getArrendatario(){
+  async getArrendatario(){
     // Cast Usuario to String
-    this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena)).then(response => {
-      localStorage.setItem('id', String(response?.id));
+
+    try {
+      const response = await this.arrendatarioService.getArrendatario(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
+      Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
-    },error=>{
+    } catch (error) {
       console.log(error);
-    })
+    }
   }
 
-  getArrendador(){
-    // Cast Usuario to String
-    this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)).then(response => {
-      localStorage.setItem('id', String(response?.id));
+  async getArrendador(){
+    try {
+      const response = await this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
+      console.log(response);
+      Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
-    },error=>{
+    } catch (error) {
       console.log(error);
-    })
+    }
   }
 
   
