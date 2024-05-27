@@ -61,6 +61,11 @@
     height: 6vh; 
     background-color: #c8bdab; 
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  #lupa:hover {
+    background-color: #b0a091; 
+    transform: scale(1.1);
   }
   
   #lupa .material-symbols-outlined {
