@@ -24,7 +24,7 @@ export class ArrendatarioService {
   async getArrendatario(correo: string, contrasena: string): Promise<string | null>{
     try {
       console.log(this.urlApi)
-      const response = await axios.post<string>(`${this.urlApi}}`, {
+      const response = await axios.post<string>(`${this.urlApi}`, {
         correo: correo,
         contrasena: contrasena
       });
