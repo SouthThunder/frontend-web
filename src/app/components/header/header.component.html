@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="logo">
-      <p (click)="home()">InHome</p>
+      <p (click)="home()" onKeyPress="">InHome</p>
     </div>
     <nav>
       <a href="">Inicio</a>
@@ -12,7 +12,9 @@
     </nav>
 
     <div *ngIf="loggedIn; else notLoggedIn">
-      <span class="material-symbols-outlined"> person </span>
+      <span class="material-symbols-outlined" (click)="profile()" onKeyPress="">
+        person
+      </span>
     </div>
     <ng-template #notLoggedIn>
       <div class="options">

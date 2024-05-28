@@ -1,0 +1,221 @@
+.contenedor-principal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#boton-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #c8bdab;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  /* Alinea los items al inicio verticalmente */
+  padding: 2rem;
+  margin: 0;
+  width: 100%;
+}
+
+.profile-info {
+  width: 25%;
+  background-color: #c8bdab;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 2rem;
+  padding: 4% 2%;
+  min-height: 700px;
+  max-height: 80vh;
+  flex: 1;
+  /* Toma un espacio flexible en el contenedor */
+  margin-right: 1rem;
+  /* Añade un margen para separar del carrusel */
+}
+
+.profile-info > .profile-photo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.profile-info > .profile-photo > .edit-button > button {
+  background-color: white;
+  border: none;
+  border-radius: 100%;
+  position: relative;
+  bottom: 45px;
+  left: 50px;
+}
+
+.profile-info > .profile-photo > .edit-button > button > .edit-img {
+  width: 50px;
+  display: flex;
+  justify-items: center;
+  padding: 2px;
+}
+
+.profile-info > .info {
+  width: 70%;
+  padding: 10% 0;
+  background-color: #ffffffbc;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.profile-info > .info > p {
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.profile-info > .info > .email,
+.profile-info > .info > .phone {
+  color: #767169;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.properties-info {
+  width: 75%;
+  /* Toma más espacio que el perfil */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-info {
+    width: 90%;
+    /* Ajusta el ancho para pantallas más pequeñas */
+    padding: 5% 2%;
+  }
+
+  .profile-info > .info {
+    padding: 20% 0;
+    /* Más padding para mantener el contenido distribuido verticalmente */
+  }
+}
+
+@media (min-width: 769px) {
+  .profile-info {
+    height: 50vh;
+    /* Ajusta la altura para pantallas más grandes */
+  }
+}
+
+.contenedor-opciones {
+  width: 98%;
+  height: 80px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-top: solid 1px #a09b9a;
+  border-bottom: solid 1px #a09b9a;
+  display: flex;
+  justify-content: center;
+  /* Centra los botones horizontalmente */
+  align-items: center;
+  /* Centra los botones verticalmente */
+  gap: 400px;
+  /* Añade espacio entre los botones */
+}
+
+.barra-principal {
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: poppins;
+  border: none;
+}
+
+.barra-principal:hover {
+  color: #c8bdab;
+  /* Color cuando se pasa el ratón por encima */
+}
+
+button {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  border: none;
+}
+
+.anadir-propiedad {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  display: inline-flex;
+  /* Contenedor del botón */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+}
+
+.anadir-button {
+  background-color: #c8bdab;
+  width: 242px;
+  height: 50px;
+  border-radius: 50px 20px 20px 50px;
+  color: white;
+  background-color: #a09b9a;
+  font-family: poppins;
+  font-size: 18px;
+  display: flex;
+  /* Usa flexbox dentro del botón */
+  align-items: center;
+  /* Alineación vertical de los elementos dentro del botón */
+  justify-content: left;
+  /* Alineación horizontal de los elementos */
+  gap: 10px;
+  /* Espacio entre los elementos */
+  cursor: pointer;
+  outline: none;
+}
+
+#icono-anadir {
+  background: white;
+  border-radius: 100%;
+  padding: 10px;
+  font-size: 30px;
+  box-shadow: #a09b9a 0 4px 6px;
+  color: #a09b9a;
+}
+
+app-form-property {
+  position: fixed;
+  /* O puedes usar 'absolute' si 'fixed' no funciona bien con tu layout */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Esto asegura que ocupe toda la anchura de la ventana */
+  height: 100vh;
+  /* Esto asegura que ocupe toda la altura de la ventana */
+  z-index: 10000;
+  /* Un valor alto para estar sobre otros elementos */
+}
+
+app-form-property {
+  z-index: 1000;
+  /* Asegura que esté por debajo del botón de cerrar */
+}

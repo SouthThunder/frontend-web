@@ -1,0 +1,157 @@
+.contenedor-pricipal {
+    margin: auto;
+    width: 90%;
+    height: 100vh;
+    background-color: #00000000;
+    display: flex;
+    /* Activa Flexbox */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+}
+
+.contenedor-formulario {
+    position: relative;
+    width: 50%;
+    height: 80%;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.691);
+    display: flex;
+    flex-direction: column;
+    /* Centra los elementos verticalmente */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+    gap: 30px;
+    overflow-y: auto;
+}
+
+
+
+
+.titulo p {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.cargar-imagen {
+    width: 60%;
+    height: 30%;
+    background: #00000013;
+    display: flex;
+    /* Establece el contenedor como un flexbox */
+    align-items: center;
+    /* Centra la imagen verticalmente */
+    justify-content: center;
+    /* Centra la imagen horizontalmente */
+    border-radius: 30px;
+}
+
+.cargar-imagen {
+    position: relative;
+    /* Establece el contenedor como referencia para el posicionamiento absoluto */
+    display: inline-block;
+    /* O 'block', dependiendo de cómo quieras que se comporte el contenedor */
+}
+
+.cargar-imagen img {
+    display: block;
+    /* Asegura que la imagen no tenga espacio blanco extra alrededor */
+}
+
+.cargar-imagen .pi.pi-image {
+    position: absolute;
+    /* Posicionamiento absoluto con respecto a su contenedor más cercano que tiene posición relativa */
+    bottom: 10px;
+    /* Espacio desde el fondo del contenedor */
+    left: 50%;
+    /* Posiciona el botón a la mitad del contenedor desde la izquierda */
+    transform: translateX(-50%);
+    /* Desplaza el botón hacia atrás a la mitad de su propio ancho para centrarlo exactamente */
+    /* Estilos adicionales para el botón, como padding, border, etc. */
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+    /* Hace que la imagen ocupe todo el ancho del contenedor .img */
+    height: 100%;
+    /* Hace que la imagen ocupe todo el alto del contenedor .img */
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.formulario {
+    width: 40%;
+}
+
+.form-group {
+    margin: 10px 0;
+    display: flex;
+    /* Establece el contenedor como un flexbox */
+    flex-direction: column;
+    /* Asegura que los elementos se alineen verticalmente */
+    justify-content: center;
+    /* Centra los elementos verticalmente */
+    align-items: right;
+    /* Centra los elementos horizontalmente */
+    gap: 10px;
+}
+
+button {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.691);
+}
+
+button:hover {
+    background-color: #c8bdabcd;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+select {
+    border-radius: 15px;
+    height: 30px;
+    border: solid 1px #A09B9A;
+    font-family: poppins;
+}
+
+textarea {
+    border-radius: 15px;
+    border: solid 1px #A09B9A;
+    height: 60px;
+}
+
+.enviar {
+    background-color: #C8BDAB;
+    width: 242px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    font-family: poppins;
+    font-size: 18px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.234);
+}
+
+#enviar {
+    margin-top: 20px;
+    display: flex;
+    /* Activa Flexbox */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+}

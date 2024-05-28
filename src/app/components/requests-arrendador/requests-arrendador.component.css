@@ -1,0 +1,115 @@
+.contenedor-principal {
+    background: #a09b9a2e;
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+    display: flex;
+    /* Establece Flexbox en el contenedor principal */
+    justify-content: center;
+    /* Centra los hijos en el eje principal (horizontal) */
+    align-items: center;
+    /* Centra los hijos en el eje cruzado (vertical) */
+    /* Altura total de la ventana de visualización */
+    padding: 20px;
+    /* Agrega padding si quieres un espacio alrededor de .solicitudes */
+}
+
+.solicitudes {
+    max-height: 500px;
+    max-width: 1400px;
+    /* Centra los hijos en el eje cruzado (horizontal) */
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    /* Resetear el margen si es necesario */
+    padding: 10px;
+    /* Agrega padding para un poco de espacio interior */
+}
+
+.solicitud {
+    width: 1000px;
+    height: 120px;
+    background: #FFFFFF;
+    border-radius: 80px 20px 20px 80px;
+    margin: 10px;
+}
+
+.solicitud {
+    display: flex;
+    /* Esto hará que todos los hijos de .solicitud se alineen en fila */
+    justify-content: space-between;
+    /* Esto distribuirá el espacio igualmente entre y alrededor de los elementos */
+    gap: 10px;
+}
+
+.solicitud>div {
+    flex: 1;
+    /* Asigna la misma flexibilidad a cada div para que ocupen el mismo espacio */
+    padding: 10px;
+    /* Opcional: añade algo de espacio dentro de cada div */
+    /* Si quieres que tengan el mismo ancho exacto sin importar su contenido, también puedes usar flex-basis: 0; */
+}
+
+.img {
+    display: flex;
+    /* Establece el contenedor como un flexbox */
+    align-items: center;
+    /* Centra la imagen verticalmente */
+    justify-content: center;
+    /* Centra la imagen horizontalmente */
+}
+
+.img img {
+    width: 50%;
+    /* Hace que la imagen ocupe todo el ancho del contenedor .img */
+    height: 100%;
+    /* Hace que la imagen ocupe todo el alto del contenedor .img */
+    object-fit: contain;
+    /* Asegura que la imagen cubra el espacio sin distorsión, posiblemente recortando */
+    /* object-fit: contain; para que se vea toda sin cortar */
+    border-radius: 100%;
+    background: #a09b9a2e;
+}
+
+.info-1,
+.info-2,
+.info-3 {
+    display: flex;
+    /* Establece el contenedor como un flexbox */
+    flex-direction: column;
+    /* Asegura que los elementos se alineen verticalmente */
+    justify-content: center;
+    /* Centra los elementos verticalmente */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+}
+
+.name {
+    font-weight: bold;
+    color: black;
+}
+
+p {
+    color: #A09B9A;
+}
+
+
+button {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: none;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#aceptar {
+    background-color: #905A5A;
+}
+
+#rechazar {
+    background-color: #4F8561;
+}

@@ -21,11 +21,25 @@ export class ArrendadorService {
     }
   }
 
-  async getArrendador(correo: string, contrasena: string): Promise<Arrendador | null>{
+  async getArrendador(correo: string, contrasena: string): Promise<string | null>{
     try {
-      const response = await axios.post<Arrendador>(`${this.urlApi}/login`, {
+      const response = await axios.post<string>(`${this.urlApi}/login`, {
         correo: correo,
         contrasena: contrasena
+      })
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async authArrendador(token: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.get<Arrendador>(`${this.urlApi}/jwt`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
       return response.data;
     } catch (error) {
@@ -47,6 +61,16 @@ export class ArrendadorService {
   async postArrendador(arrendador: Arrendador){
     try {
       const response = await axios.post<Arrendador>(this.urlApi, arrendador)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async getArrendadorByPropiedad(id: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.get<Arrendador>(`${this.urlApi}/bypropiedad/${id}`)
       return response.data;
     } catch (error) {
       console.log(error);

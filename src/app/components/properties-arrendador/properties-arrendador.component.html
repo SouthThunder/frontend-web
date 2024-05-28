@@ -1,0 +1,41 @@
+<p-carousel
+  [value]="propiedades"
+  [numVisible]="3"
+  [numScroll]="3"
+  [circular]="false"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template let-properties pTemplate="item">
+    <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+      <div class="mb-3">
+        <img
+          src="{{ properties.image }}"
+          [alt]="properties.name"
+          class="w-6 shadow-2"
+        />
+      </div>
+      <div class="contenedor">
+        <div class="info">
+          <h4 class="mb-1">{{ properties.nombre }}</h4>
+          <h6 class="mt-0 mb-3">{{ "$" + properties.valor }}</h6>
+          <p-tag
+            [value]="properties.inventoryStatus"
+            [severity]="getSeverity(properties.inventoryStatus)"
+          ></p-tag>
+        </div>
+
+        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+          <button class="delete">
+            <i class="material-symbols-outlined">cancel</i>
+          </button>
+          <button>
+            <i class="material-symbols-outlined">search</i>
+          </button>
+          <button>
+            <i class="material-symbols-outlined">edit</i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
