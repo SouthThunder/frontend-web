@@ -8,6 +8,19 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#cerrar-sesion {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
+#cerrar-sesion:hover {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
 #boton-cerrar {
   position: absolute;
   top: 10px;
@@ -50,7 +63,7 @@
   /* Añade un margen para separar del carrusel */
 }
 
-.profile-info > .profile-photo {
+.profile-info>.profile-photo {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -59,7 +72,7 @@
   margin-top: 1rem;
 }
 
-.profile-info > .profile-photo > .edit-button > button {
+.profile-info>.profile-photo>.edit-button>button {
   background-color: white;
   border: none;
   border-radius: 100%;
@@ -68,14 +81,14 @@
   left: 50px;
 }
 
-.profile-info > .profile-photo > .edit-button > button > .edit-img {
+.profile-info>.profile-photo>.edit-button>button>.edit-img {
   width: 50px;
   display: flex;
   justify-items: center;
   padding: 2px;
 }
 
-.profile-info > .info {
+.profile-info>.info {
   width: 70%;
   padding: 10% 0;
   background-color: #ffffffbc;
@@ -83,14 +96,14 @@
   margin-bottom: 1rem;
 }
 
-.profile-info > .info > p {
+.profile-info>.info>p {
   font-weight: bold;
   margin: 1rem 0;
   text-align: center;
 }
 
-.profile-info > .info > .email,
-.profile-info > .info > .phone {
+.profile-info>.info>.email,
+.profile-info>.info>.phone {
   color: #767169;
   font-weight: bold;
   margin: 1rem 0;
@@ -110,7 +123,7 @@
     padding: 5% 2%;
   }
 
-  .profile-info > .info {
+  .profile-info>.info {
     padding: 20% 0;
     /* Más padding para mantener el contenido distribuido verticalmente */
   }
