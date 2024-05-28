@@ -16,6 +16,11 @@ import { FormPropertyComponent } from '../../components/form-property/form-prope
 export class ProfileComponent {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
+
+  async getInfo() {
+    
+  }
+
   mostrarPropertiesArrendador = true;
 
   goToSolicitudes() {
