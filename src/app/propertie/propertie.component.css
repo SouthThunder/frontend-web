@@ -12,6 +12,7 @@
     width: 23rem;
     flex-direction: column;
     margin: 3vh;
+    cursor: pointer;
 }
 
 .image-holder{
