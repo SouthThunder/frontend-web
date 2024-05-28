@@ -3,7 +3,7 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { HeaderComponent } from "../../components/header/header.component";
 import { PropertieComponent } from "../../propertie/propertie.component";
 import { Propiedad } from '../../models/propiedadmode';
-
+import { SweetAlertService } from '../../services/sweetAlertService/sweet-alert-service.service';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
 import { NgFor } from '@angular/common';
 
@@ -28,9 +28,13 @@ export class PropertiesCatalogComponent {
         popularity: false
     }
 
-    constructor() {
+    constructor(private sweetAlertService: SweetAlertService) {
         this.ngOnInit()
     }
+
+    mostrarAlerta() {
+        this.sweetAlertService.mostrarCorrectamente('Propiedades encontradas');
+      }
 
     async ngOnInit() {
         const propertiesService = new PropertiesService();

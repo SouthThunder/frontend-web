@@ -6,15 +6,15 @@
     <nav>
       <a href="">Inicio</a>
       <a href="">Nosotros</a>
-      <a href="">Galería</a>
+      <a href="properties-catalog">Galería</a>
       <a href="">Precios</a>
       <a href="/test">Servicios</a>
     </nav>
     <!--/properties-catalog-->
     <div *ngIf="loggedIn; else notLoggedIn">
-      <span class="material-symbols-outlined" (click)="profile()" onKeyPress="">
-        person
-      </span>
+      <span class="material-symbols-outlined cursor" (click)="profile()" onKeyPress="">
+        account_circle
+        </span>
     </div>
     <ng-template #notLoggedIn>
       <div class="options">

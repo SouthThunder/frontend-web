@@ -1,5 +1,31 @@
 <app-header></app-header>
 
+<div class="search-bar">
+  <div class="search-section">
+    <label class="search-label">DÓNDE</label>
+    <input class="search-input" placeholder="Explora Destinos" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">LLEGADA</label>
+    <input type="date" class="search-input" placeholder="Agrega Fecha" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">SALIDA</label>
+    <input type="date" class="search-input" placeholder="Agrega Fecha" />
+  </div>
+  <div class="divider"></div>
+  <div class="search-section">
+    <label class="search-label">QUIÉN</label>
+    <input class="search-input" placeholder="¿Cuántos?" />
+  </div>
+
+  <div class="search-icon" id="lupa" (click)="mostrarAlerta()">
+    <span class="material-symbols-outlined">search</span>
+  </div>
+</div>
+<hr />
 <div class="features-container">
   <div class="feature-item">
     <span class="material-symbols-outlined"> arrow_back_ios </span>

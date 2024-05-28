@@ -10,7 +10,7 @@
   border-style: solid;
   border-width: 1px;
   justify-content: space-between;
-  margin: 10rem auto 2rem auto;
+  margin: 5rem auto 2rem auto;
   width: 100%;
   max-width: 800px;
 }
@@ -54,11 +54,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  width: 6vh;
-  height: 6vh;
-  background-color: #c8bdab;
+  border-radius: 50%; 
+  width: 6vh; 
+  height: 6vh; 
+  max-width: 50px; /* Establece el tamaño máximo en píxeles */
+  max-height: 50px; /* Establece el tamaño máximo en píxeles */
+  background-color: #c8bdab; 
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#lupa:hover {
+  background-color: #b0a091; 
+  transform: scale(1.1);
 }
 
 #lupa .material-symbols-outlined {
@@ -75,7 +83,9 @@ hr {
 
 .feature-item {
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition:  0.3s;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .feature-item:hover {
