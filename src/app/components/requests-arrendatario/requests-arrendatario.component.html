@@ -1,76 +1,34 @@
 <div class="contenedor-principal">
-    <div class="solicitudes">
-        <div class="solicitud">
-            <div class="img">
-                <img src="assets/usuarios.png" alt="">
-            </div>
-            <div class="info-1">
-                <p class="name">José Manuel Rodríguez</p>
-                <p class="finca">Finca Museo del sol</p>
-                <p class="date">26/03/2024 - 14:00</p>
-            </div>
-            <div class="info-2">
-                <p class="llegada">Llegada: 01/04/2024</p>
-                <p class="salida">Salida: 5/04/2024</p>
-                <p class="precio">$80.000 COP</p>
-            </div>
-            <div class="info-3">
-                <p class="estado">Pendiente</p>
-                <div class="anadir-propiedad">
-                    <button class=" anadir-button">
-                        <i class="pi pi-send" id="icono-anadir"></i>
-                        Enviar mensaje
-                    </button>
-                </div>
-            </div>
+  <div class="solicitudes" *ngFor="let solicitud of solicitudes">
+    <div class="solicitud">
+      <div class="img">
+        <img src="assets/usuarios.png" alt="" />
+      </div>
+      <div class="info-1">
+        <p class="name">{{ solicitud.arrendatario.nombre }}</p>
+        <p class="finca">{{ solicitud.propiedad.nombre }}</p>
+        <p class="date">
+          {{ solicitud.fechainicio | date : "dd/MM/yyyy - HH:mm" }}
+        </p>
+      </div>
+      <div class="info-2">
+        <p class="llegada">
+          Llegada: {{ solicitud.fechainicio | date : "dd/MM/yyyy" }}
+        </p>
+        <p class="salida">
+          Salida: {{ solicitud.fechafin | date : "dd/MM/yyyy" }}
+        </p>
+        <p class="precio">${{ solicitud.propiedad.valor | number }} COP</p>
+      </div>
+      <div class="info-3">
+        <p class="estado">{{ solicitud.estado ? "Pendiente" : "Rechazada" }}</p>
+        <div class="anadir-propiedad">
+          <button class="anadir-button">
+            <i class="pi pi-send" id="icono-anadir"></i>
+            Enviar mensaje
+          </button>
         </div>
-        <div class="solicitud">
-            <div class="img">
-                <img src="assets/usuarios.png" alt="">
-            </div>
-            <div class="info-1">
-                <p class="name">José Manuel Rodríguez</p>
-                <p class="finca">Finca Museo del sol</p>
-                <p class="date">26/03/2024 - 14:00</p>
-            </div>
-            <div class="info-2">
-                <p class="llegada">Llegada: 01/04/2024</p>
-                <p class="salida">Salida: 5/04/2024</p>
-                <p class="precio">$80.000 COP</p>
-            </div>
-            <div class="info-3">
-                <p class="estado">Rechazada</p>
-                <div class="anadir-propiedad">
-                    <button class=" anadir-button">
-                        <i class="pi pi-send" id="icono-anadir"></i>
-                        Enviar mensaje
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="solicitud">
-            <div class="img">
-                <img src="assets/usuarios.png" alt="">
-            </div>
-            <div class="info-1">
-                <p class="name">José Manuel Rodríguez</p>
-                <p class="finca">Finca Museo del sol</p>
-                <p class="date">26/03/2024 - 14:00</p>
-            </div>
-            <div class="info-2">
-                <p class="llegada">Llegada: 01/04/2024</p>
-                <p class="salida">Salida: 5/04/2024</p>
-                <p class="precio">$80.000 COP</p>
-            </div>
-            <div class="info-3">
-                <p class="estado">Por aceptar</p>
-                <div class="anadir-propiedad">
-                    <button class=" anadir-button">
-                        <i class="pi pi-send" id="icono-anadir"></i>
-                        Enviar mensaje
-                    </button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
