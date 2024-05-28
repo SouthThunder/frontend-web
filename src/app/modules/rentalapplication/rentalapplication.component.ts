@@ -1,16 +1,19 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ReviewsComponent } from '../../components/reviews/reviews.component';
 import moment from 'moment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
+import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Propiedad } from '../../models/propiedadmode';
 import { SolicitudService } from '../../services/solicitudService/solicitud.service';
 import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { FormsModule } from '@angular/forms'; 
-import { Router } from '@angular/router';
+import { Arrendador } from '../../models/arrendadormodel';
+
+
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
@@ -41,7 +44,11 @@ export class RentalapplicationComponent {
 
   reviewsCountReceived: number = 0;
   averageRatingReceived: number = 0; 
-  constructor(private router: Router,private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService) { }
+
+
+  constructor(private router: Router,private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService, private arrendadorService: ArrendadorService) { }
+
+
   solicitud: SolicitudArriendo= {
     fechainicio: '',
     fechafin: '',
@@ -49,6 +56,7 @@ export class RentalapplicationComponent {
     arrendatario: 0,
     estado:false
   }
+
   propiedad: Propiedad= {
     nombre: '',
     descripcion: '',
@@ -63,6 +71,8 @@ export class RentalapplicationComponent {
     solicitudes: []
   } ; 
 
+  arrendador : Arrendador | null = null
+
   id:string | null = '';
   idNumber: number=0;
   guestCount: number = 1;
@@ -74,19 +84,26 @@ export class RentalapplicationComponent {
     this.idNumber = parseInt(this.id, 10);
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
-    this.getPropiedad(this.id);
+    Promise.all([this.getPropiedad(this.id), this.getArrendador(this.id)]);
   }
 
 
 
   async getPropiedad(id: string): Promise<void> {
-    console.log(id, "aca el id");
     this.propiedadService.getPropertiesbyId(id).then( (response: any) => {
-      console.log(response);
       this.propiedad=response;
     },(error: any)=>{
       console.log(error);
     })
+  }
+
+  async getArrendador(id: string): Promise<void> {
+    try {
+      const response = await this.arrendadorService.getArrendadorByPropiedad(id);
+      this.arrendador = response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 

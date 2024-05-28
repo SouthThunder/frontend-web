@@ -56,7 +56,7 @@
       <div class="ownerinfo">
         <span class="material-symbols-outlined"> person </span>
         <div>
-          <h2>Anfitrión: Laura</h2>
+          <h2>Anfitrión: {{ arrendador?.nombre }}</h2>
           <h3>10 meses de anfitrionado</h3>
         </div>
       </div>
@@ -128,6 +128,9 @@
               [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
               [ngClass]="{ 'selected-day': selectedDayExit === day }"
               *ngFor="let day of monthSelectExit; let first = first"
+              onKeyPress=""
+              onKeyDown=""
+              onKeyUp=""
             >
               <span>{{ day?.value }}</span>
             </li>

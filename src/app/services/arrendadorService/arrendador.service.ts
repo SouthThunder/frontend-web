@@ -69,7 +69,17 @@ export class ArrendadorService {
     }
   }
 
-  async deleteArrendador(id: string) {
+  async getArrendadorByPropiedad(id: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.get<Arrendador>(`${this.urlApi}/bypropiedad/${id}`)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
+  async deleteArrendador(id: string){
     try {
       const response = await axios.delete<Arrendador>(`${this.urlApi}/${id}`)
       return response.data;
