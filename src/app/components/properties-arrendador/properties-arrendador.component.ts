@@ -24,10 +24,7 @@ export class PropertiesArrendadorComponent implements OnInit {
 
   responsiveOptions: any[] | undefined;
 
-  constructor(private propertiesservice: PropertiesService) {
-    console.log('PropertiesArrendadorComponent');
-    console.log(this.propiedades);
-   }
+  constructor() {}
 
   ngOnInit() {
 

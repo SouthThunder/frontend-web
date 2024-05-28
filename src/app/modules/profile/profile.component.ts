@@ -7,9 +7,11 @@ import { CommonModule } from '@angular/common';
 import { FormPropertyComponent } from '../../components/form-property/form-property.component';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
+import { SolicitudService } from '../../services/solicitudService/solicitud.service';
 import Cookies from 'js-cookie';
 import { Arrendador } from '../../models/arrendadormodel';
 import { Propiedad } from '../../models/propiedadmode';
+import { SolicitudArriendo } from '../../models/solicitudmodel';
 
 @Component({
   selector: 'app-profile',
@@ -21,9 +23,25 @@ import { Propiedad } from '../../models/propiedadmode';
 export class ProfileComponent {
   arrendador: Arrendador | null = null;
   propiedades: Propiedad[] = [];
+  solicitudes: SolicitudArriendo[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService : ArrendadorService, private propertiesService: PropertiesService) { 
-    this.getInfo().then(() => this.getProperties())
+  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService : ArrendadorService, private propertiesService: PropertiesService, private solicitudService: SolicitudService) { 
+    Promise.all([this.getInfo(), this.getSolicitudes()]).then(() => this.getProperties());
+  }
+
+  async getSolicitudes() {
+    try {
+      const token = Cookies.get('token');
+      if (token) {
+        const solicitudes = await this.solicitudService.getSolicitudesByArrendador(token);
+        if (solicitudes) {
+          this.solicitudes = solicitudes;
+          console.log(solicitudes);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getProperties() {

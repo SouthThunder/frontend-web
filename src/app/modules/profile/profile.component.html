@@ -41,6 +41,7 @@
     <!-- Se muestra solo si mostrarPropertiesArrendador es false -->
     <app-requests-arrendador
       *ngIf="!mostrarPropertiesArrendador"
+      [solicitudes]="solicitudes"
     ></app-requests-arrendador>
     <div class="anadir-propiedad" (click)="popFormulario()" onKeyPress="">
       <button class="anadir-button">
