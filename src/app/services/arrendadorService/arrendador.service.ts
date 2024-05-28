@@ -27,6 +27,7 @@ export class ArrendadorService {
         correo: correo,
         contrasena: contrasena
       })
+      localStorage.setItem('user', "0");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -35,7 +36,7 @@ export class ArrendadorService {
   }
 
 
-  async authArrendador(token: string): Promise<Arrendador | null>{
+  async authArrendador(token: string): Promise<Arrendador | null> {
     try {
       const response = await axios.get<Arrendador>(`${this.urlApi}/jwt`, {
         headers: {
@@ -49,7 +50,7 @@ export class ArrendadorService {
     }
   }
 
-  async updateArrendador(arrendador: Arrendador, id: string){
+  async updateArrendador(arrendador: Arrendador, id: string) {
     try {
       const response = await axios.put<Arrendador>(this.urlApi, arrendador)
       return response.data;
@@ -69,7 +70,7 @@ export class ArrendadorService {
     }
   }
 
-  async getArrendadorByPropiedad(id: string): Promise<Arrendador | null>{
+  async getArrendadorByPropiedad(id: string): Promise<Arrendador | null> {
     try {
       const response = await axios.get<Arrendador>(`${this.urlApi}/bypropiedad/${id}`)
       return response.data;
@@ -79,7 +80,7 @@ export class ArrendadorService {
     }
   }
 
-  async deleteArrendador(id: string){
+  async deleteArrendador(id: string) {
     try {
       const response = await axios.delete<Arrendador>(`${this.urlApi}/${id}`)
       return response.data;

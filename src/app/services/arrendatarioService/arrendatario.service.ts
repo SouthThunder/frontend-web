@@ -28,6 +28,7 @@ export class ArrendatarioService {
         correo: correo,
         contrasena: contrasena
       });
+      localStorage.setItem('user', "1");
       return response.data;
     } catch (error) {
       console.error(error);

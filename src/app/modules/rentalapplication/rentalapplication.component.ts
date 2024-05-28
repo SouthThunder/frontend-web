@@ -54,7 +54,28 @@ export class RentalapplicationComponent {
     fechainicio: '',
     fechafin: '',
     cantidadPersonas: 0,
-    arrendatario: 0,
+    arrendatario: {
+      id: 0,
+      nombre: '',
+      apellido: '',
+      correo: '',
+      telefono: '',
+      contrasena: ''
+    }, // Create a new instance of the Arrendador class
+    propiedad: {
+      id: 0,
+      nombre: '',
+      descripcion: '',
+      valor: 0,
+      estado: false,
+      arrendador: 0,
+      solicitudes: [],
+      piscina: false,
+      banos: 0,
+      habitaciones: 0,
+      asador: false,
+      mascotas: false
+    },
     estado: false
   }
 
@@ -121,10 +142,11 @@ export class RentalapplicationComponent {
 
 
   async createSolicitud(): Promise<void> {
-    this.solicitud.arrendatario = this.idNumber;
+    this.solicitud.arrendatario.id = this.idNumber;
     this.solicitud.fechainicio = this.dateValue.format('YYYY-MM-DD');
     this.solicitud.fechafin = this.dateValueExit.format('YYYY-MM-DD');
     this.solicitud.cantidadPersonas = this.guestCount;
+    this.solicitud.propiedad = this.propiedad
 
     console.log(this.solicitud)
 

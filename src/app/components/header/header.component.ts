@@ -16,7 +16,7 @@ export class HeaderComponent {
   loggedIn: boolean = false;
 
   // Create navigator 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     if (Cookies.get('token')) {
       this.loggedIn = true;
     }
@@ -36,7 +36,12 @@ export class HeaderComponent {
   }
 
   profile() {
-    this.router.navigate(['/profile'])
+    if (localStorage.getItem('user') == '0') {
+
+      this.router.navigate(['/profile'])
+    } else {
+      this.router.navigate(['/profile-arrendatario'])
+    }
   }
 
 }
