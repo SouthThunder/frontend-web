@@ -4,7 +4,6 @@ import { HomeComponent } from './modules/home/home.component';
 import { RegistryComponent } from './modules/registry/registry.component';
 import { LogInComponent } from './modules/log-in/log-in.component';
 import { ProfileComponent } from './modules/profile/profile.component';
-import { RequestsArrendadorComponent } from './components/requests-arrendador/requests-arrendador.component';
 import { FormPropertyComponent } from './components/form-property/form-property.component';
 import { PropertyPageComponent } from './modules/property-page/property-page.component';
 import { ProfileArrendatarioComponent } from './modules/profile-arrendatario/profile-arrendatario.component';

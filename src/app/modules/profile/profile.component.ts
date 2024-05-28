@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Header2Component } from '../../components/header2/header2.component';
+import { HeaderComponent } from '../../components/header/header.component';
 import { PropertiesArrendadorComponent } from '../../components/properties-arrendador/properties-arrendador.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RequestsArrendadorComponent } from '../../components/requests-arrendador/requests-arrendador.component';
@@ -9,7 +9,7 @@ import { FormPropertyComponent } from '../../components/form-property/form-prope
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [Header2Component, PropertiesArrendadorComponent, RequestsArrendadorComponent, CommonModule, FormPropertyComponent],
+  imports: [HeaderComponent, PropertiesArrendadorComponent, RequestsArrendadorComponent, CommonModule, FormPropertyComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
