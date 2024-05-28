@@ -72,6 +72,7 @@
     left: 50%;
     /* Posiciona el botón a la mitad del contenedor desde la izquierda */
     transform: translateX(-50%);
+    transition: 0.5s;
     /* Desplaza el botón hacia atrás a la mitad de su propio ancho para centrarlo exactamente */
     /* Estilos adicionales para el botón, como padding, border, etc. */
 }
@@ -111,11 +112,14 @@ button {
     border: none;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.691);
+    transition: 0.5s;
 }
 
 button:hover {
     background-color: #c8bdabcd;
 }
+
+
 
 label {
     font-weight: 600;
@@ -123,8 +127,9 @@ label {
 
 input,
 select {
+    padding-left: 10px;
     border-radius: 15px;
-    height: 30px;
+    height: 40px;
     border: solid 1px #A09B9A;
     font-family: poppins;
 }
@@ -133,6 +138,7 @@ textarea {
     border-radius: 15px;
     border: solid 1px #A09B9A;
     height: 60px;
+    padding-left: 10px;
 }
 
 .enviar {

@@ -7,11 +7,11 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class ArrendadorService {
-  // private urlApi= 'http://localhost:8080/arrendador';
- private urlApi= 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
+  //private urlApi = 'http://localhost:8080/grupo26/api/arrendador';
+  private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
 
 
-  async getArrendadores(): Promise<Arrendador[]>{ 
+  async getArrendadores(): Promise<Arrendador[]> {
     try {
       const response = await axios.get<Arrendador[]>(this.urlApi)
       return response.data;
@@ -21,7 +21,7 @@ export class ArrendadorService {
     }
   }
 
-  async getArrendador(correo: string, contrasena: string): Promise<string | null>{
+  async getArrendador(correo: string, contrasena: string): Promise<string | null> {
     try {
       const response = await axios.post<string>(`${this.urlApi}/login`, {
         correo: correo,
@@ -33,6 +33,7 @@ export class ArrendadorService {
       throw error;
     }
   }
+
 
   async authArrendador(token: string): Promise<Arrendador | null>{
     try {
@@ -57,8 +58,8 @@ export class ArrendadorService {
       return null;
     }
   }
-  
-  async postArrendador(arrendador: Arrendador){
+
+  async postArrendador(arrendador: Arrendador) {
     try {
       const response = await axios.post<Arrendador>(this.urlApi, arrendador)
       return response.data;

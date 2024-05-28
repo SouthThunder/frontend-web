@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, NgForm } from '@angular/forms';
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Arrendatario } from '../../models/arrendatariomodel';
@@ -13,15 +13,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-registry',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule, FormsModule, HeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './registry.component.html',
-  styleUrl: './registry.component.css'
+  styleUrls: ['./registry.component.css']
 })
 export class RegistryComponent {
 
-  verificar : string | undefined;
-  
-  arrendador : Arrendador = {
+  verificar: string | undefined;
+
+  arrendador: Arrendador = {
     nombre: '',
     apellido: '',
     correo: '',
@@ -29,43 +29,41 @@ export class RegistryComponent {
     contrasena: ''
   }
 
-  arrendatario : Arrendatario = {
+  arrendatario: Arrendatario = {
     nombre: '',
     apellido: '',
     correo: '',
     telefono: '',
     contrasena: ''
   }
- 
+
   constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
 
-
-create(form: any){
-
-    if(this.verificar == "arrendatario"){
-      this.createArrendatario(form.value);
+  create(form: NgForm) {
+    if (!form.valid) {
+      return;
     }
-    else if(this.verificar == "arrendador"){
+
+    if (this.verificar === "arrendatario") {
+      this.createArrendatario(form.value);
+    } else if (this.verificar === "arrendador") {
       this.createArrendador(form.value);
     }
-}
-
-  createArrendatario(data: Arrendatario){
-  this.arrendatarioService.postArrendatario(data).then(response => {
-    this.router.navigate(['/test/', response?.id])
-  },error=>{
-    console.log(error);
-  })
-}
-
-  createArrendador(data: Arrendador){
-    this.arrendadorService.postArrendador(data).then(response => {
-      this.router.navigate(['/test/', response?.id])
-    },error=>{
-      console.log(error);
-    })
   }
 
- 
-  
+  createArrendatario(data: Arrendatario) {
+    this.arrendatarioService.postArrendatario(data).then(response => {
+      this.router.navigate(['/test/', response?.id]);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  createArrendador(data: Arrendador) {
+    this.arrendadorService.postArrendador(data).then(response => {
+      this.router.navigate(['/test/', response?.id]);
+    }, error => {
+      console.log(error);
+    });
+  }
 }
