@@ -68,6 +68,10 @@
     </div>
   </div>
 
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
   <button type="submit">Iniciar Sesión</button>
 </form>
 
