@@ -35,6 +35,7 @@
     <!-- Se muestra solo si mostrarPropertiesArrendador es true -->
     <app-properties-arrendador
       *ngIf="mostrarPropertiesArrendador"
+      [propiedades]="propiedades"
     ></app-properties-arrendador>
 
     <!-- Se muestra solo si mostrarPropertiesArrendador es false -->

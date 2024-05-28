@@ -6,8 +6,10 @@ import { RequestsArrendadorComponent } from '../../components/requests-arrendado
 import { CommonModule } from '@angular/common';
 import { FormPropertyComponent } from '../../components/form-property/form-property.component';
 import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
+import { PropertiesService } from '../../services/propiedad.service/properties.service';
 import Cookies from 'js-cookie';
 import { Arrendador } from '../../models/arrendadormodel';
+import { Propiedad } from '../../models/propiedadmode';
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +20,22 @@ import { Arrendador } from '../../models/arrendadormodel';
 })
 export class ProfileComponent {
   arrendador: Arrendador | null = null;
+  propiedades: Propiedad[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService : ArrendadorService) { 
-    this.getInfo();
+  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService : ArrendadorService, private propertiesService: PropertiesService) { 
+    this.getInfo().then(() => this.getProperties())
+  }
+
+  async getProperties() {
+    try {
+      const properties = await this.propertiesService.getPropertiesByArrendador(this.arrendador?.id ?? 0);
+      if (properties) {
+        this.propiedades = properties;
+        console.log(properties);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getInfo() {
