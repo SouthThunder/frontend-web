@@ -11,29 +11,30 @@ import Cookies from 'js-cookie';
 
 import { Router } from '@angular/router';
 import { AuthResponse } from '../../models/auth.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule, HeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
 
-  verificar : string | undefined;
-  
+  verificar: string | undefined;
+
   usuario: string | undefined;
   contrasena: string | undefined;
 
-  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
+  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router, private snackBar: MatSnackBar) { }
 
 
   read(form: NgForm) {
     if (!form.valid) {
-      return; 
+      return;
     }
-    
+
     if (this.verificar === "arrendatario") {
       this.getArrendatario();
     } else if (this.verificar === "arrendador") {
@@ -46,7 +47,7 @@ export class LogInComponent {
   }
 
 
-  async getArrendatario(){
+  async getArrendatario() {
     // Cast Usuario to String
 
     try {
@@ -54,20 +55,26 @@ export class LogInComponent {
       Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      this.snackBar.open((error as Error).message, 'Cerrar', {
+        duration: 5000,
+      });
     }
   }
 
-  async getArrendador(){
+  async getArrendador() {
     try {
       const response = await this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
       console.log(response);
       Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      this.snackBar.open((error as Error).message, 'Cerrar', {
+        duration: 5000,
+      });
     }
   }
 
-  
+
 }
