@@ -53,7 +53,7 @@ export class RegistryComponent {
 
   createArrendatario(data: Arrendatario) {
     this.arrendatarioService.postArrendatario(data).then(response => {
-      this.router.navigate(['/test/', response?.id]);
+      this.router.navigate(['/']);
     }, error => {
       console.log(error);
     });

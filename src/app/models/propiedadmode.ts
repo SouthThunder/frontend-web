@@ -1,5 +1,5 @@
 
-export interface Propiedad{
+export interface Propiedad {
     id?: number;
     nombre: string;
     descripcion: string;
@@ -12,4 +12,6 @@ export interface Propiedad{
     habitaciones: number;
     asador: boolean;
     mascotas: boolean;
+    ciudad: string;
+    departamento: string;
 }
