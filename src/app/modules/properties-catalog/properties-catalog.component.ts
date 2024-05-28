@@ -3,7 +3,11 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { HeaderComponent } from "../../components/header/header.component";
 import { PropertieComponent } from "../../propertie/propertie.component";
 import { Propiedad } from '../../models/propiedadmode';
+<<<<<<< HEAD
 import { SweetAlertService } from '../../services/sweetAlertService/sweet-alert.service';
+=======
+import { SweetAlertService } from '../../services/sweetAlertService/sweet-alert-service.service';
+>>>>>>> excepciones
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
 import { NgFor } from '@angular/common';
 
@@ -28,11 +32,18 @@ export class PropertiesCatalogComponent {
         popularity: false
     }
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> excepciones
     constructor(private sweetAlertService: SweetAlertService) {
         this.ngOnInit()
     }
+    mostrarAlerta() {
+        this.sweetAlertService.mostrarCorrectamente('Propiedades encontradas');
+      }
+
     mostrarAlerta() {
         this.sweetAlertService.mostrarCorrectamente('Propiedades encontradas');
       }
