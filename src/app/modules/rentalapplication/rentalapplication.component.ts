@@ -74,7 +74,9 @@ export class RentalapplicationComponent {
       banos: 0,
       habitaciones: 0,
       asador: false,
-      mascotas: false
+      mascotas: false,
+      ciudad: '',
+      departamento: ''
     },
     estado: false
   }
@@ -90,7 +92,9 @@ export class RentalapplicationComponent {
     asador: false,
     mascotas: false,
     arrendador: 0,
-    solicitudes: []
+    solicitudes: [],
+    ciudad: '',
+    departamento: ''
   };
 
   arrendador: Arrendador | null = null

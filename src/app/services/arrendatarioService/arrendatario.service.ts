@@ -36,6 +36,20 @@ export class ArrendatarioService {
     }
   }
 
+  async authArrendatario(token: string): Promise<Arrendatario | null> {
+    try {
+      const response = await axios.get<Arrendatario>(`${this.urlApi}/jwt`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   async postArrendatario(arrendatario: Arrendatario) {
     try {
       const response = await axios.post<Arrendatario>(this.urlApi, arrendatario);
