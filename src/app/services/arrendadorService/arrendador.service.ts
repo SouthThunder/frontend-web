@@ -7,8 +7,8 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class ArrendadorService {
-  // private urlApi= 'http://localhost:8080/arrendador';
-  private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
+  private urlApi = 'http://localhost:8080/grupo26/api/arrendador';
+  // private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendador';
 
 
   async getArrendadores(): Promise<Arrendador[]> {
@@ -30,11 +30,7 @@ export class ArrendadorService {
       return response.data;
     } catch (error) {
       console.log(error);
-      if (axios.isAxiosError(error) && error.response) {
-        // Extraer el mensaje de error del backend
-        throw new Error(error.response.data.message || 'An unknown error occurred!');
-      }
-      throw new Error('An unknown error occurred!');
+      throw error;
     }
   }
 
