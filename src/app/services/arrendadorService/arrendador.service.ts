@@ -34,6 +34,20 @@ export class ArrendadorService {
     }
   }
 
+  async authArrendador(token: string): Promise<Arrendador | null>{
+    try {
+      const response = await axios.get<Arrendador>(`${this.urlApi}/jwt`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
   async updateArrendador(arrendador: Arrendador, id: string){
     try {
       const response = await axios.put<Arrendador>(this.urlApi, arrendador)
