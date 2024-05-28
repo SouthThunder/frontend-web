@@ -1,5 +1,5 @@
 <p-carousel
-  [value]="properties"
+  [value]="propiedades"
   [numVisible]="3"
   [numScroll]="3"
   [circular]="false"
@@ -16,8 +16,8 @@
       </div>
       <div class="contenedor">
         <div class="info">
-          <h4 class="mb-1">{{ properties.name }}</h4>
-          <h6 class="mt-0 mb-3">{{ "$" + properties.price }}</h6>
+          <h4 class="mb-1">{{ properties.nombre }}</h4>
+          <h6 class="mt-0 mb-3">{{ "$" + properties.valor }}</h6>
           <p-tag
             [value]="properties.inventoryStatus"
             [severity]="getSeverity(properties.inventoryStatus)"

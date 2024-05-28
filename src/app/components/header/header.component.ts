@@ -35,4 +35,8 @@ export class HeaderComponent {
     this.router.navigate(['/'])
   }
 
+  profile() {
+    this.router.navigate(['/profile'])
+  }
+
 }

@@ -28,5 +28,15 @@ export class PropertiesService {
       return {} as Propiedad;
     }
   }
+
+  async getPropertiesByArrendador(id: number): Promise<Propiedad[]>{
+    try {
+      const response = await axios.get<Propiedad[]>(`${this.urlApi}/arrendador/${id}`); 
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  }
   
 }

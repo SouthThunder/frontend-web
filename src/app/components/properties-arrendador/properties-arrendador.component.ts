@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Properties } from '../../models/properties';
+import { Component, Input, OnInit } from '@angular/core';
 import { PropertiesService } from '../../services/propertiesService/properties.service';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { CommonModule } from '@angular/common';
 import { FormPropertyComponent } from '../form-property/form-property.component';
+import { Propiedad } from '../../models/propiedadmode';
+
+
 
 @Component({
   selector: 'app-properties-arrendador',
@@ -18,16 +20,16 @@ import { FormPropertyComponent } from '../form-property/form-property.component'
 
 export class PropertiesArrendadorComponent implements OnInit {
 
-  API_URL = 'http://localhost:8080/api/';
-
-  properties: Properties[] = [];
+  @Input() propiedades: Propiedad[] = [];
 
   responsiveOptions: any[] | undefined;
 
-  constructor(private propertiesservice: PropertiesService) { }
+  constructor(private propertiesservice: PropertiesService) {
+    console.log('PropertiesArrendadorComponent');
+    console.log(this.propiedades);
+   }
 
   ngOnInit() {
-    this.properties = this.propertiesservice.getPropertiesSmall()
 
     this.responsiveOptions = [
       {
