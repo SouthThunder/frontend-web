@@ -17,4 +17,6 @@ export class FormPropertyComponent {
   onSubmit() {
     this.router.navigate(['/property-page']);
   }
+
+  
 }
