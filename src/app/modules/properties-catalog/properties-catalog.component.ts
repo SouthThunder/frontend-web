@@ -28,14 +28,7 @@ export class PropertiesCatalogComponent {
         popularity: false
     }
 
-    filters = {
-        beds: false,
-        baths: false,
-        pool: false,
-        grill: false,
-        pets: false,
-        popularity: false
-    }
+    
 
     constructor(private sweetAlertService: SweetAlertService) {
         this.ngOnInit()
