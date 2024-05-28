@@ -21,8 +21,12 @@ img {
   border-radius: 20px;
 }
 
+
 .mt-5 {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
 .delete {
@@ -39,6 +43,10 @@ button {
   width: 50px;
   margin: 10px;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 i {

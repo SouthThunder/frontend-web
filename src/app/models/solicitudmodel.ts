@@ -1,11 +1,12 @@
 import { Arrendatario } from "./arrendatariomodel";
+import { Propiedad } from "./propiedadmode";
 
-export interface SolicitudArriendo{
+export interface SolicitudArriendo {
     id?: number;
     fechainicio: string;
     fechafin: string;
     cantidadPersonas: number;
-    arrendatario: number;
     estado: boolean;
-
+    arrendatario: Arrendatario
+    propiedad: Propiedad
 }
