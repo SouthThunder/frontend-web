@@ -12,6 +12,7 @@ import { SolicitudService } from '../../services/solicitudService/solicitud.serv
 import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { FormsModule } from '@angular/forms';
 import { Arrendador } from '../../models/arrendadormodel';
+import Cookies from 'js-cookie';
 
 
 @Component({
@@ -126,6 +127,11 @@ export class RentalapplicationComponent {
     this.solicitud.cantidadPersonas = this.guestCount;
 
     console.log(this.solicitud)
+
+    if (!Cookies.get('token')) {
+      this.router.navigate(['/login']);
+      return
+    }
 
     try {
       const response = await this.solicitudService.createSolicitud(this.solicitud)
