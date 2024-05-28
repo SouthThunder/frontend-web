@@ -18,6 +18,7 @@ import { PagoServiceService } from '../services/pago/pago.service.service';
   templateUrl: './pago.component.html',
   styleUrl: './pago.component.css'
 })
+
 export class PagoComponent {
   cardNumber: string = '';
   cardName: string = '';
@@ -65,15 +66,20 @@ export class PagoComponent {
     }
   }
 
-  createPago() {
+  async createPago() {
     const pago = {
       numCuenta: this.cardNumber,
       valor: this.valor,
       banco: this.cardType
     };
 
-    this.pagoService.createPago(pago).then((response) => {
-      this.router.navigate(['/']);
-    });
+    try {
+      await this.pagoService.createPago(pago).then((response: any) => {
+        console.log(response);
+        this.router.navigate(['/']);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
