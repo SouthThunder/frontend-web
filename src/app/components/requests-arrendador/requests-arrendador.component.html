@@ -15,10 +15,13 @@
       </div>
       <div class="info-3">
         <p class="estado">Por aceptar</p>
-        <div class="btns">
-          <button id="aceptar" class="pi pi-check-circle"></button>
-          <button id="rechazar" class="pi pi-times-circle"></button>
+        <div class="btns" *ngIf="!solicitud.estado; else accepted">
+          <button id="aceptar" class="pi pi-check-circle" (click)="declineRequest(solicitud)"></button>
+          <button id="rechazar" class="pi pi-times-circle" (click)="acceptRequest(solicitud)"></button>
         </div>
+        <ng-template #accepted>
+          <p style="color: green;">Aceptado</p>
+        </ng-template>
       </div>
     </div>
   </div>

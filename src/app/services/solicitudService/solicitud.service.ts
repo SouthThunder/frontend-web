@@ -45,4 +45,19 @@ export class SolicitudService {
       return []
     }
   }
+
+
+  async updateSolicitud(solicitud: SolicitudArriendo): Promise<SolicitudArriendo | null> {
+    try {
+      const response = await axios.put<SolicitudArriendo>(this.urlApi, solicitud, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 }
