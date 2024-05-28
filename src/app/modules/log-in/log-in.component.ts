@@ -25,6 +25,8 @@ export class LogInComponent {
   
   usuario: string | undefined;
   contrasena: string | undefined;
+  errorMessage: string | undefined;
+
 
   constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
 
@@ -54,7 +56,8 @@ export class LogInComponent {
       Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
-      console.log(error);
+      this.errorMessage = "Las credenciales son incorrectas.";
+      console.error(error);
     }
   }
 
@@ -65,7 +68,8 @@ export class LogInComponent {
       Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
-      console.log(error);
+      this.errorMessage = "Las credenciales son incorrectas.";
+      console.error(error);
     }
   }
 
