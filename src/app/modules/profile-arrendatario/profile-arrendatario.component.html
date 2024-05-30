@@ -4,11 +4,7 @@
   <div class="profile-info">
     <div class="profile-photo">
       <div class="photo">
-        <img
-          class="profile-img"
-          src="assets/profile1.png"
-          alt="Foto de perfil"
-        />
+        <img class="profile-img" src="assets/profile1.png" alt="Foto de perfil" />
       </div>
       <div class="edit-button">
         <button>
@@ -21,6 +17,7 @@
       <p class="email">juanPeralta&#64;gmail.com</p>
       <p class="phone">+57 320 6493263</p>
     </div>
+    <button id="cerrar-sesion" (click)="closeSession()">Cerrar sesión</button>
   </div>
   <div class="properties-info">
     <div class="contenedor-opciones">
@@ -32,8 +29,6 @@
       </button>
       <button class="barra-principal">Mensajes</button>
     </div>
-    <app-requests-arrendatario
-      *ngIf="mostrarSolicitudes"
-    ></app-requests-arrendatario>
+    <app-requests-arrendatario *ngIf="mostrarSolicitudes"></app-requests-arrendatario>
   </div>
 </div>

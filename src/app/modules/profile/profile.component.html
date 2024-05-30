@@ -4,15 +4,13 @@
   <div class="profile-info">
     <div class="profile-photo">
       <div class="photo">
-        <img
-          class="profile-img"
-          src="assets/profile1.png"
-          alt="Foto de perfil"
-        />
+        <img class="profile-img" src="assets/profile1.png" alt="Foto de perfil" />
       </div>
       <div class="edit-button">
         <button>
-          <img class="edit-img" src="assets/editar.png" alt="Boton editar" />
+          <span class="material-symbols-outlined editar" >
+            edit
+            </span>
         </button>
       </div>
     </div>
@@ -21,6 +19,7 @@
       <p class="email">{{ arrendador?.correo }}</p>
       <p class="phone">+57 {{ arrendador?.telefono }}</p>
     </div>
+    <button id="cerrar-sesion" (click)="closeSession()">Cerrar sesión</button>
   </div>
   <div class="properties-info">
     <div class="contenedor-opciones">
@@ -33,16 +32,11 @@
       </button>
     </div>
     <!-- Se muestra solo si mostrarPropertiesArrendador es true -->
-    <app-properties-arrendador
-      *ngIf="mostrarPropertiesArrendador"
-      [propiedades]="propiedades"
-    ></app-properties-arrendador>
+    <app-properties-arrendador *ngIf="mostrarPropertiesArrendador"
+      [propiedades]="propiedades"></app-properties-arrendador>
 
     <!-- Se muestra solo si mostrarPropertiesArrendador es false -->
-    <app-requests-arrendador
-      *ngIf="!mostrarPropertiesArrendador"
-      [solicitudes]="solicitudes"
-    ></app-requests-arrendador>
+    <app-requests-arrendador *ngIf="!mostrarPropertiesArrendador" [solicitudes]="solicitudes"></app-requests-arrendador>
     <div class="anadir-propiedad" (click)="popFormulario()" onKeyPress="">
       <button class="anadir-button">
         <i class="material-symbols-outlined" id="icono-anadir">add_circle</i>
@@ -52,14 +46,13 @@
   </div>
 </div>
 
-<div
-  class="contenedor-principal"
-  [style.display]="mostrarFormulario ? 'block' : 'none'"
->
+<div class="contenedor-principal" [style.display]="mostrarFormulario ? 'block' : 'none'">
   <app-form-property *ngIf="mostrarFormulario"></app-form-property>
   <button
     id="boton-cerrar"
     class="pi pi-times-circle"
     (click)="ocultarFormulario()"
-  ></button>
+  ><span class="material-symbols-outlined">
+    close
+    </span></button>
 </div>

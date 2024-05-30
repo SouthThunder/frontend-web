@@ -11,31 +11,33 @@ import Cookies from 'js-cookie';
 
 import { Router } from '@angular/router';
 import { AuthResponse } from '../../models/auth.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AxiosError } from 'axios';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule, HeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
 
-  verificar : string | undefined;
-  
+  verificar: string | undefined;
+
   usuario: string | undefined;
   contrasena: string | undefined;
   errorMessage: string | undefined;
 
 
-  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
+  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router, private snackBar: MatSnackBar) { }
 
 
   read(form: NgForm) {
     if (!form.valid) {
-      return; 
+      return;
     }
-    
+
     if (this.verificar === "arrendatario") {
       this.getArrendatario();
     } else if (this.verificar === "arrendador") {
@@ -48,7 +50,7 @@ export class LogInComponent {
   }
 
 
-  async getArrendatario(){
+  async getArrendatario() {
     // Cast Usuario to String
 
     try {
@@ -57,21 +59,33 @@ export class LogInComponent {
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
       this.errorMessage = "Las credenciales son incorrectas.";
-      console.error(error);
+      console.log(error);
     }
   }
 
-  async getArrendador(){
+  async getArrendador() {
     try {
       const response = await this.arrendadorService.getArrendador(String(this.usuario), String(this.contrasena)) as unknown as AuthResponse;
       console.log(response);
       Cookies.set('token', response.token ?? '');
       this.router.navigate(['/properties-catalog']);
     } catch (error) {
-      this.errorMessage = "Las credenciales son incorrectas.";
-      console.error(error);
+      const axiosError = error as AxiosError;
+
+      if (axiosError?.response?.status === 401) {
+        this.errorMessage = (axiosError?.response?.data as AxiosErrorResponse)?.message;
+      } else {
+        this.errorMessage = "Servidor no disponible. Intente de nuevo mas tarde.";
+      }
+
+      console.log(error);
     }
   }
 
-  
+
+}
+
+interface AxiosErrorResponse {
+  message: string;
+  // include other properties you expect to receive
 }

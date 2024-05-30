@@ -25,8 +25,13 @@ export class ProfileComponent {
   propiedades: Propiedad[] = [];
   solicitudes: SolicitudArriendo[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService : ArrendadorService, private propertiesService: PropertiesService, private solicitudService: SolicitudService) { 
+  constructor(private router: Router, private route: ActivatedRoute, private arrendadorService: ArrendadorService, private propertiesService: PropertiesService, private solicitudService: SolicitudService) {
     Promise.all([this.getInfo(), this.getSolicitudes()]).then(() => this.getProperties());
+  }
+
+  closeSession() {
+    Cookies.remove('token');
+    this.router.navigate(['/']);
   }
 
   async getSolicitudes() {

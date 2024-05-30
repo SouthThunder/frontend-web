@@ -20,6 +20,8 @@ header > .container {
   backdrop-filter: blur(10px);
 }
 
+
+
 .material-symbols-outlined {
   font-size: 3rem;
 }
@@ -36,8 +38,15 @@ header > .container > nav {
 
 header > .container > nav > a {
   text-decoration: none;
-  color: black;
+  color: rgb(97, 94, 94);
+  transition: 0.5s;
   font-size: 1.2rem;
+  color: #000000;
+}
+
+header > .container > nav > a:hover {
+  color: #c8bdab;
+  
 }
 
 header > .container > .options {
@@ -54,6 +63,13 @@ header > .container > .options > button {
   color: white;
   border-radius: var(--sm-border);
   transition: all 0.4s ease-in-out;
+}
+.cursor
+{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header > .container > .options > button:nth-child(even) {
