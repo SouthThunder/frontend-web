@@ -4,10 +4,10 @@
     height: 600px;
     border-radius: 20px;
     display: flex;
+    overflow-y:auto;
     margin-top: 0.25rem;
     flex-direction: column;
     /* Establece Flexbox en el contenedor principal */
-    justify-content: center;
     /* Centra los hijos en el eje principal (horizontal) */
     align-items: center;
     /* Centra los hijos en el eje cruzado (vertical) */
