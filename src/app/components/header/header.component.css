@@ -73,7 +73,7 @@ header > .container > .options > button {
 }
 
 header > .container > .options > button:nth-child(even) {
-  background-color: #a09b9a;
+  background-color: #c8bdab;
 }
 
 header > .container > .options > button:hover {
@@ -82,5 +82,5 @@ header > .container > .options > button:hover {
 }
 
 header > .container > .options > button:nth-child(even):hover {
-  background-color: #c8bdab;
+  background-color: #a09b9a;
 }

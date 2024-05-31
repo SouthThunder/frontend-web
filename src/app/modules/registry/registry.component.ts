@@ -7,6 +7,7 @@ import { Arrendador } from '../../models/arrendadormodel';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { SweetAlertService } from '../../services/sweetAlertService/sweet-alert-service.service';
 
 import { Router } from '@angular/router';
 
@@ -37,7 +38,12 @@ export class RegistryComponent {
     contrasena: ''
   }
 
-  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router) { }
+  constructor(private arrendatarioService: ArrendatarioService, private arrendadorService: ArrendadorService, private router: Router, private sweetAlertService: SweetAlertService) { }
+
+
+  mostrarAlerta() {
+    this.sweetAlertService.mostrarCorrectamente('  Usuario Creado :)');
+  }
 
   create(form: NgForm) {
     if (!form.valid) {
@@ -49,6 +55,8 @@ export class RegistryComponent {
     } else if (this.verificar === "arrendador") {
       this.createArrendador(form.value);
     }
+
+    this.mostrarAlerta();
   }
 
   createArrendatario(data: Arrendatario) {
