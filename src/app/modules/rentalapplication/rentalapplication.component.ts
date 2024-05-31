@@ -12,6 +12,7 @@ import { SolicitudService } from '../../services/solicitudService/solicitud.serv
 import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { FormsModule } from '@angular/forms';
 import { Arrendador } from '../../models/arrendadormodel';
+import { ReviewsService } from '../../services/reviewsService/reviews.service';
 import Cookies from 'js-cookie';
 
 
@@ -47,7 +48,7 @@ export class RentalapplicationComponent {
   averageRatingReceived: number = 0;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private propiedadService: PropertiesService, private solicitudService: SolicitudService, private arrendadorService: ArrendadorService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private propiedadService: PropertiesService, private solicitudService: SolicitudService, private arrendadorService: ArrendadorService, private reviewService: ReviewsService) { }
 
 
   solicitud: SolicitudArriendo = {
@@ -100,15 +101,20 @@ export class RentalapplicationComponent {
   arrendador: Arrendador | null = null
 
   id: string | null = '';
-  type: string | null = '';
+  type: string | null = null;
   idNumber: number = 0;
   guestCount: number = 1;
   review: number = 0;
+  exists: boolean = false;
+  comment: string = '';
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.type = this.route.snapshot.paramMap.get('type') ?? '';
+    this.type = this.route.snapshot.paramMap.get('type');
+    if(this.type){
+      this.exists = true;
+    }
     this.idNumber = parseInt(this.id, 10);
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
@@ -119,9 +125,17 @@ export class RentalapplicationComponent {
     this.review = star;
   }
 
-  submitReview(): void {
-    console.log('Review submitted:', this.review);
-    // Implement your submission logic here
+  async submitReview() {
+    try {
+      const response = await this.reviewService.createReview({
+        puntuacion: this.review,
+        comentario: this.comment,
+        solicitud_arriendo: this.type ? parseInt(this.type, 10) : 0      
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async getPropiedad(id: string): Promise<void> {

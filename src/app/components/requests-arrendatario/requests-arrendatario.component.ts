@@ -37,6 +37,6 @@ export class RequestsArrendatarioComponent {
   }
 
   navigateToReview(solicitud: SolicitudArriendo) {
-    this.router.navigate([`rentalapplication/${solicitud.id}/1`]);
+    this.router.navigate([`rentalapplication/${solicitud.propiedad.id}/${solicitud.id}`]);
   }
 }
