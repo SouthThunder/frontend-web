@@ -32,10 +32,24 @@ export class SolicitudService {
   }
 
 
-  async getSolicitudesByArrendador(token: string): Promise<SolicitudArriendo[]> {
+  async getSolicitudesByArrendatario(token: string): Promise<SolicitudArriendo[]> {
     try {
       console.log(token);
       const response = await axios.get<SolicitudArriendo[]>(`${this.urlApi}/get/arrendatario`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return []
+    }
+  }
+  async getSolicitudesByArrendador(token: string): Promise<SolicitudArriendo[]> {
+    try {
+      console.log(token);
+      const response = await axios.get<SolicitudArriendo[]>(`${this.urlApi}/get/arrendador`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
