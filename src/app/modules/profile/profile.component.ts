@@ -24,7 +24,7 @@ export class ProfileComponent {
   arrendador: Arrendador | null = null;
   propiedades: Propiedad[] = [];
   solicitudes: SolicitudArriendo[] = [];
-
+  
   constructor(private router: Router, private route: ActivatedRoute, private arrendadorService: ArrendadorService, private propertiesService: PropertiesService, private solicitudService: SolicitudService) {
     Promise.all([this.getInfo(), this.getSolicitudes()]).then(() => this.getProperties());
   }
@@ -63,6 +63,7 @@ export class ProfileComponent {
 
   async getInfo() {
     try {
+      console.log(Cookies.get('token'));
       const token = Cookies.get('token');
       if (token) {
         const arrendador = await this.arrendadorService.authArrendador(token);

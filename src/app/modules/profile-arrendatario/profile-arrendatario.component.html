@@ -4,7 +4,11 @@
   <div class="profile-info">
     <div class="profile-photo">
       <div class="photo">
-        <img class="profile-img" src="assets/profile1.png" alt="Foto de perfil" />
+        <img
+          class="profile-img"
+          src="assets/profile1.png"
+          alt="Foto de perfil"
+        />
       </div>
       <div class="edit-button">
         <button>
@@ -13,9 +17,9 @@
       </div>
     </div>
     <div class="info">
-      <p>Juan Luis Peralta</p>
-      <p class="email">juanPeralta&#64;gmail.com</p>
-      <p class="phone">+57 320 6493263</p>
+      <p>{{ arrendatario?.nombre }} {{ arrendatario?.apellido }}</p>
+      <p class="email">{{arrendatario?.correo}}</p>
+      <p class="phone">+57 {{ arrendatario?.telefono }}</p>
     </div>
     <button id="cerrar-sesion" (click)="closeSession()">Cerrar sesión</button>
   </div>
@@ -29,6 +33,8 @@
       </button>
       <button class="barra-principal">Mensajes</button>
     </div>
-    <app-requests-arrendatario *ngIf="mostrarSolicitudes"></app-requests-arrendatario>
+    <app-requests-arrendatario
+      *ngIf="mostrarSolicitudes"
+    ></app-requests-arrendatario>
   </div>
 </div>

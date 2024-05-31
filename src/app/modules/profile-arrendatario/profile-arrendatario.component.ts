@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import Cookies from 'js-cookie';
 
 import { ArrendatarioService } from '../../services/arrendatarioService/arrendatario.service';
+import { Arrendatario } from '../../models/arrendatariomodel';
 
 @Component({
   selector: 'app-profile-arrendatario',
@@ -16,6 +17,7 @@ import { ArrendatarioService } from '../../services/arrendatarioService/arrendat
 })
 export class ProfileArrendatarioComponent {
   mostrarSolicitudes = true;
+  arrendatario: Arrendatario | null = null;
 
   constructor(private router: Router, private arrendatarioService: ArrendatarioService) {
     this.getInfo();
@@ -38,17 +40,16 @@ export class ProfileArrendatarioComponent {
 
   async getInfo() {
     try {
-      if (!Cookies.get('token')) {
-        this.router.navigate(['/']);
-        return;
+      const token = Cookies.get('token');
+      if (token) {
+        const arrendatario = await this.arrendatarioService.authArrendatario(token);
+        if (arrendatario) {
+          console.log(arrendatario)
+          this.arrendatario = arrendatario;
+        }
       }
-
-      const token = Cookies.get('token') || ''; // Assign an empty string if Cookies.get('token') returns undefined
-      const response = await this.arrendatarioService.authArrendatario(token)
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
   }
-
 }

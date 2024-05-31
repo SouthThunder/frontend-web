@@ -34,6 +34,7 @@ export class SolicitudService {
 
   async getSolicitudesByArrendador(token: string): Promise<SolicitudArriendo[]> {
     try {
+      console.log(token);
       const response = await axios.get<SolicitudArriendo[]>(`${this.urlApi}/get/arrendatario`, {
         headers: {
           Authorization: `Bearer ${token}`

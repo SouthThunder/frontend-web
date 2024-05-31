@@ -61,7 +61,7 @@ export class RegistryComponent {
 
   createArrendador(data: Arrendador) {
     this.arrendadorService.postArrendador(data).then(response => {
-      this.router.navigate(['/test/', response?.id]);
+      this.router.navigate(['/']);
     }, error => {
       console.log(error);
     });

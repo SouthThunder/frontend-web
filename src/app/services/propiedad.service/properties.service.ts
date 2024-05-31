@@ -7,11 +7,12 @@ import Cookies from 'js-cookie';
   providedIn: 'root'
 })
 export class PropertiesService {
-
+  // private urlApi = 'https://localhost:8080/grupo26/api/propiedad';
   private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/propiedad';
 
   async createProperty(property: Propiedad) {
     try {
+      console.log(Cookies.get('token'));
       const response = await axios.post<Propiedad>(this.urlApi, {
         ...property,
         valor: property.valor,

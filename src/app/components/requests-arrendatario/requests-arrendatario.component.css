@@ -4,6 +4,8 @@
     height: 600px;
     border-radius: 20px;
     display: flex;
+    margin-top: 0.25rem;
+    flex-direction: column;
     /* Establece Flexbox en el contenedor principal */
     justify-content: center;
     /* Centra los hijos en el eje principal (horizontal) */
@@ -15,26 +17,25 @@
 }
 
 .solicitudes {
+    
     max-height: 500px;
+   
     max-width: 1400px;
     /* Centra los hijos en el eje cruzado (horizontal) */
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin: 0;
+  
+
     /* Resetear el margen si es necesario */
     padding: 10px;
     /* Agrega padding para un poco de espacio interior */
 }
 
 .solicitud {
+   
     width: 1000px;
     height: 120px;
     background: #FFFFFF;
     border-radius: 80px 20px 20px 80px;
     margin: 10px;
-}
-
-.solicitud {
     display: flex;
     /* Esto hará que todos los hijos de .solicitud se alineen en fila */
     justify-content: space-between;
@@ -42,7 +43,10 @@
     gap: 10px;
 }
 
+
+
 .solicitud>div {
+    
     flex: 1;
     /* Asigna la misma flexibilidad a cada div para que ocupen el mismo espacio */
     padding: 10px;

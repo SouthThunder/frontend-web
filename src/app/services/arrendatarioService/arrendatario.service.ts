@@ -8,8 +8,8 @@ import axios from 'axios';
 })
 
 export class ArrendatarioService {
-  // private urlApi= 'http://localhost:8080/arrendador';
-  private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendatario/login';
+  // private urlApi= 'http://localhost:8080/grupo26/api/arrendatario';
+  private urlApi = 'https://gruposjaveriana.dynaco.co/grupo26/api/arrendatario';
 
   async getArrendatarios(): Promise<Arrendatario[]> {
     try {
@@ -24,7 +24,7 @@ export class ArrendatarioService {
   async getArrendatario(correo: string, contrasena: string): Promise<string | null> {
     try {
       console.log(this.urlApi)
-      const response = await axios.post<string>(`${this.urlApi}`, {
+      const response = await axios.post<string>(`${this.urlApi}/login`, {
         correo: correo,
         contrasena: contrasena
       });
