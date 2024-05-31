@@ -101,20 +101,29 @@ export class RentalapplicationComponent {
   arrendador: Arrendador | null = null
 
   id: string | null = '';
+  type: string | null = '';
   idNumber: number = 0;
   guestCount: number = 1;
-
+  review: number = 0;
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
+    this.type = this.route.snapshot.paramMap.get('type') ?? '';
     this.idNumber = parseInt(this.id, 10);
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
     Promise.all([this.getPropiedad(this.id), this.getArrendador(this.id)]);
   }
 
+  selectStar(star: number): void {
+    this.review = star;
+  }
 
+  submitReview(): void {
+    console.log('Review submitted:', this.review);
+    // Implement your submission logic here
+  }
 
   async getPropiedad(id: string): Promise<void> {
     this.propiedadService.getPropertiesbyId(id).then((response: any) => {

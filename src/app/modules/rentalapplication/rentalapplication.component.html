@@ -92,8 +92,12 @@
             <li *ngFor="let day of week" class="day-name">
               {{ day | slice : 0 : 3 }}
             </li>
-            <li (click)="clickDay(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
-              [ngClass]="{ 'selected-day': selectedDay === day }" *ngFor="let day of monthSelect; let first = first">
+            <li
+              (click)="clickDay(day)"
+              [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+              [ngClass]="{ 'selected-day': selectedDay === day }"
+              *ngFor="let day of monthSelect; let first = first"
+            >
               <span>{{ day?.value }}</span>
             </li>
           </ol>
@@ -119,36 +123,68 @@
             <li *ngFor="let day of week" class="day-name">
               {{ day | slice : 0 : 3 }}
             </li>
-            <li (click)="clickDayExit(day)" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+            <li
+              (click)="clickDayExit(day)"
+              [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
               [ngClass]="{ 'selected-day': selectedDayExit === day }"
-              *ngFor="let day of monthSelectExit; let first = first" onKeyPress="" onKeyDown="" onKeyUp="">
+              *ngFor="let day of monthSelectExit; let first = first"
+              onKeyPress=""
+              onKeyDown=""
+              onKeyUp=""
+            >
               <span>{{ day?.value }}</span>
             </li>
           </ol>
         </div>
       </div>
     </div>
-    <div class="summary">
-      <h2>Precio noche</h2>
-      <h4>$ {{ propiedad.valor }}</h4>
-      <div class="itemsdetails">
-        <div class="eachitem">
-          <h4>Llegada</h4>
-
-          <h5>{{ dateValue }}</h5>
+    <div *ngIf="type === '1'; else otherContent">
+      <div class="summary">
+        <h2>Precio noche</h2>
+        <h4>$ {{ propiedad.valor }}</h4>
+        <div class="itemsdetails">
+          <div class="eachitem">
+            <h4>Llegada</h4>
+            <h5>{{ dateValue }}</h5>
+          </div>
+          <div class="eachitem">
+            <h4>Salida</h4>
+            <h5>{{ dateValueExit }}</h5>
+          </div>
+          <div class="eachitem">
+            <h4>Huéspedes</h4>
+            <input
+              type="number"
+              class="input-huespedes"
+              min="1"
+              [(ngModel)]="guestCount"
+            />
+          </div>
         </div>
-        <div class="eachitem">
-          <h4>Salida</h4>
-          <h5>{{ dateValueExit }}</h5>
-        </div>
-        <div class="eachitem">
-          <h4>Huéspedes</h4>
-          <input type="number" class="input-huespedes" min="1" [(ngModel)]="guestCount" />
-        </div>
+        <h2>Total: ${{ totalCost }}</h2>
+        <button class="reserve" (click)="createSolicitud()">Reservar</button>
       </div>
-      <h2>Total: ${{ totalCost }}</h2>
-      <button class="reserve" (click)="createSolicitud()">Reservar</button>
     </div>
+    <ng-template #otherContent>
+      <div class="summary">
+        <div class="review">
+          <p>Como fue tu experiencia en {{ propiedad.nombre }}</p>
+          <div class="stars">
+            <span
+              class="star"
+              *ngFor="let star of [1, 2, 3, 4, 5]"
+              [ngClass]="{ selected: star <= review }"
+              (click)="selectStar(star)"
+            >
+              &#9733;
+            </span>
+          </div>
+        </div>
+        <button class="submit-button" (click)="submitReview()">
+          Escribir reseña
+        </button>
+      </div>
+    </ng-template>
   </div>
   <div class="reviewssection">
     <div class="stats">
@@ -175,8 +211,11 @@
       </div>
     </div>
   </div>
-  <app-reviews [solicitudId]="idNumber" (averageRatingChange)="onAverageRatingChange($event)"
-    (reviewsCountChange)="onReviewsCountChange($event)">
+  <app-reviews
+    [solicitudId]="idNumber"
+    (averageRatingChange)="onAverageRatingChange($event)"
+    (reviewsCountChange)="onReviewsCountChange($event)"
+  >
   </app-reviews>
 </div>
 <app-footer></app-footer>
