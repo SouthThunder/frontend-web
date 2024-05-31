@@ -25,6 +25,8 @@ export class RequestsArrendadorComponent {
   async acceptRequest(solicitud: SolicitudArriendo) {
     this.localSolicitud = solicitud;
     this.localSolicitud!.estado = true;
+    this.localSolicitud!.aceptado = true;
+
     try {
       const response = await this.solicitudService.updateSolicitud(this.localSolicitud!);
       console.log(response);
@@ -33,11 +35,12 @@ export class RequestsArrendadorComponent {
     }
   }
 
-  declineRequest(solicitud: SolicitudArriendo) {
+  async declineRequest(solicitud: SolicitudArriendo) {
     this.localSolicitud = solicitud;
     this.localSolicitud!.estado = false;
+    this.localSolicitud!.aceptado = true;
     try {
-      const response = this.solicitudService.updateSolicitud(this.localSolicitud!);
+      const response = await this.solicitudService.updateSolicitud(this.localSolicitud!);
       console.log(response);
     } catch (error) {
       console.log(error);
