@@ -13,6 +13,7 @@ import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { FormsModule } from '@angular/forms';
 import { Arrendador } from '../../models/arrendadormodel';
 import { ReviewsService } from '../../services/reviewsService/reviews.service';
+import { Reviews } from '../../models/reviewsmodel';
 import Cookies from 'js-cookie';
 
 
@@ -101,7 +102,7 @@ export class RentalapplicationComponent {
   arrendador: Arrendador | null = null
 
   id: string | null = '';
-  type: string | null = null;
+  type: number | null = null;
   idNumber: number = 0;
   guestCount: number = 1;
   review: number = 0;
@@ -111,7 +112,7 @@ export class RentalapplicationComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.type = this.route.snapshot.paramMap.get('type');
+    this.type = parseInt(this.route.snapshot.paramMap.get('type') ?? '0', 10);
     if(this.type){
       this.exists = true;
     }
@@ -126,12 +127,22 @@ export class RentalapplicationComponent {
   }
 
   async submitReview() {
+    console.log('This is the review', this.review)
+    console.log('This is the comment', this.comment)
+    console.log('This is the Solicitud arriendo', this.type)
+
+    const review: Reviews = {
+      puntuacion: this.review,
+      comentario: this.comment,
+      solicitudArriendo: {
+        id: this.type ?? 0
+      }
+    }
+
+    console.log(review)
+
     try {
-      const response = await this.reviewService.createReview({
-        puntuacion: this.review,
-        comentario: this.comment,
-        solicitud_arriendo: this.type ? parseInt(this.type, 10) : 0      
-      });
+      const response = await this.reviewService.createReview(review);
       console.log(response);
     } catch (error) {
       console.log(error);

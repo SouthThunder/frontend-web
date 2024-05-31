@@ -39,7 +39,7 @@
     <div class="placedetails">
       <div class="state">
         <div class="actual">
-          <h2>Departamento, Municipio</h2>
+          <h2>{{ propiedad.departamento }}, {{ propiedad.ciudad }}</h2>
           <div>
             <h2>Estado:</h2>
             <h2 class="available">{{ propiedad.estado }}</h2>
@@ -179,6 +179,12 @@
               &#9733;
             </span>
           </div>
+          <textarea
+            [(ngModel)]="comment"
+            placeholder="Escribe tu comentario aquí"
+            rows="3"
+            class="comment-box"
+          ></textarea>
         </div>
         <button class="submit-button" (click)="submitReview()">
           Escribir reseña
