@@ -9,16 +9,25 @@
 }
 
 #cerrar-sesion {
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: .5rem 1rem;
+  background-color:#ffffffbc;
+  color: black;
+  font-family: poppins;
+  font-size: 18px;
+  width: 242px;
+  height: 50px;
+  border-radius: 50px 20px 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  outline: none;
+  box-shadow: #a09b9a 0 4px 6px;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 #cerrar-sesion:hover {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #a09b9a;
+  color: #fff;
 }
 
 #boton-cerrar {

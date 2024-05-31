@@ -25,7 +25,7 @@ export class RequestsArrendatarioComponent {
     try {
       const token = Cookies.get('token');
       if (token) {
-        const response = await this.solicitudService.getSolicitudesByArrendador(token);
+        const response = await this.solicitudService.getSolicitudesByArrendatario(token);
         this.solicitudes = response;
         console.log(this.solicitudes);
       } else {

@@ -80,7 +80,8 @@ export class RentalapplicationComponent {
       ciudad: '',
       departamento: ''
     },
-    estado: false
+    estado: false,
+    aceptado:false
   }
 
   propiedad: Propiedad = {
