@@ -1,20 +1,26 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ReviewsComponent } from '../../components/reviews/reviews.component';
 import moment from 'moment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PropertiesService } from '../../services/propiedad.service/properties.service';
+import { ArrendadorService } from '../../services/arrendadorService/arrendador.service';
 import { Propiedad } from '../../models/propiedadmode';
 import { SolicitudService } from '../../services/solicitudService/solicitud.service';
 import { SolicitudArriendo } from '../../models/solicitudmodel';
-import { FormsModule } from '@angular/forms'; 
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Arrendador } from '../../models/arrendadormodel';
+import { ReviewsService } from '../../services/reviewsService/reviews.service';
+import { Reviews } from '../../models/reviewsmodel';
+import Cookies from 'js-cookie';
+
+
 @Component({
   selector: 'app-rentalapplication',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent, CommonModule,ReviewsComponent,FormsModule],
+  imports: [HeaderComponent, FooterComponent, CommonModule, ReviewsComponent, FormsModule],
   templateUrl: './rentalapplication.component.html',
   styleUrl: './rentalapplication.component.css',
   providers: [DatePipe]
@@ -31,7 +37,7 @@ export class RentalapplicationComponent {
   ];
   totalCost: number = 0;
   selectedDay: any = null;
-  selectedDayExit: any = null; 
+  selectedDayExit: any = null;
   monthSelect: any[] | undefined;
   dateSelect: any;
   dateValue: any;
@@ -40,16 +46,45 @@ export class RentalapplicationComponent {
   dateValueExit: any;
 
   reviewsCountReceived: number = 0;
-  averageRatingReceived: number = 0; 
-  constructor(private router: Router,private route: ActivatedRoute,private propiedadService: PropertiesService,private solicitudService: SolicitudService) { }
-  solicitud: SolicitudArriendo= {
+  averageRatingReceived: number = 0;
+
+
+  constructor(private router: Router, private route: ActivatedRoute, private propiedadService: PropertiesService, private solicitudService: SolicitudService, private arrendadorService: ArrendadorService, private reviewService: ReviewsService) { }
+
+
+  solicitud: SolicitudArriendo = {
     fechainicio: '',
     fechafin: '',
     cantidadPersonas: 0,
-    arrendatario: 0,
-    estado:false
+    arrendatario: {
+      id: 0,
+      nombre: '',
+      apellido: '',
+      correo: '',
+      telefono: '',
+      contrasena: ''
+    }, // Create a new instance of the Arrendador class
+    propiedad: {
+      id: 0,
+      nombre: '',
+      descripcion: '',
+      valor: 0,
+      estado: false,
+      arrendador: 0,
+      solicitudes: [],
+      piscina: false,
+      banos: 0,
+      habitaciones: 0,
+      asador: false,
+      mascotas: false,
+      ciudad: '',
+      departamento: ''
+    },
+    estado: false,
+    aceptado:false
   }
-  propiedad: Propiedad= {
+
+  propiedad: Propiedad = {
     nombre: '',
     descripcion: '',
     valor: 0,
@@ -59,28 +94,81 @@ export class RentalapplicationComponent {
     habitaciones: 0,
     asador: false,
     mascotas: false,
-    arrendador: 0, 
-    solicitudes: []
-  } ; 
-  id:string | null = '';
-  idNumber: number=0;
+    arrendador: 0,
+    solicitudes: [],
+    ciudad: '',
+    departamento: ''
+  };
+
+  arrendador: Arrendador | null = null
+
+  id: string | null = '';
+  type: number | null = null;
+  idNumber: number = 0;
   guestCount: number = 1;
+  review: number = 0;
+  exists: boolean = false;
+  comment: string = '';
+
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') ?? '';
+    this.type = parseInt(this.route.snapshot.paramMap.get('type') ?? '0', 10);
+    if(this.type){
+      this.exists = true;
+    }
     this.idNumber = parseInt(this.id, 10);
     this.getDaysFromDate(4, 2024)
     this.getDaysFromDateExit(4, 2024)
-    this.getPropiedad(this.id);
+    Promise.all([this.getPropiedad(this.id), this.getArrendador(this.id)]);
   }
-  async getPropiedad(id: string): Promise<void> {
-    console.log(id, "aca el id");
-    this.propiedadService.getPropertiesbyId(id).then( (response: any) => {
+
+  selectStar(star: number): void {
+    this.review = star;
+  }
+
+  async submitReview() {
+    console.log('This is the review', this.review)
+    console.log('This is the comment', this.comment)
+    console.log('This is the Solicitud arriendo', this.type)
+
+    const review: Reviews = {
+      puntuacion: this.review,
+      comentario: this.comment,
+      solicitudArriendo: {
+        id: this.type ?? 0
+      }
+    }
+
+    console.log(review)
+
+    try {
+      const response = await this.reviewService.createReview(review);
       console.log(response);
-      this.propiedad=response;
-    },(error: any)=>{
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getPropiedad(id: string): Promise<void> {
+    this.propiedadService.getPropertiesbyId(id).then((response: any) => {
+      this.propiedad = response;
+    }, (error: any) => {
       console.log(error);
     })
   }
+
+  async getArrendador(id: string): Promise<void> {
+    try {
+      const response = await this.arrendadorService.getArrendadorByPropiedad(id);
+      this.arrendador = response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
   calculateTotalCost(): void {
     if (this.dateValue && this.dateValueExit) {
       const start = moment(this.dateValue);
@@ -89,25 +177,42 @@ export class RentalapplicationComponent {
       this.totalCost = nights * this.propiedad.valor;
     }
   }
+
+
+
   async createSolicitud(): Promise<void> {
-    this.solicitud.arrendatario = this.idNumber;
+    this.solicitud.arrendatario.id = this.idNumber;
     this.solicitud.fechainicio = this.dateValue.format('YYYY-MM-DD');
     this.solicitud.fechafin = this.dateValueExit.format('YYYY-MM-DD');
     this.solicitud.cantidadPersonas = this.guestCount;
-    this.solicitudService.createSolicitud(this.solicitud).then( (response: any) => {
-      console.log(response);
-      this.router.navigate(['/pago',this.totalCost]);
-    },(error: any)=>{
-      console.log(error);
-    })
+    this.solicitud.propiedad = this.propiedad
+
+    console.log(this.solicitud)
+
+    if (!Cookies.get('token')) {
+      this.router.navigate(['/login']);
+      return
+    }
+
+    try {
+      const response = await this.solicitudService.createSolicitud(this.solicitud)
+      console.log(response)
+      this.router.navigate([`/pago/${this.totalCost}`]);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   onAverageRatingChange(newAverage: number) {
     this.averageRatingReceived = newAverage;
   }
+
+
   onReviewsCountChange(newCount: number) {
     this.reviewsCountReceived = newCount;
   }
+
+
   getDaysFromDate(month: number, year: number) {
 
     const startDate = moment.utc(`${year}/${month}/01`)
@@ -129,6 +234,9 @@ export class RentalapplicationComponent {
 
     this.monthSelect = arrayDays;
   }
+
+
+
   getDaysFromDateExit(month: number, year: number) {
 
     const startDate = moment.utc(`${year}/${month}/01`)
@@ -161,6 +269,7 @@ export class RentalapplicationComponent {
     }
   }
 
+
   clickDay(day: any) {
     this.selectedDay = day;
     const monthYear = this.dateSelect.format('YYYY-MM')
@@ -169,6 +278,8 @@ export class RentalapplicationComponent {
     this.dateValue = objectDate;
     this.calculateTotalCost();
   }
+
+
   changeMonthExit(flag: number) {
     if (flag < 0) {
       const prevDate = this.dateSelectExit.clone().subtract(1, "month");

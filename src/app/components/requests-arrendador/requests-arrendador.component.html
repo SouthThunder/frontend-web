@@ -1,0 +1,44 @@
+<div class="contenedor-principal">
+  <div class="solicitudes">
+    <div class="solicitud" *ngFor="let solicitud of solicitudes">
+      <div class="img">
+        <img src="assets/usuarios.png" alt="" />
+      </div>
+      <div class="info-1">
+        <p class="name">
+          {{ solicitud.arrendatario.nombre }}
+          {{ solicitud.arrendatario.apellido }}
+        </p>
+        <p class="finca">Finca Museo del sol</p>
+        <p class="date">26/03/2024 - 14:00</p>
+      </div>
+      <div class="info-2">
+        <p class="llegada">Llegada: {{ solicitud.fechafin }}</p>
+        <p class="salida">Salida: {{ solicitud.fechafin }}</p>
+      </div>
+      <div class="info-3">
+        <p class="estado">Por aceptar</p>
+        <div class="btns" *ngIf="!solicitud.aceptado; else decisionState">
+          <button
+            id="rechazar"
+            class="pi pi-check-circle"
+            (click)="acceptRequest(solicitud)"
+          ></button>
+          <button
+            id="aceptar"
+            class="pi pi-times-circle"
+            (click)="declineRequest(solicitud)"
+          ></button>
+        </div>
+        <ng-template #decisionState>
+          <p *ngIf="solicitud.estado; else rejectedState" style="color: green">
+            Aceptado
+          </p>
+          <ng-template #rejectedState>
+            <p style="color: red">Rechazado</p>
+          </ng-template>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

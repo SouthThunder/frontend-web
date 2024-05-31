@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="logo">
-      <p (click)="home()">InHome</p>
+      <p (click)="home()" onKeyPress="">InHome</p>
     </div>
     <nav>
       <a href="">Inicio</a>
@@ -10,9 +10,15 @@
       <a href="">Precios</a>
       <a href="/test">Servicios</a>
     </nav>
-
+    <!--/properties-catalog-->
     <div *ngIf="loggedIn; else notLoggedIn">
-      <span class="material-symbols-outlined"> person </span>
+      <span
+        class="material-symbols-outlined cursor"
+        (click)="profile()"
+        onKeyPress=""
+      >
+        account_circle
+      </span>
     </div>
     <ng-template #notLoggedIn>
       <div class="options">

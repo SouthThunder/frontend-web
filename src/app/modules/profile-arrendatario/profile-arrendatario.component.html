@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="profile-info">
+    <div class="profile-photo">
+      <div class="photo">
+        <img
+          class="profile-img"
+          src="assets/profile1.png"
+          alt="Foto de perfil"
+        />
+      </div>
+      <div class="edit-button">
+        <button>
+          <img class="edit-img" src="assets/editar.png" alt="Boton editar" />
+        </button>
+      </div>
+    </div>
+    <div class="info">
+      <p>{{ arrendatario?.nombre }} {{ arrendatario?.apellido }}</p>
+      <p class="email">{{arrendatario?.correo}}</p>
+      <p class="phone">+57 {{ arrendatario?.telefono }}</p>
+    </div>
+    <button id="cerrar-sesion" (click)="closeSession()">Cerrar sesión</button>
+  </div>
+  <div class="properties-info">
+    <div class="contenedor-opciones">
+      <button class="barra-principal" (click)="goToHistorial()">
+        Historial
+      </button>
+      <button class="barra-principal" (click)="goToSolicitudes()">
+        Solicitudes
+      </button>
+      <button class="barra-principal">Mensajes</button>
+    </div>
+    <app-requests-arrendatario
+      *ngIf="mostrarSolicitudes"
+    ></app-requests-arrendatario>
+  </div>
+</div>
