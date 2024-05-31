@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SolicitudArriendo } from '../../models/solicitudmodel';
 import { SolicitudService } from '../../services/solicitudService/solicitud.service';
 import Cookies from 'js-cookie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requests-arrendatario',
@@ -14,7 +15,7 @@ import Cookies from 'js-cookie';
 export class RequestsArrendatarioComponent {
   solicitudes: SolicitudArriendo[] = [];
 
-  constructor(private solicitudService: SolicitudService) { }
+  constructor(private solicitudService: SolicitudService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadRequests();
@@ -23,7 +24,6 @@ export class RequestsArrendatarioComponent {
   async loadRequests() {
     try {
       const token = Cookies.get('token');
-      console.log(token+"estoy entrando perra vida");
       if (token) {
         const response = await this.solicitudService.getSolicitudesByArrendador(token);
         this.solicitudes = response;
@@ -34,5 +34,9 @@ export class RequestsArrendatarioComponent {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  navigateToReview(solicitud: SolicitudArriendo) {
+    this.router.navigate([`rentalapplication/${solicitud.id}/1`]);
   }
 }

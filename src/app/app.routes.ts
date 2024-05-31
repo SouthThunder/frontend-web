@@ -64,6 +64,11 @@ export const routes: Routes = [
         title: 'Rental Application'
     },
     {
+        path: 'rentalapplication/:id/:type',
+        component: RentalapplicationComponent,
+        title: 'Rental Application'
+    },
+    {
         path: 'pago/:valor',
         component: PagoComponent,
         title: 'Rental Application'

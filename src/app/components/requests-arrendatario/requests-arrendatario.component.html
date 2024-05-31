@@ -23,7 +23,7 @@
       <div class="info-3">
         <p class="estado">{{ solicitud.estado ? "Pendiente" : "Rechazada" }}</p>
         <div class="anadir-propiedad">
-          <button class="anadir-button">
+          <button class="anadir-button" (click)="navigateToReview(solicitud)">
             <i class="pi pi-send" id="icono-anadir"></i>
             Enviar mensaje
           </button>
