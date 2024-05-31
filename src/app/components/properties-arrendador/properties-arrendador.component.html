@@ -18,10 +18,7 @@
         <div class="info">
           <h4 class="mb-1">{{ properties.nombre }}</h4>
           <h6 class="mt-0 mb-3">{{ "$" + properties.valor }}</h6>
-          <p-tag
-            [value]="properties.inventoryStatus"
-            [severity]="getSeverity(properties.inventoryStatus)"
-          ></p-tag>
+          <p-tag [value]="properties.inventoryStatus"></p-tag>
         </div>
 
         <div class="mt-5 flex align-items-center justify-content-center gap-2">
